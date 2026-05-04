@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Семинар — Фасадные панели · Казань · 27 мая</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --red:#D93025;
+  --bg:#F8F7F4;
+  --white:#FFFFFF;
+  --dark:#111010;
+  --muted:#888;
+  --border:#E5E2DC;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--dark);font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 5vw;
+  background:rgba(248,247,244,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-size:15px;font-weight:800;letter-spacing:-0.5px;}
+.nav-logo span{color:var(--red);}
+.nav-meta{font-size:12px;color:var(--muted);}
+.nav-btn{
+  background:var(--dark);color:#fff;
+  font-size:12px;font-weight:600;letter-spacing:0.5px;
+  padding:10px 22px;border-radius:100px;
+  text-decoration:none;transition:background .2s;
+}
+.nav-btn:hover{background:var(--red);}
+
+/* HERO */
+.hero{
+  padding:140px 5vw 80px;
+  max-width:1300px;margin:0 auto;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:28px;
+}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--red);}
+.hero-h1{
+  font-size:clamp(48px,8vw,110px);
+  font-weight:900;line-height:0.95;
+  letter-spacing:-3px;margin-bottom:32px;color:#fff;
+}
+.hero-h1 .accent{color:var(--red);}
+.hero-h1 .light{color:rgba(255,255,255,0.45);}
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:32px;flex-wrap:wrap;
+}
+.hero-desc{
+  max-width:420px;font-size:15px;color:rgba(255,255,255,0.65);
+  line-height:1.7;font-weight:400;
+}
+.hero-cta-group{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+.btn-primary{
+  background:var(--red);color:#fff;
+  font-size:13px;font-weight:700;letter-spacing:0.5px;
+  padding:16px 32px;border-radius:100px;
+  text-decoration:none;transition:background .2s,transform .15s;
+  white-space:nowrap;
+}
+.btn-primary:hover{background:#B82820;transform:translateY(-1px);}
+.hero-date-pill{
+  font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);
+  border:1px solid rgba(255,255,255,0.25);padding:15px 20px;border-radius:100px;
+  white-space:nowrap;backdrop-filter:blur(8px);
+}
+
+/* TICKER */
+.ticker-wrap{
+  overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:14px 0;margin:48px 0 0;background:var(--white);
+}
+.ticker{display:flex;width:max-content;animation:tick 22s linear infinite;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:#bbb;padding:0 32px;white-space:nowrap;display:flex;align-items:center;gap:32px;
+}
+.ticker-item b{color:var(--dark);}
+.ticker-sep{color:var(--red);font-size:18px;line-height:1;}
+
+/* HERO IMAGE */
+.hero-img-wrap{
+  margin:0 5vw;border-radius:16px;overflow:hidden;
+  height:clamp(300px,50vw,620px);position:relative;
+}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.hero-img-badge{
+  position:absolute;bottom:24px;left:24px;
+  background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
+  color:#fff;font-size:13px;font-weight:500;
+  padding:10px 18px;border-radius:100px;
+  display:flex;align-items:center;gap:8px;
+}
+.hero-img-badge span{width:7px;height:7px;border-radius:50%;background:#4CAF50;flex-shrink:0;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* STATS */
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  max-width:1300px;margin:0 auto;
+  border-left:1px solid var(--border);
+  margin-top:0;
+}
+.stat{
+  padding:48px 5vw;border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.stat-num{
+  font-size:clamp(40px,6vw,72px);font-weight:900;
+  letter-spacing:-2px;line-height:1;margin-bottom:8px;
+}
+.stat-num span{color:var(--red);}
+.stat-label{font-size:13px;color:var(--muted);}
+@media(max-width:640px){.stats{grid-template-columns:1fr 1fr;}.stat:last-child{grid-column:1/-1;}}
+
+/* WHO */
+.who{
+  max-width:1300px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;border-top:1px solid var(--border);
+}
+@media(max-width:760px){.who{grid-template-columns:1fr;}}
+.who-img{overflow:hidden;min-height:480px;}
+.who-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.who-text{
+  padding:64px 5vw;
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:block;}
+.who-text h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:20px;}
+.who-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:12px;}
+
+/* PROGRAM */
+.program{background:var(--white);border-top:1px solid var(--border);}
+.program-inner{max-width:1300px;margin:0 auto;padding:80px 5vw;}
+.program-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:48px;flex-wrap:wrap;gap:16px;
+}
+.program-head h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;}
+.prog-list{border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.prog-item{
+  display:grid;grid-template-columns:64px 1fr auto;
+  align-items:center;gap:24px;
+  padding:28px 32px;border-bottom:1px solid var(--border);
+  transition:background .15s;cursor:default;
+}
+.prog-item:last-child{border-bottom:none;}
+.prog-item:hover{background:var(--bg);}
+.prog-n{font-size:13px;font-weight:700;color:#D0CBC2;}
+.prog-body{}
+.prog-tag{
+  display:inline-block;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--red);background:rgba(217,48,37,0.08);
+  padding:3px 8px;border-radius:4px;margin-bottom:8px;
+}
+.prog-topic{font-size:15px;font-weight:600;line-height:1.45;margin-bottom:4px;}
+.prog-speaker{font-size:13px;color:var(--muted);}
+.prog-arrow{font-size:18px;color:#ddd;flex-shrink:0;}
+@media(max-width:600px){
+  .prog-item{grid-template-columns:40px 1fr;gap:12px;padding:20px;}
+  .prog-arrow{display:none;}
+}
+
+/* PARTNERS */
+.partners{
+  border-top:1px solid var(--border);
+  padding:48px 5vw;
+  max-width:1300px;margin:0 auto;
+}
+.partners .label{margin-bottom:32px;}
+.partners-grid{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:24px;
+}
+.partner-name{
+  font-size:20px;font-weight:800;letter-spacing:-0.5px;
+  color:#C8C4BC;transition:color .2s;
+}
+.partner-name:hover{color:var(--dark);}
+
+/* FORM */
+.form-section{
+  background:var(--dark);
+  padding:100px 5vw;
+}
+.form-inner{
+  max-width:1300px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+@media(max-width:860px){.form-inner{grid-template-columns:1fr;gap:48px;}}
+.form-left h2{
+  font-size:clamp(36px,5vw,64px);font-weight:900;
+  letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:20px;
+}
+.form-left h2 span{color:var(--red);}
+.form-left p{font-size:15px;color:rgba(255,255,255,0.4);line-height:1.7;margin-bottom:40px;}
+.form-detail{display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:12px;align-items:flex-start;}
+.form-detail svg{width:14px;height:14px;fill:rgba(255,255,255,0.25);flex-shrink:0;margin-top:2px;}
+
+.form-right{}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:7px;}
+.field input{
+  width:100%;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);border-radius:8px;
+  padding:14px 16px;color:#fff;
+  font-family:'Inter',sans-serif;font-size:15px;outline:none;
+  transition:border-color .2s,background .2s;
+}
+.field input:focus{border-color:rgba(217,48,37,0.6);background:rgba(255,255,255,0.07);}
+.field input::placeholder{color:rgba(255,255,255,0.2);}
+.phone-row{display:flex;}
+.phone-pre{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-right:none;border-radius:8px 0 0 8px;
+  padding:14px 12px;font-size:15px;color:rgba(255,255,255,0.3);
+  display:flex;align-items:center;white-space:nowrap;
+}
+.phone-row input{border-radius:0 8px 8px 0;}
+.btn-submit{
+  width:100%;margin-top:8px;
+  background:var(--red);border:none;color:#fff;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:18px;border-radius:8px;cursor:pointer;
+  transition:background .2s,transform .15s;
+}
+.btn-submit:hover{background:#B82820;transform:translateY(-1px);}
+.btn-submit:disabled{background:#333;color:#555;cursor:not-allowed;transform:none;}
+.err-msg{display:none;margin-top:12px;padding:11px;background:rgba(217,48,37,0.1);border:1px solid rgba(217,48,37,0.2);border-radius:6px;font-size:13px;color:#E8705F;text-align:center;}
+
+/* SUCCESS */
+.success-screen{display:none;text-align:center;padding:40px 0;}
+.success-icon{width:56px;height:56px;border-radius:50%;background:rgba(217,48,37,0.1);border:1px solid rgba(217,48,37,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.success-icon svg{width:24px;height:24px;fill:var(--red);}
+.success-screen h2{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:10px;}
+.success-screen p{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;}
+
+/* FOOTER */
+footer{
+  background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);
+  padding:24px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+footer span{font-size:12px;color:rgba(255,255,255,0.2);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">АРХИ<span>ХАБ</span></div>
+  <div class="nav-meta">27 мая · 16:30 · Казань</div>
+  <a href="#register" class="nav-btn">Зарегистрироваться →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow"><div class="hero-dot"></div>Семинар · Казань · 27 мая 2025</div>
+  <h1 class="hero-h1">
+    Фасадные<br>
+    <span class="accent">панели.</span><br>
+    <span class="light">Монтаж.</span>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">Практический семинар для архитекторов, проектировщиков и строителей. Три доклада от ведущих экспертов отрасли.</p>
+    <div class="hero-cta-group">
+      <a href="#register" class="btn-primary">Занять место →</a>
+      <div class="hero-date-pill">27 мая · 16:30</div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-item"><b>HPL Панели</b><span class="ticker-sep">·</span>Крупноформатный керамогранит<span class="ticker-sep">·</span><b>KLEYKO PANEL FIX</b><span class="ticker-sep">·</span>Система NordFox<span class="ticker-sep">·</span><b>Архитектура фасадов</b><span class="ticker-sep">·</span>Клеевые системы<span class="ticker-sep">·</span><b>Облицовка</b><span class="ticker-sep">·</span>Проектирование<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><b>HPL Панели</b><span class="ticker-sep">·</span>Крупноформатный керамогранит<span class="ticker-sep">·</span><b>KLEYKO PANEL FIX</b><span class="ticker-sep">·</span>Система NordFox<span class="ticker-sep">·</span><b>Архитектура фасадов</b><span class="ticker-sep">·</span>Клеевые системы<span class="ticker-sep">·</span><b>Облицовка</b><span class="ticker-sep">·</span>Проектирование<span class="ticker-sep">·</span></div>
+  </div>
+</div>
+
+
+
+
+
+<!-- WHO -->
+<div class="who">
+  <div class="who-img">
+    <img src="architector.jpg" alt="Шоурум Архихаб"/>
+  </div>
+  <div class="who-text">
+    <span class="label">Место проведения</span>
+    <h2>Шоурум Архихаб — пространство для профессионалов</h2>
+    <p>Семинар пройдёт в шоуруме Архихаб — современном пространстве, где представлены крупноформатный керамогранит, HPL панели и фасадные системы ведущих брендов.</p>
+    <p>Вы увидите материалы вживую, сможете сравнить решения и задать вопросы экспертам напрямую.</p>
+  </div>
+</div>
+
+<!-- PROGRAM -->
+<div class="program">
+  <div class="program-inner">
+    <div class="program-head">
+      <h2>Программа</h2>
+      <span style="font-size:13px;color:var(--muted);">3 доклада · 27 мая · 16:30</span>
+    </div>
+    <div class="prog-list">
+      <div class="prog-item">
+        <div class="prog-n">01</div>
+        <div class="prog-body">
+          <div class="prog-tag">Kleyko</div>
+          <div class="prog-topic">Клеевая система KLEYKO PANEL FIX. Способы приклейки крупноформатной облицовки</div>
+          <div class="prog-speaker">Погорелов Игорь Александрович, Амиров Айнур Илусович</div>
+        </div>
+        <div class="prog-arrow">→</div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-n">02</div>
+        <div class="prog-body">
+          <div class="prog-tag">DekoTech</div>
+          <div class="prog-topic">От концепции к реализации: сила HPL панелей и крупноформатного керамогранита в архитектуре</div>
+          <div class="prog-speaker">Классен Алексей Дмитриевич</div>
+        </div>
+        <div class="prog-arrow">→</div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-n">03</div>
+        <div class="prog-body">
+          <div class="prog-tag">NordFox</div>
+          <div class="prog-topic">Архитектура фасадов. Особенности проектирования на системе NordFox</div>
+          <div class="prog-speaker">Крапивин Николай Петрович</div>
+        </div>
+        <div class="prog-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNERS -->
+<div class="partners">
+  <span class="label">Партнёры</span>
+  <div class="partners-grid">
+    <span class="partner-name">NordFox</span>
+    <span class="partner-name">Kleyko</span>
+    <span class="partner-name">DekoTech</span>
+    <span class="partner-name">Архихаб</span>
+    <span class="partner-name">Kalibur</span>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-section" id="register">
+  <div class="form-inner">
+    <div class="form-left">
+      <h2>Занять<br><span>место</span><br>сейчас</h2>
+      <p>Заполните форму — мы свяжемся с вами для подтверждения участия.</p>
+      <div class="form-detail">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        ул. Столбова 1/3, г. Казань
+      </div>
+      <div class="form-detail">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        27 мая 2025, начало в 16:30
+      </div>
+      <div class="form-detail">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        +7 919 623 6689
+      </div>
+    </div>
+    <div class="form-right">
+      <div id="formWrap">
+        <div class="field">
+          <label>Компания</label>
+          <input type="text" id="company" placeholder="Название вашей компании"/>
+        </div>
+        <div class="field">
+          <label>ФИО</label>
+          <input type="text" id="fullname" placeholder="Иванов Иван Иванович"/>
+        </div>
+        <div class="field">
+          <label>Должность</label>
+          <input type="text" id="position" placeholder="Ваша должность"/>
+        </div>
+        <div class="field">
+          <label>Контактный телефон</label>
+          <div class="phone-row">
+            <div class="phone-pre">🇷🇺 +7</div>
+            <input type="tel" id="phone" placeholder="(999) 123-45-67"/>
+          </div>
+        </div>
+        <div class="err-msg" id="errMsg"></div>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Отправить заявку</button>
+      </div>
+      <div class="success-screen" id="successScreen">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <h2>Заявка принята!</h2>
+        <p>Благодарим вас за интерес —<br>ждём вас на мероприятии!<br><br>
+        <span style="color:rgba(255,255,255,0.2);font-size:13px;">27 мая · 16:30 · Шоурум Архихаб, Казань</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Архихаб · Все права защищены</span>
+  <span>+7 919 623 6689</span>
+</footer>
+
+<script>
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbx_5Jz1lS_D3rm8CHJEvOHiyi6uJIXJManDHnOVWzVYvsInEORAaoWyvnvSP_fuw7Ho/exec";
+function submitForm(){
+  const company=document.getElementById('company').value.trim();
+  const name=document.getElementById('fullname').value.trim();
+  const position=document.getElementById('position').value.trim();
+  const phoneRaw=document.getElementById('phone').value.trim();
+  const phone='+7'+phoneRaw;
+  if(!company||!name||!position||!phoneRaw){
+    const e=document.getElementById('errMsg');
+    e.textContent='Пожалуйста, заполните все поля';e.style.display='block';return;
+  }
+  document.getElementById('errMsg').style.display='none';
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Отправляем...';
+  const params=new URLSearchParams({company,name,position,phone,callback:'cb'});
+  const s=document.createElement('script');
+  s.src=SCRIPT_URL+'?'+params.toString();
+  window.cb=function(){
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('successScreen').style.display='block';
+  };
+  s.onerror=function(){
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('successScreen').style.display='block';
+  };
+  document.body.appendChild(s);
+}
+</script>
+</body>
+</html>
