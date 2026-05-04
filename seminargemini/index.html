@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семинар: Современные фасадные решения | Казань</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Стиль для 3-й секции на основе референса */
+        .ref-section {
+            background-color: #ffffff;
+            color: #111827;
+        }
+        .ref-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            background-color: #f3f4f6;
+        }
+        .arch-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Героическая секция (Hero) -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden border-b border-slate-800">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-slate-900/85"></div>
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Современная архитектура" 
+                 class="w-full h-full object-cover">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="inline-block px-4 py-2 mb-6 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 font-semibold tracking-wider text-sm uppercase">
+                27 МАЯ • 16:30 • КАЗАНЬ
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+                СОВРЕМЕННЫЕ РЕШЕНИЯ <br>
+                <span class="text-blue-500 font-black">ПО МОНТАЖУ</span> ФАСАДОВ
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-3xl mx-auto font-light">
+                Семинар по работе с крупноформатными панелями, клеевым системам KLEYKO и проектированию NordFox.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#register" class="px-8 py-4 accent-gradient rounded-lg font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-900/20">
+                    Зарегистрироваться
+                </a>
+                <a href="#program" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 rounded-lg font-bold text-lg transition-colors border border-slate-700">
+                    Программа мероприятия
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция программы -->
+    <section id="program" class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Программа семинара</h2>
+            
+            <div class="grid gap-8 max-w-5xl mx-auto">
+                <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-1/3">
+                        <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 1</span>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Клеевая система KLEYKO PANEL FIX</h3>
+                        <p class="text-slate-400 text-sm">Способы приклейки крупноформатной облицовки.</p>
+                    </div>
+                    <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
+                        <p class="text-xs text-slate-500 mb-2 uppercase tracking-widest font-bold">Спикеры</p>
+                        <p class="text-lg font-semibold text-white">Погорелов Игорь Александрович</p>
+                        <p class="text-lg font-semibold text-white">Амиров Айнур Илусович</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-1/3">
+                        <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 2</span>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Сила HPL и керамогранита</h3>
+                        <p class="text-slate-400 text-sm">От концепции к реализации в архитектуре.</p>
+                    </div>
+                    <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
+                        <p class="text-xs text-slate-500 mb-2 uppercase tracking-widest font-bold">Спикер</p>
+                        <p class="text-lg font-semibold text-white">Классен Алексей Дмитриевич</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-1/3">
+                        <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 3</span>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Архитектура NordFox</h3>
+                        <p class="text-slate-400 text-sm">Особенности проектирования систем.</p>
+                    </div>
+                    <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
+                        <p class="text-xs text-slate-500 mb-2 uppercase tracking-widest font-bold">Спикер</p>
+                        <p class="text-lg font-semibold text-white">Крапивин Николай Петрович</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция места (Стиль по референсу) -->
+    <section class="ref-section py-24 border-y border-slate-100" id="venue">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
+                <div class="w-full lg:w-5/12 pt-4">
+                    <div class="flex items-start gap-6">
+                        <div class="hidden md:block arch-label text-slate-300 text-xs font-bold uppercase tracking-[0.5em] pt-2">
+                            LOCATION / ARCHIHUB
+                        </div>
+                        <div>
+                            <h2 class="text-5xl md:text-6xl font-extrabold mb-10 tracking-tighter leading-none text-slate-900">
+                                МЕСТО <br> <span class="text-blue-600">ВСТРЕЧИ.</span>
+                            </h2>
+                            <div class="space-y-12">
+                                <div class="group">
+                                    <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3">Адрес события</p>
+                                    <h3 class="text-2xl font-bold text-slate-900 group-hover:translate-x-2 transition-transform">Шоурум АРХИХАБ</h3>
+                                    <p class="text-slate-500 text-xl font-light">ул. Столбова 1/3, Казань</p>
+                                </div>
+                                <div class="group">
+                                    <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3">Прямая связь</p>
+                                    <h3 class="text-2xl font-bold text-slate-900 group-hover:translate-x-2 transition-transform">+7 919 623 6689</h3>
+                                    <p class="text-slate-500 text-xl font-light">Для регистрации и вопросов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-7/12">
+                    <div class="ref-image-container relative">
+                        <img id="mainVenueImage"
+                             src="https://images.unsplash.com/photo-1518005020480-1097cbb9bc09?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Геометрия" 
+                             class="w-full aspect-square md:aspect-video lg:aspect-[3/2] object-cover grayscale brightness-105 contrast-110"
+                             onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200'">
+                        <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur p-4 border border-slate-200 hidden md:block">
+                            <p class="text-[10px] font-black tracking-widest uppercase text-slate-900">Contemporary facade systems / 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция регистрации -->
+    <section id="register" class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto glass-card p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl"></div>
+                
+                <h2 class="text-3xl font-bold mb-2 text-white">Регистрация участия</h2>
+                <p class="text-slate-400 mb-8 text-sm">Ваши данные сохраняются в Google Таблицу автоматически.</p>
+
+                <form id="registrationForm" class="space-y-6">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">КОМПАНИЯ</label>
+                        <input type="text" name="company" required 
+                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
+                            placeholder="Название организации">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">ФИО</label>
+                        <input type="text" name="name" required 
+                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
+                            placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">ДОЛЖНОСТЬ</label>
+                        <input type="text" name="position" required 
+                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
+                            placeholder="Например: Главный архитектор">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">КОНТАКТНЫЙ ТЕЛЕФОН</label>
+                        <input type="tel" name="phone" required 
+                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
+                            placeholder="+7 (___) ___-__-__">
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full py-5 accent-gradient rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-900/40 transition-all active:scale-95 flex items-center justify-center gap-3 text-white">
+                        <span>ОТПРАВИТЬ ЗАЯВКУ</span>
+                    </button>
+                    
+                    <p id="statusMsg" class="text-center mt-4 text-sm hidden font-semibold"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-slate-500 border-t border-slate-800 bg-slate-950">
+        <p class="text-xs tracking-widest uppercase font-bold">© 2024 СОВРЕМЕННЫЕ ФАСАДНЫЕ РЕШЕНИЯ</p>
+    </footer>
+
+    <script>
+        const BOT_TOKEN = '8646635817:AAFbUg5kNSsWDktgkDrElWMUWzB9G3MkILg';
+        const CHAT_ID = '-5207044648';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbychDiUK8XCWnNjGe2Zev00jNz_vs7FvKLD5bEcQumLN7EOwF8mYgmw5C1PIYPrE2tW/exec'; 
+
+        const form = document.getElementById('registrationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span>ОТПРАВКА...</span>`;
+            statusMsg.classList.remove('hidden', 'text-green-400', 'text-red-400');
+            
+            const formData = new FormData(form);
+            const data = {
+                company: formData.get('company'),
+                name: formData.get('name'),
+                position: formData.get('position'),
+                phone: formData.get('phone')
+            };
+
+            const text = `📬 *НОВАЯ ЗАЯВКА НА СЕМИНАР*%0A%0A` +
+                         `🏢 *Компания:* ${data.company}%0A` +
+                         `👤 *ФИО:* ${data.name}%0A` +
+                         `💼 *Должность:* ${data.position}%0A` +
+                         `📞 *Телефон:* ${data.phone}`;
+
+            try {
+                // Отправка в Telegram
+                const tgPromise = fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}&parse_mode=Markdown`);
+                
+                // Отправка в Google Таблицу
+                const googlePromise = fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                await Promise.all([tgPromise, googlePromise]);
+                
+                statusMsg.textContent = 'Успешно! Ваша заявка сохранена и отправлена.';
+                statusMsg.classList.add('text-green-400', 'block');
+                form.reset();
+            } catch (error) {
+                statusMsg.textContent = 'Произошла ошибка. Попробуйте снова или позвоните нам.';
+                statusMsg.classList.add('text-red-400', 'block');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<span>ОТПРАВИТЬ ЗАЯВКУ</span>`;
+            }
+        });
+    </script>
+</body>
+</html>
