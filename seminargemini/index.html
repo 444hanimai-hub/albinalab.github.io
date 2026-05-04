@@ -28,7 +28,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Стиль для 3-й секции на основе референса */
+        /* Секция "Место встречи" */
         .ref-section {
             background-color: #ffffff;
             color: #111827;
@@ -36,24 +36,24 @@
         .ref-image-container {
             position: relative;
             overflow: hidden;
-            border-radius: 0.25rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            background-color: #f3f4f6;
+            box-shadow: 20px 20px 60px #d1d9e6, -20px -20px 60px #ffffff;
+            background-color: #f3f4f6; /* Светлый фон, пока фото грузится */
         }
         .arch-label {
             writing-mode: vertical-rl;
             text-orientation: mixed;
+            transform: rotate(180deg);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Героическая секция (Hero) -->
+    <!-- Героическая секция -->
     <header class="relative min-h-screen flex items-center justify-center overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-slate-900/85"></div>
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
-                 alt="Современная архитектура" 
+                 alt="[Современная архитектура]" 
                  class="w-full h-full object-cover">
         </div>
 
@@ -72,9 +72,6 @@
                 <a href="#register" class="px-8 py-4 accent-gradient rounded-lg font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-900/20">
                     Зарегистрироваться
                 </a>
-                <a href="#program" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 rounded-lg font-bold text-lg transition-colors border border-slate-700">
-                    Программа мероприятия
-                </a>
             </div>
         </div>
     </header>
@@ -83,41 +80,34 @@
     <section id="program" class="py-24 bg-slate-900">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Программа семинара</h2>
-            
             <div class="grid gap-8 max-w-5xl mx-auto">
+                <!-- Блок 1 -->
                 <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
                     <div class="w-full md:w-1/3">
                         <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 1</span>
                         <h3 class="text-2xl font-bold mb-4 text-white">Клеевая система KLEYKO PANEL FIX</h3>
-                        <p class="text-slate-400 text-sm">Способы приклейки крупноформатной облицовки.</p>
                     </div>
                     <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-                        <p class="text-xs text-slate-500 mb-2 uppercase tracking-widest font-bold">Спикеры</p>
-                        <p class="text-lg font-semibold text-white">Погорелов Игорь Александрович</p>
-                        <p class="text-lg font-semibold text-white">Амиров Айнур Илусович</p>
+                        <p class="text-lg font-semibold text-white">Погорелов Игорь / Амиров Айнур</p>
                     </div>
                 </div>
-
+                <!-- Блок 2 -->
                 <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
                     <div class="w-full md:w-1/3">
                         <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 2</span>
                         <h3 class="text-2xl font-bold mb-4 text-white">Сила HPL и керамогранита</h3>
-                        <p class="text-slate-400 text-sm">От концепции к реализации в архитектуре.</p>
                     </div>
                     <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-                        <p class="text-xs text-slate-500 mb-2 uppercase tracking-widest font-bold">Спикер</p>
                         <p class="text-lg font-semibold text-white">Классен Алексей Дмитриевич</p>
                     </div>
                 </div>
-
+                <!-- Блок 3 -->
                 <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
                     <div class="w-full md:w-1/3">
                         <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 3</span>
                         <h3 class="text-2xl font-bold mb-4 text-white">Архитектура NordFox</h3>
-                        <p class="text-slate-400 text-sm">Особенности проектирования систем.</p>
                     </div>
                     <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-                        <p class="text-xs text-slate-500 mb-2 uppercase tracking-widest font-bold">Спикер</p>
                         <p class="text-lg font-semibold text-white">Крапивин Николай Петрович</p>
                     </div>
                 </div>
@@ -125,46 +115,51 @@
         </div>
     </section>
 
-    <!-- Секция места (Стиль по референсу) -->
-    <section class="ref-section py-24 border-y border-slate-100" id="venue">
+    <!-- Секция места -->
+    <section class="ref-section py-32" id="venue">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
-                <div class="w-full lg:w-5/12 pt-4">
-                    <div class="flex items-start gap-6">
-                        <div class="hidden md:block arch-label text-slate-300 text-xs font-bold uppercase tracking-[0.5em] pt-2">
-                            LOCATION / ARCHIHUB
-                        </div>
-                        <div>
-                            <h2 class="text-5xl md:text-6xl font-extrabold mb-10 tracking-tighter leading-none text-slate-900">
-                                МЕСТО <br> <span class="text-blue-600">ВСТРЕЧИ.</span>
-                            </h2>
-                            <div class="space-y-12">
-                                <div class="group">
-                                    <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3">Адрес события</p>
-                                    <h3 class="text-2xl font-bold text-slate-900 group-hover:translate-x-2 transition-transform">Шоурум АРХИХАБ</h3>
-                                    <p class="text-slate-500 text-xl font-light">ул. Столбова 1/3, Казань</p>
-                                </div>
-                                <div class="group">
-                                    <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3">Прямая связь</p>
-                                    <h3 class="text-2xl font-bold text-slate-900 group-hover:translate-x-2 transition-transform">+7 919 623 6689</h3>
-                                    <p class="text-slate-500 text-xl font-light">Для регистрации и вопросов</p>
-                                </div>
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                
+                <!-- Текстовый блок -->
+                <div class="w-full lg:w-1/2 flex gap-8">
+                    <div class="arch-label text-slate-300 text-[10px] font-bold uppercase tracking-[0.8em] py-4">
+                        LOCATION / ARCHIHUB
+                    </div>
+                    <div class="pt-2">
+                        <h2 class="text-6xl md:text-8xl font-black mb-12 tracking-tighter leading-[0.85] text-slate-900">
+                            МЕСТО <br> <span class="text-blue-600">ВСТРЕЧИ.</span>
+                        </h2>
+                        
+                        <div class="space-y-12">
+                            <div>
+                                <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">Адрес события</p>
+                                <h3 class="text-3xl font-bold text-slate-900">Шоурум АРХИХАБ</h3>
+                                <p class="text-slate-500 text-lg font-medium">ул. Столбова 1/3, Казань</p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">Прямая связь</p>
+                                <h3 class="text-3xl font-bold text-slate-900">+7 919 623 6689</h3>
+                                <p class="text-slate-500 text-lg font-medium">Для регистрации и вопросов</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:w-7/12">
-                    <div class="ref-image-container relative">
-                        <img id="mainVenueImage"
-                             src="https://images.unsplash.com/photo-1518005020480-1097cbb9bc09?auto=format&fit=crop&q=80&w=1200" 
-                             alt="Геометрия" 
-                             class="w-full aspect-square md:aspect-video lg:aspect-[3/2] object-cover grayscale brightness-105 contrast-110"
-                             onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200'">
-                        <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur p-4 border border-slate-200 hidden md:block">
-                            <p class="text-[10px] font-black tracking-widest uppercase text-slate-900">Contemporary facade systems / 2024</p>
+
+                <!-- Блок изображения (Ваше фото из репозитория) -->
+                <div class="w-full lg:w-1/2">
+                    <div class="ref-image-container rounded-sm p-4 bg-white relative">
+                        <!-- Здесь используется только ваше изображение -->
+                        <img src="шоурум.png" 
+                             alt="[Фото Шоурума Архихаб]" 
+                             class="w-full h-auto object-cover grayscale-0">
+                        
+                        <div class="absolute bottom-10 right-10 bg-white border border-slate-100 px-6 py-3 shadow-sm">
+                            <p class="text-[9px] font-bold tracking-[0.2em] uppercase text-slate-800">Contemporary facade systems / 2024</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -172,42 +167,27 @@
     <!-- Секция регистрации -->
     <section id="register" class="py-24 bg-slate-900">
         <div class="container mx-auto px-6">
-            <div class="max-w-2xl mx-auto glass-card p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl"></div>
-                
-                <h2 class="text-3xl font-bold mb-2 text-white">Регистрация участия</h2>
-                <p class="text-slate-400 mb-8 text-sm">Ваши данные сохраняются в Google Таблицу автоматически.</p>
-
-                <form id="registrationForm" class="space-y-6">
+            <div class="max-w-2xl mx-auto glass-card p-12 rounded-3xl shadow-2xl relative">
+                <div class="absolute -top-12 -left-12 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl"></div>
+                <h2 class="text-3xl font-bold mb-8 text-white">Регистрация участия</h2>
+                <form id="registrationForm" class="space-y-6 relative z-10">
                     <div>
                         <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">КОМПАНИЯ</label>
-                        <input type="text" name="company" required 
-                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
-                            placeholder="Название организации">
+                        <input type="text" name="company" required class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:border-blue-500 outline-none transition-colors">
                     </div>
                     <div>
                         <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">ФИО</label>
-                        <input type="text" name="name" required 
-                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
-                            placeholder="Иванов Иван Иванович">
+                        <input type="text" name="name" required class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:border-blue-500 outline-none transition-colors">
                     </div>
                     <div>
                         <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">ДОЛЖНОСТЬ</label>
-                        <input type="text" name="position" required 
-                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
-                            placeholder="Например: Главный архитектор">
+                        <input type="text" name="position" required class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:border-blue-500 outline-none transition-colors">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">КОНТАКТНЫЙ ТЕЛЕФОН</label>
-                        <input type="tel" name="phone" required 
-                            class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition-colors text-white"
-                            placeholder="+7 (___) ___-__-__">
+                        <label class="block text-[10px] font-black text-slate-500 mb-2 uppercase tracking-widest">ТЕЛЕФОН</label>
+                        <input type="tel" name="phone" required class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:border-blue-500 outline-none transition-colors">
                     </div>
-
-                    <button type="submit" id="submitBtn" class="w-full py-5 accent-gradient rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-900/40 transition-all active:scale-95 flex items-center justify-center gap-3 text-white">
-                        <span>ОТПРАВИТЬ ЗАЯВКУ</span>
-                    </button>
-                    
+                    <button type="submit" id="submitBtn" class="w-full py-5 accent-gradient rounded-xl font-bold text-lg text-white hover:scale-[1.02] active:scale-95 transition-all">ОТПРАВИТЬ ЗАЯВКУ</button>
                     <p id="statusMsg" class="text-center mt-4 text-sm hidden font-semibold"></p>
                 </form>
             </div>
@@ -215,7 +195,7 @@
     </section>
 
     <footer class="py-10 text-center text-slate-500 border-t border-slate-800 bg-slate-950">
-        <p class="text-xs tracking-widest uppercase font-bold">© 2024 СОВРЕМЕННЫЕ ФАСАДНЫЕ РЕШЕНИЯ</p>
+        <p class="text-xs tracking-widest uppercase font-bold">© 2024 СЕМИНАР ФАСАДНЫЕ РЕШЕНИЯ • КАЗАНЬ</p>
     </footer>
 
     <script>
@@ -229,49 +209,29 @@
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<span>ОТПРАВКА...</span>`;
-            statusMsg.classList.remove('hidden', 'text-green-400', 'text-red-400');
+            submitBtn.textContent = 'ОТПРАВКА...';
+            statusMsg.classList.add('hidden');
             
             const formData = new FormData(form);
-            const data = {
-                company: formData.get('company'),
-                name: formData.get('name'),
-                position: formData.get('position'),
-                phone: formData.get('phone')
-            };
-
-            const text = `📬 *НОВАЯ ЗАЯВКА НА СЕМИНАР*%0A%0A` +
-                         `🏢 *Компания:* ${data.company}%0A` +
-                         `👤 *ФИО:* ${data.name}%0A` +
-                         `💼 *Должность:* ${data.position}%0A` +
-                         `📞 *Телефон:* ${data.phone}`;
+            const data = Object.fromEntries(formData.entries());
+            const text = `📬 *НОВАЯ ЗАЯВКА*%0A🏢 *Компания:* ${data.company}%0A👤 *ФИО:* ${data.name}%0A💼 *Должность:* ${data.position}%0A📞 *Телефон:* ${data.phone}`;
 
             try {
-                // Отправка в Telegram
-                const tgPromise = fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}&parse_mode=Markdown`);
+                // Telegram
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}&parse_mode=Markdown`);
+                // Google Sheets
+                await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
                 
-                // Отправка в Google Таблицу
-                const googlePromise = fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', 
-                    cache: 'no-cache',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                await Promise.all([tgPromise, googlePromise]);
-                
-                statusMsg.textContent = 'Успешно! Ваша заявка сохранена и отправлена.';
-                statusMsg.classList.add('text-green-400', 'block');
+                statusMsg.textContent = 'Заявка успешно отправлена!';
+                statusMsg.className = 'text-center mt-4 text-sm text-green-400 block';
                 form.reset();
             } catch (error) {
-                statusMsg.textContent = 'Произошла ошибка. Попробуйте снова или позвоните нам.';
-                statusMsg.classList.add('text-red-400', 'block');
+                statusMsg.textContent = 'Ошибка отправки. Попробуйте еще раз.';
+                statusMsg.className = 'text-center mt-4 text-sm text-red-400 block';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = `<span>ОТПРАВИТЬ ЗАЯВКУ</span>`;
+                submitBtn.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
             }
         });
     </script>
