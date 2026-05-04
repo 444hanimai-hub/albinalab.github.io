@@ -45,23 +45,22 @@ nav{
 }
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  font-size:12px;color:var(--muted);margin-bottom:28px;
+  font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:28px;
 }
 .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--red);}
 .hero-h1{
   font-size:clamp(48px,8vw,110px);
   font-weight:900;line-height:0.95;
-  letter-spacing:-3px;margin-bottom:32px;
+  letter-spacing:-3px;margin-bottom:32px;color:#fff;
 }
 .hero-h1 .accent{color:var(--red);}
-.hero-h1 .light{color:#C8C4BC;}
-
+.hero-h1 .light{color:rgba(255,255,255,0.45);}
 .hero-bottom{
   display:flex;align-items:flex-end;justify-content:space-between;
   gap:32px;flex-wrap:wrap;
 }
 .hero-desc{
-  max-width:420px;font-size:15px;color:var(--muted);
+  max-width:420px;font-size:15px;color:rgba(255,255,255,0.65);
   line-height:1.7;font-weight:400;
 }
 .hero-cta-group{display:flex;align-items:center;gap:16px;flex-shrink:0;}
@@ -74,9 +73,9 @@ nav{
 }
 .btn-primary:hover{background:#B82820;transform:translateY(-1px);}
 .hero-date-pill{
-  font-size:13px;font-weight:600;color:var(--muted);
-  border:1px solid var(--border);padding:15px 20px;border-radius:100px;
-  white-space:nowrap;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);
+  border:1px solid rgba(255,255,255,0.25);padding:15px 20px;border-radius:100px;
+  white-space:nowrap;backdrop-filter:blur(8px);
 }
 
 /* TICKER */
@@ -304,21 +303,7 @@ footer span{font-size:12px;color:rgba(255,255,255,0.2);}
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">3<span>+</span></div>
-    <div class="stat-label">эксперта отрасли</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">5<span>+</span></div>
-    <div class="stat-label">брендов-партнёров</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">1<span> день</span></div>
-    <div class="stat-label">практики и живых кейсов</div>
-  </div>
-</div>
+
 
 <!-- WHO -->
 <div class="who">
@@ -389,7 +374,7 @@ footer span{font-size:12px;color:rgba(255,255,255,0.2);}
   <div class="form-inner">
     <div class="form-left">
       <h2>Занять<br><span>место</span><br>сейчас</h2>
-      <p>Количество мест ограничено. Оставьте заявку — мы свяжемся с вами для подтверждения участия.</p>
+      <p>Заполните форму — мы свяжемся с вами для подтверждения участия.</p>
       <div class="form-detail">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         ул. Столбова 1/3, г. Казань
