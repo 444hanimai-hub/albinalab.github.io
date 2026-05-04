@@ -7,210 +7,218 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: #ffffff;
+            color: #000000;
             scroll-behavior: smooth;
         }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .mono-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: #64748b;
         }
-        .accent-gradient {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        .grid-border {
+            border: 1px solid #e2e8f0;
         }
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .btn-industrial {
+            background-color: #3b82f6;
+            color: white;
+            transition: all 0.2s ease;
         }
-        .ref-section {
-            background-color: #ffffff;
-            color: #111827;
+        .btn-industrial:hover {
+            background-color: #2563eb;
+            transform: translateY(-1px);
         }
-        .ref-image-container {
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.1);
-            background-color: #f3f4f6;
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
-        .arch-label {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 20s linear infinite;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Героическая секция -->
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden border-b border-slate-800">
+    <!-- Навигация -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <span class="font-black text-xl tracking-tighter uppercase">АРХИХАБ <span class="text-blue-600">.</span></span>
+                <span class="hidden md:block mono-label">Казань, Татарстан — 16:30</span>
+            </div>
+            <a href="#register" class="border border-black px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">
+                Регистрация →
+            </a>
+        </div>
+    </nav>
+
+    <!-- Первый экран с полноэкранным фоном -->
+    <header class="relative min-h-screen flex items-center border-b border-slate-200 overflow-hidden">
+        <!-- Фоновое изображение -->
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-slate-900/60"></div>
-            <!-- Изображение фасады.png из репозитория -->
-            <img src="фасады.png" 
-                 alt="[Изображение современных фасадов]" 
-                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-white/60 z-10"></div>
+            <img src="фасады.png?v=5" alt="[Изображение современных фасадов]" class="w-full h-full object-cover">
         </div>
 
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div class="inline-block px-4 py-2 mb-6 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 font-semibold tracking-wider text-sm uppercase">
-                27 МАЯ • 16:30 • КАЗАНЬ
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="max-w-5xl">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[0.9] mb-12">
+                    Там, где фасадный дизайн <br>
+                    встречает <span class="text-blue-600 italic">реальное</span> производство.
+                </h1>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <a href="#register" class="bg-blue-600 text-white px-8 py-4 font-bold text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
+                        Зарегистрироваться →
+                    </a>
+                    <p class="max-w-md text-slate-800 text-sm leading-relaxed font-medium">
+                        Экспертное 3D моделирование и физическое производство. Переосмысляем современный подход к архитектуре зданий в Поволжье.
+                    </p>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-                СОВРЕМЕННЫЕ РЕШЕНИЯ <br>
-                <span class="text-blue-500 font-black">ПО МОНТАЖУ</span> ФАСАДОВ
-            </h1>
-            <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-light drop-shadow-lg">
-                Профессиональный семинар по крупноформатным панелям, клеевым системам KLEYKO и проектированию NordFox.
-            </p>
-            <a href="#register" class="px-10 py-5 accent-gradient rounded-lg font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-blue-900/30 inline-block">
-                Зарегистрироваться
-            </a>
         </div>
     </header>
 
-    <!-- Программа -->
-    <section id="program" class="py-24 bg-slate-900">
+    <!-- Бегущая строка -->
+    <div class="border-b border-slate-200 overflow-hidden py-4 bg-slate-50">
+        <div class="flex whitespace-nowrap gap-12 animate-marquee items-center">
+            <span class="mono-label">→ Фасадные системы</span>
+            <span class="mono-label">→ Промышленный дизайн</span>
+            <span class="mono-label">→ Клеевые решения</span>
+            <span class="mono-label">→ 3D Моделирование</span>
+            <span class="mono-label">→ Архитектурные узлы</span>
+            <span class="mono-label">→ Прототипирование</span>
+            <span class="mono-label">→ Визуализация</span>
+        </div>
+    </div>
+
+    <!-- Основной контент (Изображения) -->
+    <section class="py-20 border-b border-slate-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Программа семинара</h2>
-            <div class="grid gap-8 max-w-5xl mx-auto">
-                <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
-                    <div class="w-full md:w-1/3">
-                        <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 1</span>
-                        <h3 class="text-2xl font-bold mb-4 text-white uppercase tracking-tighter">KLEYKO PANEL FIX</h3>
-                    </div>
-                    <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-widest font-black">Спикеры</p>
-                        <p class="text-xl font-bold text-white mb-1">Погорелов Игорь Александрович</p>
-                        <p class="text-xl font-bold text-white">Амиров Айнур Илусович</p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-4">
+                    <p class="mono-label mb-6">О семинаре</p>
+                    <p class="text-slate-600 leading-relaxed mb-8">
+                        Это больше чем просто лекция. Мы сокращаем разрыв между эскизом на бумаге и готовым фасадом. Практические знания от лидеров рынка.
+                    </p>
+                    <div class="aspect-square bg-slate-100 overflow-hidden border border-slate-100">
+                        <img src="фасады.png?v=5" alt="[Изображение современных фасадов]" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
                     </div>
                 </div>
-
-                <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
-                    <div class="w-full md:w-1/3">
-                        <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 2</span>
-                        <h3 class="text-2xl font-bold mb-4 text-white uppercase tracking-tighter">HPL И КЕРАМОГРАНИТ</h3>
-                    </div>
-                    <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-widest font-black">Спикер</p>
-                        <p class="text-xl font-bold text-white">Классен Алексей Дмитриевич</p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-start">
-                    <div class="w-full md:w-1/3">
-                        <span class="text-blue-500 font-bold text-lg block mb-2">БЛОК 3</span>
-                        <h3 class="text-2xl font-bold mb-4 text-white uppercase tracking-tighter">NORDFOX SYSTEMS</h3>
-                    </div>
-                    <div class="w-full md:w-2/3 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0 md:pl-8">
-                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-widest font-black">Спикер</p>
-                        <p class="text-xl font-bold text-white">Крапивин Николай Петрович</p>
+                <div class="lg:col-span-8">
+                    <!-- Фото Шоурум -->
+                    <div class="relative h-full min-h-[500px] bg-slate-100 overflow-hidden border border-slate-100">
+                        <img src="шоурум.png?v=5" alt="[Фото Шоурума Архихаб]" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-white p-8 border-t border-r border-slate-200 max-w-sm">
+                            <p class="mono-label mb-2">Локация</p>
+                            <h3 class="text-2xl font-bold tracking-tighter uppercase">Шоурум АРХИХАБ</h3>
+                            <p class="text-slate-500 text-sm">ул. Столбова 1/3, Казань</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Место встречи -->
-    <section class="ref-section py-24 md:py-32" id="venue">
+    <!-- Блоки программы -->
+    <section class="py-20 border-b border-slate-200 bg-slate-50">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
-                
-                <!-- Текстовый блок (4/12) -->
-                <div class="w-full lg:w-4/12 flex gap-6 md:gap-10">
-                    <div class="arch-label text-slate-200 text-[10px] font-black uppercase tracking-[1em] py-4">
-                        FACADE / EVENT / 2024
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <h2 class="text-6xl md:text-7xl font-black mb-10 tracking-tighter leading-[0.85] text-slate-900 text-nowrap">
-                            МЕСТО <br> <span class="text-blue-600">ВСТРЕЧИ.</span>
-                        </h2>
-                        <div class="space-y-10">
-                            <div>
-                                <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-3">Адрес</p>
-                                <h3 class="text-3xl font-bold text-slate-900">Шоурум АРХИХАБ</h3>
-                                <p class="text-slate-500 text-xl">ул. Столбова 1/3, Казань</p>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-3">Связь</p>
-                                <h3 class="text-3xl font-bold text-slate-900">+7 919 623 6689</h3>
-                            </div>
-                        </div>
-                    </div>
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-5xl font-medium tracking-tighter uppercase">Программа</h2>
+                <div class="hidden md:block text-right">
+                    <p class="text-4xl font-bold tracking-tighter text-blue-600">27.05</p>
+                    <p class="mono-label">Дата проведения</p>
                 </div>
+            </div>
 
-                <!-- Блок изображения (8/12 - Увеличено) -->
-                <div class="w-full lg:w-8/12">
-                    <div class="ref-image-container h-full rounded-sm">
-                        <!-- Изображение шоурум.png из репозитория -->
-                        <img src="шоурум.png" 
-                             alt="[Фото Шоурума Архихаб]" 
-                             class="w-full h-full min-h-[500px] object-cover">
-                        
-                        <div class="absolute bottom-0 right-0 bg-white/95 backdrop-blur px-8 py-5 border-t border-l border-slate-100">
-                            <p class="text-[10px] font-black tracking-[0.3em] uppercase text-slate-800 tracking-tighter">Contemporary architectural solutions / 2024</p>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 border-t border-l border-slate-200">
+                <div class="p-10 border-r border-b border-slate-200 bg-white">
+                    <span class="text-blue-600 font-black text-2xl mb-4 block">01</span>
+                    <h3 class="text-xl font-bold uppercase mb-4 tracking-tight">KLEYKO PANEL FIX</h3>
+                    <p class="text-sm text-slate-500 mb-6">Клеевые системы для монтажа крупноформатных панелей.</p>
+                    <p class="mono-label text-black">Погорелов И.А., Амиров А.И.</p>
                 </div>
-
+                <div class="p-10 border-r border-b border-slate-200 bg-white">
+                    <span class="text-blue-600 font-black text-2xl mb-4 block">02</span>
+                    <h3 class="text-xl font-bold uppercase mb-4 tracking-tight">HPL & Керамогранит</h3>
+                    <p class="text-sm text-slate-500 mb-6">Технологии работы с облицовочными материалами.</p>
+                    <p class="mono-label text-black">Спикер: Классен А.Д.</p>
+                </div>
+                <div class="p-10 border-r border-b border-slate-200 bg-white">
+                    <span class="text-blue-600 font-black text-2xl mb-4 block">03</span>
+                    <h3 class="text-xl font-bold uppercase mb-4 tracking-tight">NordFox Systems</h3>
+                    <p class="text-sm text-slate-500 mb-6">Несущие конструкции и инженерные решения.</p>
+                    <p class="mono-label text-black">Спикер: Крапивин Н.П.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Регистрация -->
-    <section id="register" class="py-24 bg-slate-950">
+    <section id="register" class="py-32 bg-white">
         <div class="container mx-auto px-6">
-            <div id="formContainer" class="max-w-2xl mx-auto glass-card p-10 md:p-16 rounded-[2rem] shadow-2xl relative transition-all duration-500">
+            <div id="formContainer" class="max-w-4xl mx-auto border border-black p-8 md:p-16 relative">
                 
-                <!-- Контент формы -->
                 <div id="formContent">
-                    <h2 class="text-4xl font-bold mb-3 text-white tracking-tight text-gradient">Регистрация</h2>
-                    <p class="text-slate-400 mb-10">Заполните данные для участия в мероприятии.</p>
+                    <div class="mb-16">
+                        <h2 class="text-5xl font-medium tracking-tighter mb-4 uppercase">Регистрация</h2>
+                        <p class="text-slate-500 uppercase tracking-widest text-xs font-bold">Оставьте заявку на участие</p>
+                    </div>
 
-                    <form id="registrationForm" class="space-y-8">
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1">КОМПАНИЯ</label>
-                            <input type="text" name="company" required class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:border-blue-500 outline-none transition-all">
+                    <form id="registrationForm" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="border-b border-slate-300 pb-2">
+                            <label class="mono-label block mb-2">Компания</label>
+                            <input type="text" name="company" required class="w-full outline-none text-xl tracking-tight">
                         </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1">ФИО</label>
-                            <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:border-blue-500 outline-none transition-all">
+                        <div class="border-b border-slate-300 pb-2">
+                            <label class="mono-label block mb-2">ФИО</label>
+                            <input type="text" name="name" required class="w-full outline-none text-xl tracking-tight">
                         </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1">ДОЛЖНОСТЬ</label>
-                            <input type="text" name="position" required class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:border-blue-500 outline-none transition-all">
+                        <div class="border-b border-slate-300 pb-2">
+                            <label class="mono-label block mb-2">Должность</label>
+                            <input type="text" name="position" required class="w-full outline-none text-xl tracking-tight">
                         </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1">ТЕЛЕФОН</label>
-                            <input type="tel" name="phone" required class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:border-blue-500 outline-none transition-all">
+                        <div class="border-b border-slate-300 pb-2">
+                            <label class="mono-label block mb-2">Телефон</label>
+                            <input type="tel" name="phone" required class="w-full outline-none text-xl tracking-tight">
                         </div>
-                        <button type="submit" id="submitBtn" class="w-full py-6 accent-gradient rounded-xl font-black text-lg text-white hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-blue-600/20">
-                            ОТПРАВИТЬ ЗАЯВКУ
-                        </button>
+                        <div class="md:col-span-2 pt-10">
+                            <button type="submit" id="submitBtn" class="w-full md:w-auto bg-black text-white px-12 py-5 font-bold uppercase tracking-widest hover:bg-blue-600 transition-all">
+                                Отправить заявку →
+                            </button>
+                        </div>
                     </form>
                 </div>
 
-                <!-- Сообщение об успехе -->
-                <div id="successMessage" class="hidden text-center py-12 transition-all duration-500">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-500/20 text-blue-500 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
+                <div id="successMessage" class="hidden text-center py-20">
+                    <div class="mb-8 flex justify-center">
+                        <div class="w-20 h-20 border-2 border-blue-600 flex items-center justify-center text-blue-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
                     </div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Спасибо за регистрацию!</h2>
-                    <p class="text-lg text-slate-400">Мы ждем вас на мероприятии.</p>
+                    <h2 class="text-4xl font-bold tracking-tighter mb-4 uppercase">Заявка принята</h2>
+                    <p class="text-slate-500 uppercase tracking-widest text-xs font-bold">Спасибо за регистрацию, мы ждем вас на мероприятии.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-600 border-t border-white/5 bg-slate-950">
-        <p class="text-[10px] tracking-[0.4em] uppercase font-black">2024 • СОВРЕМЕННЫЕ ФАСАДНЫЕ РЕШЕНИЯ • КАЗАНЬ</p>
+    <footer class="py-12 border-t border-slate-200 bg-slate-50 text-center">
+        <p class="mono-label uppercase">© 2024 Казань • АРХИХАБ • Современные фасадные решения</p>
     </footer>
 
     <script>
@@ -234,35 +242,24 @@
             const text = `📬 *НОВАЯ ЗАЯВКА*%0A🏢 *Компания:* ${data.company}%0A👤 *ФИО:* ${data.name}%0A💼 *Должность:* ${data.position}%0A📞 *Телефон:* ${data.phone}`;
 
             try {
-                // 1. Отправка в Telegram
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}&parse_mode=Markdown`);
                 
-                // 2. Отправка в Google Sheets
                 if (GOOGLE_SCRIPT_URL) {
-                    const params = new URLSearchParams({
-                        company: data.company,
-                        name: data.name,
-                        position: data.position,
-                        phone: data.phone
-                    }).toString();
-                    
-                    // Используем POST с параметрами в URL для обхода ограничений CORS в простых скриптах
+                    const params = new URLSearchParams(data).toString();
                     await fetch(`${GOOGLE_SCRIPT_URL}?${params}`, {
                         method: 'POST',
                         mode: 'no-cors'
                     });
                 }
                 
-                // Скрываем поля формы и заголовок
-                formContent.classList.add('hidden');
-                // Показываем сообщение об успехе
+                formContent.style.display = 'none';
                 successMessage.classList.remove('hidden');
                 
             } catch (error) {
                 console.error('Ошибка:', error);
-                alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+                alert('Ошибка при отправке.');
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
+                submitBtn.textContent = 'Отправить заявку →';
             }
         });
     </script>
