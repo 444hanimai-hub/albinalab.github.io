@@ -196,14 +196,14 @@
                 </div>
 
                 <!-- Сообщение об успехе -->
-                <div id="successMessage" class="hidden text-center py-10 animate-in fade-in zoom-in duration-500">
-                    <div class="w-24 h-24 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-8">
-                        <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                <div id="successMessage" class="hidden text-center py-12 transition-all duration-500">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-500/20 text-blue-500 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Благодарим за интерес!</h2>
-                    <p class="text-xl text-slate-400">Ждем вас на мероприятии.</p>
+                    <h2 class="text-3xl font-bold text-white mb-4">Спасибо за регистрацию!</h2>
+                    <p class="text-lg text-slate-400">Мы ждем вас на мероприятии.</p>
                 </div>
             </div>
         </div>
@@ -253,8 +253,9 @@
                     });
                 }
                 
-                // Скрываем форму и показываем сообщение об успехе
-                formContent.style.display = 'none';
+                // Скрываем поля формы и заголовок
+                formContent.classList.add('hidden');
+                // Показываем сообщение об успехе
                 successMessage.classList.remove('hidden');
                 
             } catch (error) {
