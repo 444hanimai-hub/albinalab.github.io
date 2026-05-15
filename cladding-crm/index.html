@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cladding CRM — система управления проектами</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        accent: '#C8973A',
+        dark: '#0F0F0F',
+        card: '#1A1A1A',
+        muted: '#6B6B6B',
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background: #0F0F0F; color: #F0EDE8; }
+  .gradient-text { background: linear-gradient(135deg, #C8973A, #E8C068); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-4px); border-color: rgba(200,151,58,0.4) !important; }
+  .btn-primary { background: linear-gradient(135deg, #C8973A, #E8C068); transition: all 0.3s ease; }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,151,58,0.3); }
+  .faq-answer { display: none; }
+  .faq-item.open .faq-answer { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.3s ease; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style="background:rgba(15,15,15,0.92);backdrop-filter:blur(16px)">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold tracking-tight">Cladding <span class="gradient-text">CRM</span></div>
+      <div class="text-xs text-gray-500 mt-0.5">система управления проектами</div>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="tel:+7__________" class="text-sm text-gray-400 hover:text-white transition-colors">+7 ___ ___ __ __</a>
+      <a href="#contact" class="btn-primary text-dark text-sm font-700 px-5 py-2.5 rounded-full font-semibold">Связаться со мной</a>
+    </div>
+    <a href="#contact" class="md:hidden btn-primary text-dark text-sm font-semibold px-4 py-2 rounded-full">Связаться</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20" style="background:radial-gradient(ellipse at 60% 40%, rgba(200,151,58,0.25) 0%, transparent 65%)"></div>
+  <div class="max-w-6xl mx-auto w-full py-24 relative z-10">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-400 mb-8">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+        Специализированное решение для вашей ниши
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight mb-6">
+        Ваш бизнес вырос.<br>
+        <span class="gradient-text">Инструменты —</span><br>
+        ещё нет.
+      </h1>
+      <p class="text-xl text-gray-400 leading-relaxed mb-10 max-w-xl">
+        Cladding CRM — готовая система управления проектами, созданная специально для компаний по подбору и поставке облицовочных материалов. Не настраивайте под себя универсальное. Возьмите то, что уже подходит.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="btn-primary text-dark font-bold px-8 py-4 rounded-full text-base text-center">Получить демонстрацию →</a>
+        <a href="#offer" class="border border-white/15 text-white px-8 py-4 rounded-full text-base text-center hover:border-accent/40 transition-colors">Узнать подробнее</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- БОЛИ -->
+<section class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16">
+      <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-4">Узнаёте себя?</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight">Возможно, прямо сейчас<br>вы думаете о том, что...</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-3xl mb-4">📊</div>
+        <h3 class="text-xl font-bold mb-3">«Хочу видеть реальную картину — сразу, не собирая её по кускам»</h3>
+        <p class="text-gray-400 leading-relaxed">Бизнес работает, проекты идут — но чтобы понять, где вы находитесь прямо сейчас, нужно звонить, спрашивать, сводить. Это занимает время, которого никогда нет. А цифры, которые в итоге получаете — уже немного устаревшие.</p>
+      </div>
+
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-3xl mb-4">💸</div>
+        <h3 class="text-xl font-bold mb-3">«Не всегда понятно, сколько реально заработали на конкретном объекте»</h3>
+        <p class="text-gray-400 leading-relaxed">Расходы разбросаны — часть в бухгалтерии, часть в памяти, часть в таблицах. Посчитать реальную прибыль по завершённому проекту — это отдельная работа на несколько часов. И уверенности в итоговой цифре всё равно нет.</p>
+      </div>
+
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-3xl mb-4">🔄</div>
+        <h3 class="text-xl font-bold mb-3">«Слишком много держится на конкретных людях»</h3>
+        <p class="text-gray-400 leading-relaxed">Менеджер уходит в отпуск или меняется — и нужно время, чтобы ввести коллегу в курс дела. Где договорённости, кто поставщик, на каком этапе отгрузки. Всё это живёт в голове одного человека. Это уязвимость, которую сложно не замечать.</p>
+      </div>
+
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-3xl mb-4">⏱️</div>
+        <h3 class="text-xl font-bold mb-3">«Рутина съедает время, которое могло бы идти на рост»</h3>
+        <p class="text-gray-400 leading-relaxed">Доверенности вручную. Задачи в чатах. Напоминания на словах. Каждая из этих мелочей — не катастрофа. Но в сумме это часы каждую неделю, которые могли бы уходить на новых клиентов и новые объекты.</p>
+      </div>
+
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-8 md:col-span-2">
+        <div class="text-3xl mb-4">📈</div>
+        <h3 class="text-xl font-bold mb-3">«Хочется расти — но непонятно, как управлять большим объёмом»</h3>
+        <p class="text-gray-400 leading-relaxed">Взять ещё два-три объекта — значит ещё больше координации, ещё больше таблиц, ещё больше контроля вручную. Масштабирование упирается не в рынок и не в команду — а в отсутствие системы, которая могла бы это выдержать.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ ПРОШЛЫЕ РЕШЕНИЯ НЕ СРАБОТАЛИ -->
+<section class="py-24 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16">
+      <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-4">Почему это до сих пор не решено</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight max-w-2xl">Вы уже пробовали.<br>Но это не то.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-accent font-bold text-sm tracking-widest uppercase mb-4">Excel и таблицы</div>
+        <p class="text-gray-400 leading-relaxed">Таблица хранит данные, но не управляет ими. Она не напомнит, не посчитает, не покажет динамику. И чем больше проектов — тем сложнее в ней ориентироваться.</p>
+      </div>
+      <div class="bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-accent font-bold text-sm tracking-widest uppercase mb-4">Универсальные CRM</div>
+        <p class="text-gray-400 leading-relaxed">Битрикс, AmoCRM, Notion — мощные инструменты, которые можно настроить под всё что угодно. Именно поэтому на настройку уходят месяцы, а в итоге система всё равно не учитывает специфику поставки облицовки.</p>
+      </div>
+      <div class="bg-card border border-white/8 rounded-2xl p-8">
+        <div class="text-accent font-bold text-sm tracking-widest uppercase mb-4">Разработка с нуля</div>
+        <p class="text-gray-400 leading-relaxed">Заказать разработку — значит потратить от 800 000 до 2 500 000 ₽, ждать полгода и получить продукт, который ещё нужно доводить. Высокий риск, долгий путь, неочевидный результат.</p>
+      </div>
+    </div>
+    <div class="mt-10 bg-gradient-to-r from-accent/10 to-transparent border border-accent/20 rounded-2xl p-8">
+      <p class="text-xl font-semibold leading-relaxed">Cladding CRM — это другой путь. Система уже создана, уже работает и уже заточена под вашу специфику. Не нужно ничего настраивать месяцами. Просто начать.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ОФФЕР -->
+<section class="py-24 px-6 border-t border-white/5" id="offer">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16">
+      <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-4">Решение</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight max-w-2xl">Всё, что нужно для контроля над бизнесом — в одном окне</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-7">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+          <span class="text-accent text-lg">📊</span>
+        </div>
+        <h3 class="font-bold text-lg mb-3">Дашборд руководителя</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Сумма контрактов, чистая прибыль, маржа, динамика — в реальном времени. Все активные проекты, ближайшие задачи, воронка по статусам. Без звонков, без сводок.</p>
+      </div>
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-7">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+          <span class="text-accent text-lg">📁</span>
+        </div>
+        <h3 class="font-bold text-lg mb-3">Полная карточка проекта</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Участники, материалы, отгрузки с прогрессом выполнения контракта, задачи, финансы, доверенности — всё в одном месте. Передать проект другому менеджеру — минуты, не дни.</p>
+      </div>
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-7">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+          <span class="text-accent text-lg">⚡</span>
+        </div>
+        <h3 class="font-bold text-lg mb-3">Автоматизации</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Типовые задачи создаются сами. Доверенности формируются одной кнопкой с авто-нумерацией. Задачи синхронизируются с Google Календарём — уведомления приходят на телефон.</p>
+      </div>
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-7">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+          <span class="text-accent text-lg">💰</span>
+        </div>
+        <h3 class="font-bold text-lg mb-3">Финансы и прибыль</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Расходы по проекту разбиты по категориям, прибыль считается автоматически. Всегда видно реальную маржу — без часов ручной работы в конце месяца.</p>
+      </div>
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-7">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+          <span class="text-accent text-lg">🔐</span>
+        </div>
+        <h3 class="font-bold text-lg mb-3">Гибкие права доступа</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Каждый видит только то, что ему положено. Финансовый модуль защищён отдельным кодом. Чувствительные данные — только нужным людям.</p>
+      </div>
+      <div class="card-hover bg-card border border-white/8 rounded-2xl p-7">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+          <span class="text-accent text-lg">📋</span>
+        </div>
+        <h3 class="font-bold text-lg mb-3">Справочники и данные</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Компании, контакты, материалы, водители, перевозчики — вводятся один раз и подставляются автоматически. Никакого дублирования, никакой путаницы.</p>
+      </div>
+    </div>
+
+    <!-- СТОИМОСТЬ -->
+    <div class="bg-card border border-accent/25 rounded-3xl p-10 md:p-14">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-4">Инвестиция</div>
+          <div class="text-6xl font-black mb-2">300 000 <span class="text-3xl text-gray-500">₽</span></div>
+          <div class="text-gray-400 mb-8">разовое внедрение</div>
+          <a href="#contact" class="btn-primary text-dark font-bold px-8 py-4 rounded-full text-base inline-block">Обсудить внедрение →</a>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-accent text-xs">✓</span></div>
+            <p class="text-gray-300 text-sm">Настройка системы под вашу компанию</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-accent text-xs">✓</span></div>
+            <p class="text-gray-300 text-sm">Заполнение справочников</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-accent text-xs">✓</span></div>
+            <p class="text-gray-300 text-sm">Настройка пользователей и прав доступа</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-accent text-xs">✓</span></div>
+            <p class="text-gray-300 text-sm">Обучение команды</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-accent text-xs">✓</span></div>
+            <p class="text-gray-300 text-sm">Передача полных прав администратора — ваши данные остаются только у вас</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-accent text-xs">✓</span></div>
+            <p class="text-gray-300 text-sm">Доработки после запуска — по почасовой ставке</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ВИЗУАЛИЗАЦИЯ БУДУЩЕГО -->
+<section class="py-24 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16">
+      <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-4">Что изменится</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight max-w-2xl">Представьте утро в понедельник через месяц после запуска</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6">
+        <div class="flex items-start gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-xl">☀️</span>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Открываете дашборд — и за 30 секунд видите всё</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Сколько заработали в этом квартале, какие объекты на финише, где есть риски по срокам. Без звонков, без сводок, без ожидания.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-xl">🤝</span>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Менеджер уходит в отпуск — проект не останавливается</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Коллега открывает карточку и видит всё: контакты, договорённости, статус отгрузок, ближайшие задачи. Передача занимает минуты.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-xl">📈</span>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Берёте новые объекты — без страха не справиться</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Система выдерживает любой объём. Добавить проект, добавить пользователя, расширить команду — всё это не требует перестройки процессов.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-xl">💡</span>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Видите статистику — и начинаете прогнозировать</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Какие объекты дают лучшую маржу, как меняется динамика по кварталам, где точки роста. Данные работают на вас, а не лежат мёртвым грузом.</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden aspect-square">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" alt="Современный офис" class="w-full h-full object-cover"/>
+        </div>
+        <div class="absolute -bottom-4 -left-4 bg-card border border-accent/25 rounded-2xl p-5 shadow-xl">
+          <div class="text-2xl font-black gradient-text">+40%</div>
+          <div class="text-xs text-gray-400 mt-1">прироста проектов<br>без увеличения хаоса</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОБО МНЕ -->
+<section class="py-24 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-6">Автор системы</div>
+        <h2 class="text-4xl font-black tracking-tight mb-6">Альбина Хазиева</h2>
+        <p class="text-gray-400 leading-relaxed mb-6">Системный аналитик и Project Manager с опытом с 2012 года. Проектирую и создаю цифровые продукты — от анализа процессов до готового работающего решения.</p>
+        <p class="text-gray-400 leading-relaxed mb-8">Использую современные AI-инструменты, что позволяет реализовывать проекты быстро и без раздутых команд разработки. Cladding CRM создана мной самостоятельно за 2 недели — то, что агентство делало бы полгода.</p>
+        <div class="space-y-3 mb-8">
+          <div class="flex items-center gap-3 text-sm text-gray-300">
+            <span class="text-accent">→</span> Анализ бизнес-процессов и выявление точек роста
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-300">
+            <span class="text-accent">→</span> Проектирование и запуск цифровых продуктов
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-300">
+            <span class="text-accent">→</span> Управление проектами и координация команд
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-300">
+            <span class="text-accent">→</span> Разработка готовых решений с помощью AI: приложения, лендинги, боты
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <div class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-gray-400">🏅 AI School — MASTER</div>
+          <div class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-gray-400">🏅 SITE Geneva — AI Integrator</div>
+          <div class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-gray-400">КФУ — Вычислительная математика</div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-card border border-white/8 rounded-2xl p-6">
+          <div class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">Реализованные проекты</div>
+          <p class="text-gray-300 text-sm leading-relaxed">В роли руководителя проектов и ведущего системного аналитика реализовала системы высокого уровня сложности:</p>
+          <div class="mt-4 grid grid-cols-2 gap-2">
+            <div class="bg-white/5 rounded-xl px-3 py-2 text-xs text-gray-400">МинТруд</div>
+            <div class="bg-white/5 rounded-xl px-3 py-2 text-xs text-gray-400">Госалкогольинспекция</div>
+            <div class="bg-white/5 rounded-xl px-3 py-2 text-xs text-gray-400">Система ЗАГС</div>
+            <div class="bg-white/5 rounded-xl px-3 py-2 text-xs text-gray-400">Биллинг ЖКХ</div>
+            <div class="bg-white/5 rounded-xl px-3 py-2 text-xs text-gray-400">Мобильные приложения</div>
+            <div class="bg-white/5 rounded-xl px-3 py-2 text-xs text-gray-400">Системы учёта</div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-accent/10 to-transparent border border-accent/20 rounded-2xl p-6">
+          <div class="text-accent font-bold mb-2">Безопасность — в договоре</div>
+          <p class="text-gray-400 text-sm leading-relaxed">После запуска все права администратора передаются вам. Мои технические доступы закрываются полностью. Это не слова — это условие договора.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 px-6 border-t border-white/5">
+  <div class="max-w-3xl mx-auto">
+    <div class="mb-16 text-center">
+      <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-4">Вопросы</div>
+      <h2 class="text-4xl font-black tracking-tight">Отвечаю честно</h2>
+    </div>
+    <div class="space-y-3" id="faq">
+
+      <div class="faq-item bg-card border border-white/8 rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-7">
+          <h3 class="font-semibold text-base pr-4">300 000 ₽ — это дорого для нас</h3>
+          <span class="faq-icon text-accent text-2xl flex-shrink-0">+</span>
+        </div>
+        <div class="faq-answer px-7 pb-7">
+          <p class="text-gray-400 leading-relaxed">Разработка аналогичной системы с нуля стоит от 800 000 до 2 500 000 ₽ и занимает полгода. Вы получаете готовое решение — сразу, без рисков разработки. Если посчитать, сколько часов в месяц ваша команда тратит на рутину, которую автоматизирует система — окупаемость становится очевидной довольно быстро.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-card border border-white/8 rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-7">
+          <h3 class="font-semibold text-base pr-4">Как быстро внедряется? У нас нет времени на долгий переход</h3>
+          <span class="faq-icon text-accent text-2xl flex-shrink-0">+</span>
+        </div>
+        <div class="faq-answer px-7 pb-7">
+          <p class="text-gray-400 leading-relaxed">От 1 до 3 недель — в зависимости от объёма данных для начальной настройки. Система работает через браузер, ничего устанавливать не нужно. Обучение команды занимает один рабочий день. Никакого долгого перехода — просто начинаете работать.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-card border border-white/8 rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-7">
+          <h3 class="font-semibold text-base pr-4">Что будет с нашими данными? Это безопасно?</h3>
+          <span class="faq-icon text-accent text-2xl flex-shrink-0">+</span>
+        </div>
+        <div class="faq-answer px-7 pb-7">
+          <p class="text-gray-400 leading-relaxed">Данные хранятся в защищённой облачной инфраструктуре Google. После запуска все права администратора передаются вам — я не сохраняю никаких технических доступов. Это прописывается в договоре. Ваши данные — только ваши.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-card border border-white/8 rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-7">
+          <h3 class="font-semibold text-base pr-4">А вдруг система не подойдёт под наши процессы?</h3>
+          <span class="faq-icon text-accent text-2xl flex-shrink-0">+</span>
+        </div>
+        <div class="faq-answer px-7 pb-7">
+          <p class="text-gray-400 leading-relaxed">Именно поэтому я предлагаю начать с демонстрации — 30–40 минут, где вы увидите систему в деле и зададите любые вопросы. Никакого давления, никаких обязательств. Если поймёте, что это не то — просто скажите. Если подойдёт — договоримся о деталях.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-card border border-white/8 rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-7">
+          <h3 class="font-semibold text-base pr-4">Что если после запуска понадобятся изменения?</h3>
+          <span class="faq-icon text-accent text-2xl flex-shrink-0">+</span>
+        </div>
+        <div class="faq-answer px-7 pb-7">
+          <p class="text-gray-400 leading-relaxed">Доработки выполняются по почасовой ставке — оплачивается только фактически потраченное время. Никаких абонентских платежей, никаких обязательных пакетов поддержки.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 border-t border-white/5" id="contact">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="text-accent text-sm font-semibold tracking-widest uppercase mb-6">Следующий шаг</div>
+    <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Давайте покажу систему вживую</h2>
+    <p class="text-gray-400 text-lg leading-relaxed mb-10">30–40 минут демонстрации — и вы поймёте, подходит ли это вам. Онлайн или очно. Без давления и без обязательств.</p>
+    <div class="bg-card border border-white/8 rounded-3xl p-10">
+      <div class="grid sm:grid-cols-2 gap-6 mb-8">
+        <div class="text-left">
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">Телефон</div>
+          <a href="tel:+7__________" class="text-lg font-semibold hover:text-accent transition-colors">+7 ___ ___ __ __</a>
+        </div>
+        <div class="text-left">
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">Email</div>
+          <a href="mailto:___@arhihub.ru" class="text-lg font-semibold hover:text-accent transition-colors">___@arhihub.ru</a>
+        </div>
+      </div>
+      <a href="tel:+7__________" class="btn-primary text-dark font-bold px-10 py-5 rounded-full text-base inline-block w-full sm:w-auto">Позвонить и договориться о встрече</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-10 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div>
+      <div class="font-bold">Cladding <span class="gradient-text">CRM</span></div>
+      <div class="text-xs text-gray-600 mt-1">© 2025 Альбина Хазиева. Все права защищены.</div>
+    </div>
+    <div class="text-sm text-gray-600">Системный аналитик · Project Manager · AI-разработка</div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+</script>
+
+</body>
+</html>
