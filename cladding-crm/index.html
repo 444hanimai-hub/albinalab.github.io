@@ -170,38 +170,18 @@ html{scroll-behavior:smooth;}
     </div>
   </div>
 
-  <!-- МОБИЛЬНАЯ версия (скрыта на десктопе) -->
-  <div class="md:hidden relative" style="background:linear-gradient(160deg,#3D1F0A 0%,#5C2E0F 60%,#7A4020 100%);">
-    <!-- Фото как фон -->
-    <div class="absolute inset-0">
-      <img src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM" style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.35;"/>
+  <!-- МОБИЛЬНАЯ версия -->
+  <div class="md:hidden relative w-full" style="aspect-ratio:16/9;">
+    <img src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+    <!-- Теги -->
+    <div style="position:absolute;top:11%;left:50%;transform:translateX(-50%);display:flex;gap:1.5vw;white-space:nowrap;">
+      <span style="background:rgba(245,240,232,0.95);border:1px solid rgba(200,121,58,0.35);border-radius:999px;padding:0.8vw 2vw;font-size:2vw;font-weight:600;color:#3D1F0A;">• экономит время</span>
+      <span style="background:rgba(245,240,232,0.95);border:1px solid rgba(200,121,58,0.35);border-radius:999px;padding:0.8vw 2vw;font-size:2vw;font-weight:600;color:#3D1F0A;">• контроль в реальном времени</span>
+      <span style="background:rgba(245,240,232,0.95);border:1px solid rgba(200,121,58,0.35);border-radius:999px;padding:0.8vw 2vw;font-size:2vw;font-weight:600;color:#3D1F0A;">• готова к запуску</span>
     </div>
-    <div class="relative z-10 px-6 pt-8 pb-10">
-      <!-- Теги -->
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
-        <span style="background:rgba(245,240,232,0.95);border:1px solid rgba(200,121,58,0.35);border-radius:999px;padding:4px 12px;font-size:11px;font-weight:600;color:#3D1F0A;">• экономит время</span>
-        <span style="background:rgba(245,240,232,0.95);border:1px solid rgba(200,121,58,0.35);border-radius:999px;padding:4px 12px;font-size:11px;font-weight:600;color:#3D1F0A;">• контроль в реальном времени</span>
-        <span style="background:rgba(245,240,232,0.95);border:1px solid rgba(200,121,58,0.35);border-radius:999px;padding:4px 12px;font-size:11px;font-weight:600;color:#3D1F0A;">• готова к запуску</span>
-      </div>
-      <!-- Заголовок -->
-      <h1 style="font-size:36px;font-weight:900;line-height:1.05;letter-spacing:-1px;color:#fff;margin-bottom:12px;">
-        Ваш бизнес вырос.<br>
-        <span style="color:#E8A060;">Инструменты —</span><br>
-        ещё нет.
-      </h1>
-      <!-- Подзаголовок -->
-      <p style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:24px;">
-        Готовая CRM для компаний по подбору и поставке облицовочных материалов. Не настраивайте универсальное — возьмите то, что уже подходит.
-      </p>
-      <!-- Кнопки -->
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="#contact" style="background:#C8793A;color:#fff;font-weight:700;font-size:14px;padding:13px 22px;border-radius:8px;text-decoration:none;display:inline-block;">Получить демонстрацию →</a>
-        <a href="#offer" style="border:1.5px solid rgba(255,255,255,0.4);color:#fff;font-weight:600;font-size:14px;padding:13px 22px;border-radius:8px;text-decoration:none;display:inline-block;">Подробнее</a>
-      </div>
-      <!-- Картинка системы -->
-      <div style="margin-top:28px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);">
-        <img src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM интерфейс" style="width:100%;display:block;"/>
-      </div>
+    <!-- Кнопка -->
+    <div style="position:absolute;top:66.5%;left:21.5%;">
+      <a href="#offer" style="background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.45);color:#fff;font-weight:600;font-size:2vw;padding:1.2vw 2.5vw;border-radius:1vw;text-decoration:none;white-space:nowrap;display:inline-block;">Узнать подробнее</a>
     </div>
   </div>
 
