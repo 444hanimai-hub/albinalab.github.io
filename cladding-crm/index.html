@@ -152,38 +152,32 @@ html{scroll-behavior:smooth;}
 </header>
 
 <!-- HERO -->
-<section class="min-h-screen flex items-center pt-20 overflow-hidden relative" style="padding-right:48px">
-  <div class="absolute inset-0" style="background:linear-gradient(135deg,#3D1F0A 0%,#5C2E0F 55%,#7A4020 100%)"></div>
-  <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0);background-size:32px 32px"></div>
-  <div class="max-w-6xl mx-auto px-6 py-20 relative z-10 w-full">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- TEXT -->
-      <div>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mb-8" style="background:rgba(200,121,58,0.2);border:1px solid rgba(200,121,58,0.35);color:#E8A060;letter-spacing:2px;text-transform:uppercase;font-weight:600">
-          <span class="w-1.5 h-1.5 rounded-full" style="background:#E8A060"></span>
-          Специализировано под вашу нишу
-        </div>
-        <h1 class="font-black leading-tight mb-6 text-white" style="font-size:clamp(36px,5vw,60px);letter-spacing:-1.5px">
-          Ваш бизнес вырос.<br>
-          <span style="color:var(--amber-light)">Инструменты —</span><br>
-          ещё нет.
-        </h1>
-        <p class="text-base leading-relaxed mb-10" style="color:rgba(255,255,255,0.6);max-width:420px">
-          Готовая система управления проектами для компаний по подбору и поставке облицовочных материалов. Не настраивайте под себя универсальное — возьмите то, что уже подходит.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" class="btn-main px-8 py-4 rounded-xl font-bold text-base text-center">Получить демонстрацию →</a>
-          <a href="#offer" class="btn-outline px-8 py-4 rounded-xl font-semibold text-base text-center">Узнать подробнее</a>
-        </div>
-      </div>
+<section class="relative overflow-hidden" style="padding-right:48px;min-height:100vh;">
+  <!-- Фон — картинка на весь экран -->
+  <div class="absolute inset-0">
+    <img src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;"/>
+    <!-- Градиент сверху для текста -->
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(30,10,2,0.82) 0%, rgba(30,10,2,0.55) 45%, rgba(30,10,2,0.1) 100%)"></div>
+  </div>
 
-      <!-- MOCKUP IMAGE -->
-      <div class="relative mt-8 lg:mt-0 flex items-center justify-center">
-        <img 
-          src="https://albinalab.com/cladding-crm/img1.png" 
-          alt="Cladding CRM — интерфейс системы" 
-          style="width:100%;max-width:580px;object-fit:contain;filter:drop-shadow(0 32px 64px rgba(0,0,0,0.5))"
-        />
+  <!-- Текст поверх -->
+  <div class="relative z-10 flex flex-col justify-start pt-36 pb-16 px-6 max-w-6xl mx-auto min-h-screen">
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mb-8" style="background:rgba(200,121,58,0.2);border:1px solid rgba(200,121,58,0.4);color:#E8A060;letter-spacing:2px;text-transform:uppercase;font-weight:600">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:#E8A060"></span>
+        Специализировано под вашу нишу
+      </div>
+      <h1 class="font-black leading-tight mb-6 text-white" style="font-size:clamp(40px,6vw,72px);letter-spacing:-2px;text-shadow:0 2px 24px rgba(0,0,0,0.4)">
+        Ваш бизнес вырос.<br>
+        <span style="color:var(--amber-light)">Инструменты —</span><br>
+        ещё нет.
+      </h1>
+      <p class="text-lg leading-relaxed mb-10" style="color:rgba(255,255,255,0.7);max-width:480px;text-shadow:0 1px 8px rgba(0,0,0,0.5)">
+        Готовая CRM-система для компаний по подбору и поставке облицовочных материалов. Не настраивайте универсальное под себя — возьмите то, что уже подходит.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="btn-main px-8 py-4 rounded-xl font-bold text-base text-center">Получить демонстрацию →</a>
+        <a href="#offer" class="btn-outline px-8 py-4 rounded-xl font-semibold text-base text-center">Узнать подробнее</a>
       </div>
     </div>
   </div>
