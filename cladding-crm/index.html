@@ -9,34 +9,136 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#F5F0E8;color:#1C1008;}
-:root{--brown:#3D1F0A;--amber:#C8793A;--amber-light:#E8A060;--cream:#F5F0E8;--warm:#EDE5D8;--border:#D4C4A8;}
-
-.btn-main{background:var(--amber);color:#fff;transition:all .25s ease;}
+:root{
+  --brown:#3D1F0A;
+  --brown2:#5C2E0F;
+  --amber:#C8793A;
+  --amber-light:#E8A060;
+  --cream:#F5F0E8;
+  --warm:#EDE5D8;
+  --border:#D4C4A8;
+  --text-muted:#7A5C3A;
+}
+.btn-main{background:var(--amber);color:#fff;transition:all .25s;}
 .btn-main:hover{background:var(--amber-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,121,58,0.3);}
-.btn-outline{border:2px solid var(--brown);color:var(--brown);transition:all .25s ease;}
-.btn-outline:hover{background:var(--brown);color:#fff;}
-.card{background:#fff;border:1px solid var(--border);transition:all .3s ease;}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(61,31,10,0.1);}
+.btn-outline{border:2px solid rgba(255,255,255,0.3);color:#fff;transition:all .25s;}
+.btn-outline:hover{background:rgba(255,255,255,0.1);}
+.card{background:#fff;border:1px solid var(--border);transition:all .3s;}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(61,31,10,0.08);}
 .faq-answer{display:none;}
 .faq-item.open .faq-answer{display:block;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-icon{transition:transform .3s ease;display:inline-block;}
+.faq-icon{transition:transform .3s;display:inline-block;}
 html{scroll-behavior:smooth;}
 
-/* SVG icons */
-.icon-dashboard{width:40px;height:40px;}
-.icon-project{width:40px;height:40px;}
-.icon-auto{width:40px;height:40px;}
-.icon-finance{width:40px;height:40px;}
-.icon-lock{width:40px;height:40px;}
-.icon-ref{width:40px;height:40px;}
+/* SIDE TAPE */
+.side-tape{
+  position:fixed;right:0;top:0;bottom:0;width:48px;
+  background:var(--brown);z-index:40;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:28px;
+}
+.side-tape-label{
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  transform:rotate(180deg);
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);font-weight:600;
+  white-space:nowrap;
+}
+.side-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+}
+.side-dot.active{background:var(--amber);}
+.side-line{width:1px;height:60px;background:rgba(255,255,255,0.08);}
+
+/* MOCKUP */
+.laptop-frame{
+  position:relative;
+  width:100%;max-width:560px;
+  filter:drop-shadow(0 24px 48px rgba(61,31,10,0.2));
+}
+.laptop-screen{
+  background:#1a1008;
+  border-radius:10px 10px 0 0;
+  border:2px solid #3D2510;
+  overflow:hidden;
+  position:relative;
+  padding-top:56%;
+}
+.laptop-screen-inner{
+  position:absolute;inset:0;
+  overflow:hidden;
+}
+.laptop-base{
+  height:18px;background:linear-gradient(180deg,#2A1508 0%,#1A0D05 100%);
+  border-radius:0 0 6px 6px;
+  border:2px solid #3D2510;border-top:none;
+}
+.laptop-stand{
+  width:40%;height:8px;
+  background:#1A0D05;
+  margin:0 auto;
+  border-radius:0 0 4px 4px;
+}
+
+.phone-frame{
+  position:relative;
+  width:140px;
+  filter:drop-shadow(0 20px 40px rgba(61,31,10,0.25));
+}
+.phone-screen{
+  background:#1a1008;
+  border-radius:18px;
+  border:2px solid #3D2510;
+  overflow:hidden;
+  padding-top:200%;
+  position:relative;
+}
+.phone-screen-inner{
+  position:absolute;inset:0;
+  overflow:hidden;
+}
+.phone-notch{
+  position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:40px;height:5px;background:#3D2510;border-radius:3px;z-index:2;
+}
+
+/* DASHBOARD MOCKUP CONTENT */
+.db-header{background:#2A1508;padding:6px 8px;display:flex;align-items:center;justify-content:space-between;}
+.db-sidebar{width:50px;background:#1A0D05;height:100%;position:absolute;left:0;top:0;display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:6px;}
+.db-main{margin-left:50px;padding:6px;height:100%;}
+.db-stat{background:#2A1508;border-radius:4px;padding:4px 6px;flex:1;}
+.db-card-mini{background:#2A1508;border-radius:4px;padding:4px 6px;margin-bottom:3px;}
+
+/* mobile mockup */
+.mob-card{background:#2A1508;border-radius:8px;margin:4px;padding:8px;}
+.mob-badge{background:rgba(200,121,58,0.2);border-radius:4px;display:inline-block;padding:1px 5px;}
+.progress-bar{height:3px;background:#3D2510;border-radius:2px;margin-top:3px;}
+.progress-fill{height:3px;background:var(--amber);border-radius:2px;}
 </style>
 </head>
 <body>
 
+<!-- БОКОВАЯ ЛЕНТА -->
+<div class="side-tape hidden lg:flex">
+  <div class="side-line"></div>
+  <div class="side-dot active"></div>
+  <div class="side-line"></div>
+  <div class="side-dot"></div>
+  <div class="side-line"></div>
+  <div class="side-dot"></div>
+  <div class="side-line"></div>
+  <span class="side-tape-label">Cladding CRM · 2025</span>
+  <div class="side-line"></div>
+  <div class="side-dot"></div>
+  <div class="side-line"></div>
+</div>
+
 <!-- HEADER -->
-<header style="background:rgba(245,240,232,0.92);border-bottom:1px solid var(--border);" class="fixed top-0 left-0 right-0 z-50" style="backdrop-filter:blur(16px)">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+<header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(245,240,232,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(16px)">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between" style="padding-right:72px">
     <div>
       <div class="text-xl font-black tracking-tight" style="color:var(--brown)">Cladding <span style="color:var(--amber)">CRM</span></div>
       <div class="text-xs mt-0.5" style="color:#9A8060">система управления проектами</div>
@@ -50,164 +152,163 @@ html{scroll-behavior:smooth;}
 </header>
 
 <!-- HERO -->
-<section class="min-h-screen flex items-center pt-20 overflow-hidden relative">
-  <div class="absolute inset-0" style="background:linear-gradient(135deg,#3D1F0A 0%,#5C2E0F 50%,#7A4020 100%)"></div>
-  <div class="absolute inset-0 opacity-10" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80&fit=crop');background-size:cover;background-position:center;mix-blend-mode:overlay"></div>
-  <div class="max-w-6xl mx-auto px-6 py-28 relative z-10 w-full">
-    <div class="max-w-2xl">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-8" style="background:rgba(200,121,58,0.2);border:1px solid rgba(200,121,58,0.4);color:#E8A060">
-        <span class="w-1.5 h-1.5 rounded-full" style="background:#E8A060"></span>
-        Специализировано под вашу нишу
+<section class="min-h-screen flex items-center pt-20 overflow-hidden relative" style="padding-right:48px">
+  <div class="absolute inset-0" style="background:linear-gradient(135deg,#3D1F0A 0%,#5C2E0F 55%,#7A4020 100%)"></div>
+  <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0);background-size:32px 32px"></div>
+  <div class="max-w-6xl mx-auto px-6 py-20 relative z-10 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- TEXT -->
+      <div>
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mb-8" style="background:rgba(200,121,58,0.2);border:1px solid rgba(200,121,58,0.35);color:#E8A060;letter-spacing:2px;text-transform:uppercase;font-weight:600">
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#E8A060"></span>
+          Специализировано под вашу нишу
+        </div>
+        <h1 class="font-black leading-tight mb-6 text-white" style="font-size:clamp(36px,5vw,60px);letter-spacing:-1.5px">
+          Ваш бизнес вырос.<br>
+          <span style="color:var(--amber-light)">Инструменты —</span><br>
+          ещё нет.
+        </h1>
+        <p class="text-base leading-relaxed mb-10" style="color:rgba(255,255,255,0.6);max-width:420px">
+          Готовая система управления проектами для компаний по подбору и поставке облицовочных материалов. Не настраивайте под себя универсальное — возьмите то, что уже подходит.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="btn-main px-8 py-4 rounded-xl font-bold text-base text-center">Получить демонстрацию →</a>
+          <a href="#offer" class="btn-outline px-8 py-4 rounded-xl font-semibold text-base text-center">Узнать подробнее</a>
+        </div>
       </div>
-      <h1 class="font-black leading-tight mb-6 text-white" style="font-size:clamp(42px,6vw,72px);letter-spacing:-1.5px">
-        Ваш бизнес вырос.<br>
-        <span style="color:var(--amber-light)">Инструменты —</span><br>
-        ещё нет.
-      </h1>
-      <p class="text-lg leading-relaxed mb-10" style="color:rgba(255,255,255,0.65);max-width:480px">
-        Cladding CRM — готовая система управления проектами, созданная специально для компаний по подбору и поставке облицовочных материалов.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#contact" class="btn-main px-8 py-4 rounded-lg font-bold text-base text-center">Получить демонстрацию →</a>
-        <a href="#offer" class="btn-outline px-8 py-4 rounded-lg font-semibold text-base text-center" style="border-color:rgba(255,255,255,0.3);color:#fff">
-          Узнать подробнее
-        </a>
+
+      <!-- MOCKUP IMAGE -->
+      <div class="relative mt-8 lg:mt-0 flex items-center justify-center">
+        <img 
+          src="https://albinalab.com/cladding-crm/img1.png" 
+          alt="Cladding CRM — интерфейс системы" 
+          style="width:100%;max-width:580px;object-fit:contain;filter:drop-shadow(0 32px 64px rgba(0,0,0,0.5))"
+        />
       </div>
     </div>
   </div>
 </section>
 
 <!-- БОЛИ -->
-<section class="py-24 px-6" style="background:var(--cream)">
+<section class="py-24 px-6" style="background:var(--cream);padding-right:72px">
   <div class="max-w-6xl mx-auto">
     <div class="mb-14">
       <div class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--amber)">Узнаёте себя?</div>
       <h2 class="font-black tracking-tight" style="font-size:clamp(32px,4vw,48px);color:var(--brown)">Возможно, прямо сейчас<br>вы думаете о том, что...</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-4">
-
       <div class="card rounded-2xl p-8">
-        <svg class="icon-dashboard mb-5" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="4" width="14" height="18" rx="3" fill="#C8793A" opacity=".15"/>
-          <rect x="22" y="4" width="14" height="10" rx="3" fill="#C8793A" opacity=".15"/>
-          <rect x="22" y="18" width="14" height="18" rx="3" fill="#C8793A" opacity=".15"/>
-          <rect x="4" y="26" width="14" height="10" rx="3" fill="#C8793A" opacity=".15"/>
-          <rect x="4" y="4" width="14" height="18" rx="3" stroke="#C8793A" stroke-width="1.5"/>
-          <rect x="22" y="4" width="14" height="10" rx="3" stroke="#C8793A" stroke-width="1.5"/>
-          <rect x="22" y="18" width="14" height="18" rx="3" stroke="#C8793A" stroke-width="1.5"/>
-          <rect x="4" y="26" width="14" height="10" rx="3" stroke="#C8793A" stroke-width="1.5"/>
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
+          <rect x="4" y="4" width="14" height="18" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
+          <rect x="22" y="4" width="14" height="10" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
+          <rect x="22" y="18" width="14" height="18" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
+          <rect x="4" y="26" width="14" height="10" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
         </svg>
         <h3 class="text-lg font-bold mb-3" style="color:var(--brown)">«Хочу видеть реальную картину — сразу, не собирая её по кускам»</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Бизнес работает, проекты идут — но чтобы понять, где вы находитесь прямо сейчас, нужно звонить, спрашивать, сводить. Это занимает время, которого никогда нет.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Бизнес работает, проекты идут — но чтобы понять где вы находитесь прямо сейчас, нужно звонить, спрашивать, сводить. Это время, которого никогда нет.</p>
       </div>
-
       <div class="card rounded-2xl p-8">
-        <svg class="icon-finance mb-5" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="20" r="15" stroke="#C8793A" stroke-width="1.5" fill="#C8793A" fill-opacity=".08"/>
-          <path d="M20 10v2M20 28v2M14 14l1.5 1.5M24.5 24.5l1.5 1.5M10 20h2M28 20h2M14 26l1.5-1.5M24.5 15.5l1.5-1.5" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="20" r="4" fill="#C8793A" opacity=".3"/>
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
+          <circle cx="20" cy="20" r="14" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
+          <path d="M20 12v8l5 3" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 20h3M27 20h3M20 10v3M20 27v3" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
         <h3 class="text-lg font-bold mb-3" style="color:var(--brown)">«Не всегда понятно, сколько реально заработали на объекте»</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Расходы разбросаны — часть в бухгалтерии, часть в памяти, часть в таблицах. Посчитать реальную прибыль — это отдельная работа на несколько часов. И уверенности в итоге нет.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Расходы разбросаны — часть в бухгалтерии, часть в памяти, часть в таблицах. Посчитать реальную прибыль — отдельная работа на несколько часов.</p>
       </div>
-
       <div class="card rounded-2xl p-8">
-        <svg class="icon-project mb-5" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="12" r="6" stroke="#C8793A" stroke-width="1.5" fill="#C8793A" fill-opacity=".08"/>
-          <circle cx="10" cy="30" r="4" stroke="#C8793A" stroke-width="1.5" fill="#C8793A" fill-opacity=".08"/>
-          <circle cx="30" cy="30" r="4" stroke="#C8793A" stroke-width="1.5" fill="#C8793A" fill-opacity=".08"/>
-          <path d="M16 17l-4 9M24 17l4 9M16 12h8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
+          <circle cx="20" cy="13" r="5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
+          <circle cx="10" cy="29" r="4" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
+          <circle cx="30" cy="29" r="4" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
+          <path d="M15 18l-3 8M25 18l3 8" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M15 13h10" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
         <h3 class="text-lg font-bold mb-3" style="color:var(--brown)">«Слишком много держится на конкретных людях»</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Менеджер уходит в отпуск или меняется — и нужно время, чтобы ввести коллегу в курс дела. Где договорённости, кто поставщик, на каком этапе отгрузки. Всё это живёт в голове одного человека.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Менеджер уходит в отпуск или меняется — и нужно время, чтобы ввести коллегу в курс дела. Всё это живёт в голове одного человека.</p>
       </div>
-
       <div class="card rounded-2xl p-8">
-        <svg class="icon-auto mb-5" viewBox="0 0 40 40" fill="none">
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
           <path d="M8 20c0-6.627 5.373-12 12-12" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M32 20c0 6.627-5.373 12-12 12" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M14 8l-6 0 0 6" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M26 32l6 0 0-6" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M12 8l-4 0 0 4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32l4 0 0-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="20" cy="20" r="3" fill="#C8793A" opacity=".3"/>
         </svg>
         <h3 class="text-lg font-bold mb-3" style="color:var(--brown)">«Рутина съедает время, которое могло бы идти на рост»</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Доверенности вручную, задачи в чатах, напоминания на словах. Каждая мелочь — не катастрофа. Но в сумме это часы каждую неделю, которые могли бы уходить на новых клиентов и новые объекты.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Доверенности вручную, задачи в чатах, напоминания на словах. В сумме это часы каждую неделю, которые могли бы уходить на новых клиентов и новые объекты.</p>
       </div>
-
       <div class="card rounded-2xl p-8 md:col-span-2">
-        <svg class="icon-ref mb-5" viewBox="0 0 40 40" fill="none">
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
           <path d="M8 32V20c0-6.627 5.373-12 12-12s12 5.373 12 12v12" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M4 24h6v8H4zM30 24h6v8h-6z" stroke="#C8793A" stroke-width="1.5" rx="2" fill="#C8793A" fill-opacity=".1"/>
-          <path d="M20 22v4M18 26h4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
+          <rect x="4" y="24" width="8" height="8" rx="2" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.3"/>
+          <rect x="28" y="24" width="8" height="8" rx="2" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.3"/>
+          <path d="M18 24h4M20 22v4" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
         <h3 class="text-lg font-bold mb-3" style="color:var(--brown)">«Хочется расти — но непонятно, как управлять большим объёмом»</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Взять ещё два-три объекта — значит ещё больше координации, ещё больше таблиц, ещё больше контроля вручную. Масштабирование упирается не в рынок и не в команду — а в отсутствие системы.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Взять ещё два-три объекта — значит ещё больше координации, таблиц и контроля вручную. Масштабирование упирается не в рынок, а в отсутствие системы.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ПОЧЕМУ ПРОШЛЫЕ РЕШЕНИЯ НЕ СРАБОТАЛИ -->
-<section class="py-24 px-6" style="background:var(--brown)">
+<!-- ПОЧЕМУ ПРОШЛОЕ НЕ СРАБОТАЛО -->
+<section class="py-24 px-6" style="background:var(--brown);padding-right:72px">
   <div class="max-w-6xl mx-auto">
     <div class="mb-14">
       <div class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--amber-light)">Почему это до сих пор не решено</div>
       <h2 class="font-black tracking-tight text-white" style="font-size:clamp(32px,4vw,48px)">Вы уже пробовали.<br>Но это не то.</h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
-        <div class="text-sm font-bold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Excel и таблицы</div>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Таблица хранит данные, но не управляет ими. Она не напомнит, не посчитает, не покажет динамику. И чем больше проектов — тем сложнее в ней ориентироваться.</p>
+    <div class="grid md:grid-cols-3 gap-5 mb-8">
+      <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
+        <div class="text-xs font-bold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Excel и таблицы</div>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">Хранит данные, но не управляет ими. Не напомнит, не посчитает, не покажет динамику. И чем больше проектов — тем сложнее ориентироваться.</p>
       </div>
-      <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
-        <div class="text-sm font-bold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Универсальные CRM</div>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Битрикс, AmoCRM, Notion — мощные инструменты под всё что угодно. Именно поэтому на настройку уходят месяцы, а система всё равно не учитывает специфику поставки облицовки.</p>
+      <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
+        <div class="text-xs font-bold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Универсальные CRM</div>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">Битрикс, AmoCRM — мощные, но универсальные. На настройку уходят месяцы, а специфику поставки облицовки они всё равно не учитывают.</p>
       </div>
-      <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
-        <div class="text-sm font-bold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Разработка с нуля</div>
-        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">От 800 000 до 2 500 000 ₽, полгода ожидания и продукт, который ещё нужно доводить. Высокий риск, долгий путь, неочевидный результат.</p>
+      <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
+        <div class="text-xs font-bold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Разработка с нуля</div>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">От 800 000 до 2 500 000 ₽ и полгода ожидания. Высокий риск, долгий путь, неочевидный результат.</p>
       </div>
     </div>
-    <div class="mt-8 rounded-2xl p-8" style="background:rgba(200,121,58,0.15);border:1px solid rgba(200,121,58,0.3)">
+    <div class="rounded-2xl p-8" style="background:rgba(200,121,58,0.15);border:1px solid rgba(200,121,58,0.3)">
       <p class="text-lg font-semibold text-white leading-relaxed">Cladding CRM — это другой путь. Система уже создана, работает и заточена под вашу специфику. Не нужно настраивать месяцами. Просто начать.</p>
     </div>
   </div>
 </section>
 
 <!-- ОФФЕР -->
-<section class="py-24 px-6" style="background:var(--warm)" id="offer">
+<section class="py-24 px-6" style="background:var(--warm);padding-right:72px" id="offer">
   <div class="max-w-6xl mx-auto">
     <div class="mb-14">
       <div class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--amber)">Решение</div>
       <h2 class="font-black tracking-tight" style="font-size:clamp(32px,4vw,48px);color:var(--brown)">Всё для контроля над бизнесом —<br>в одном окне</h2>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
-
       <div class="card rounded-2xl p-7">
-        <svg viewBox="0 0 40 40" fill="none" class="mb-5" style="width:40px;height:40px">
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
           <rect x="4" y="4" width="14" height="18" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
           <rect x="22" y="4" width="14" height="10" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
           <rect x="22" y="18" width="14" height="18" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
           <rect x="4" y="26" width="14" height="10" rx="2.5" fill="#C8793A" opacity=".12" stroke="#C8793A" stroke-width="1.5"/>
-          <path d="M7 17l3-3 3 3" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3 class="font-bold text-base mb-2" style="color:var(--brown)">Дашборд руководителя</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Сумма контрактов, прибыль, маржа, динамика — в реальном времени. Все активные проекты и ближайшие задачи. Без звонков и сводок.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Сумма контрактов, прибыль, маржа, динамика — в реальном времени. Все активные проекты и задачи. Без звонков и сводок.</p>
       </div>
-
       <div class="card rounded-2xl p-7">
-        <svg viewBox="0 0 40 40" fill="none" class="mb-5" style="width:40px;height:40px">
-          <rect x="6" y="6" width="28" height="34" rx="3" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
+          <rect x="6" y="5" width="28" height="35" rx="3" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
           <path d="M12 16h16M12 22h16M12 28h10" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="30" cy="30" r="6" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.3"/>
-          <path d="M28 30l1.5 1.5L32 28" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="30" cy="31" r="6" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.3"/>
+          <path d="M28 31l1.5 1.5L32 29" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3 class="font-bold text-base mb-2" style="color:var(--brown)">Полная карточка проекта</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Участники, отгрузки с прогрессом выполнения контракта, задачи, финансы, доверенности. Передать проект другому менеджеру — минуты, не дни.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Участники, отгрузки с прогрессом контракта, задачи, финансы, доверенности. Передать проект — минуты, не дни.</p>
       </div>
-
       <div class="card rounded-2xl p-7">
-        <svg viewBox="0 0 40 40" fill="none" class="mb-5" style="width:40px;height:40px">
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
           <path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6z" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
           <path d="M14 20c0-3.314 2.686-6 6-6" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M26 20c0 3.314-2.686 6-6 6" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
@@ -215,39 +316,35 @@ html{scroll-behavior:smooth;}
           <circle cx="20" cy="20" r="2.5" fill="#C8793A" opacity=".4"/>
         </svg>
         <h3 class="font-bold text-base mb-2" style="color:var(--brown)">Автоматизации</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Типовые задачи создаются сами. Доверенности — одной кнопкой с авто-нумерацией. Задачи синхронизируются с Google Календарём — уведомления на телефон.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Типовые задачи создаются сами. Доверенности — одной кнопкой с авто-нумерацией. Синхронизация с Google Календарём.</p>
       </div>
-
       <div class="card rounded-2xl p-7">
-        <svg viewBox="0 0 40 40" fill="none" class="mb-5" style="width:40px;height:40px">
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
           <rect x="6" y="14" width="28" height="20" rx="3" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
           <path d="M13 14V11a7 7 0 0114 0v3" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="20" cy="24" r="3" fill="#C8793A" opacity=".3" stroke="#C8793A" stroke-width="1.3"/>
           <path d="M20 27v3" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
         <h3 class="font-bold text-base mb-2" style="color:var(--brown)">Гибкие права доступа</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Каждый видит только то, что ему положено. Финансовый модуль защищён отдельным кодом. Чувствительные данные — только нужным людям.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Каждый видит только то, что ему положено. Финансовый модуль защищён отдельным кодом.</p>
       </div>
-
       <div class="card rounded-2xl p-7">
-        <svg viewBox="0 0 40 40" fill="none" class="mb-5" style="width:40px;height:40px">
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
           <path d="M8 32V14l12-8 12 8v18H8z" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M15 32V22h10v10" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M15 18h10" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
         <h3 class="font-bold text-base mb-2" style="color:var(--brown)">Финансы и прибыль</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Расходы по категориям, прибыль считается автоматически. Всегда видна реальная маржа — без часов ручной работы.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Расходы по категориям, прибыль считается автоматически. Реальная маржа — без часов ручной работы.</p>
       </div>
-
       <div class="card rounded-2xl p-7">
-        <svg viewBox="0 0 40 40" fill="none" class="mb-5" style="width:40px;height:40px">
-          <rect x="6" y="8" width="28" height="24" rx="3" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
-          <path d="M6 16h28" stroke="#C8793A" stroke-width="1.3"/>
-          <path d="M13 12h.01M18 12h.01M23 12h.01" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M11 22h6M11 26h10M23 22h6" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
+        <svg viewBox="0 0 40 40" fill="none" style="width:36px;height:36px;margin-bottom:16px">
+          <rect x="5" y="8" width="30" height="24" rx="3" fill="#C8793A" opacity=".08" stroke="#C8793A" stroke-width="1.5"/>
+          <path d="M5 16h30" stroke="#C8793A" stroke-width="1.3"/>
+          <path d="M12 12h.01M17 12h.01M22 12h.01" stroke="#C8793A" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 23h8M11 27h12M23 23h6" stroke="#C8793A" stroke-width="1.3" stroke-linecap="round"/>
         </svg>
         <h3 class="font-bold text-base mb-2" style="color:var(--brown)">Справочники</h3>
-        <p class="text-sm leading-relaxed" style="color:#7A5C3A">Компании, контакты, материалы, водители, перевозчики — вводятся один раз и подставляются автоматически везде.</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Компании, контакты, материалы, водители — вводятся один раз и подставляются автоматически везде.</p>
       </div>
     </div>
 
@@ -255,55 +352,37 @@ html{scroll-behavior:smooth;}
     <div class="rounded-3xl overflow-hidden" style="background:var(--brown)">
       <div class="grid md:grid-cols-2">
         <div class="p-12">
-          <div class="text-sm font-semibold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Инвестиция</div>
-          <div class="font-black text-white mb-1" style="font-size:64px;line-height:1">300 000</div>
-          <div class="text-2xl text-white mb-2">₽</div>
-          <div class="mb-8" style="color:rgba(255,255,255,0.5)">разовое внедрение</div>
-          <a href="#contact" class="btn-main px-8 py-4 rounded-lg font-bold text-base inline-block">Обсудить внедрение →</a>
+          <div class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:var(--amber-light)">Инвестиция</div>
+          <div class="font-black text-white mb-1" style="font-size:64px;line-height:1;letter-spacing:-2px">300 000</div>
+          <div class="text-2xl font-light text-white mb-2">₽</div>
+          <div class="mb-8 text-sm" style="color:rgba(255,255,255,0.4)">разовое внедрение</div>
+          <a href="#contact" class="btn-main px-8 py-4 rounded-xl font-bold text-base inline-block">Обсудить внедрение →</a>
         </div>
-        <div class="p-12" style="background:rgba(255,255,255,0.05);border-left:1px solid rgba(255,255,255,0.08)">
+        <div class="p-12" style="background:rgba(255,255,255,0.04);border-left:1px solid rgba(255,255,255,0.06)">
           <div class="space-y-4">
             <div class="flex items-start gap-3">
-              <svg viewBox="0 0 20 20" fill="none" style="width:20px;height:20px;flex-shrink:0;margin-top:2px">
-                <circle cx="10" cy="10" r="9" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.2"/>
-                <path d="M6 10l2.5 2.5L14 8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p class="text-sm" style="color:rgba(255,255,255,0.7)">Настройка системы под вашу компанию</p>
+              <svg viewBox="0 0 20 20" fill="none" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="8" stroke="#C8793A" stroke-width="1.2" fill="#C8793A" fill-opacity=".15"/><path d="M6.5 10l2 2 5-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65)">Настройка системы под вашу компанию</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg viewBox="0 0 20 20" fill="none" style="width:20px;height:20px;flex-shrink:0;margin-top:2px">
-                <circle cx="10" cy="10" r="9" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.2"/>
-                <path d="M6 10l2.5 2.5L14 8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p class="text-sm" style="color:rgba(255,255,255,0.7)">Заполнение справочников</p>
+              <svg viewBox="0 0 20 20" fill="none" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="8" stroke="#C8793A" stroke-width="1.2" fill="#C8793A" fill-opacity=".15"/><path d="M6.5 10l2 2 5-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65)">Заполнение справочников</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg viewBox="0 0 20 20" fill="none" style="width:20px;height:20px;flex-shrink:0;margin-top:2px">
-                <circle cx="10" cy="10" r="9" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.2"/>
-                <path d="M6 10l2.5 2.5L14 8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p class="text-sm" style="color:rgba(255,255,255,0.7)">Настройка пользователей и прав доступа</p>
+              <svg viewBox="0 0 20 20" fill="none" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="8" stroke="#C8793A" stroke-width="1.2" fill="#C8793A" fill-opacity=".15"/><path d="M6.5 10l2 2 5-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65)">Настройка пользователей и прав доступа</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg viewBox="0 0 20 20" fill="none" style="width:20px;height:20px;flex-shrink:0;margin-top:2px">
-                <circle cx="10" cy="10" r="9" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.2"/>
-                <path d="M6 10l2.5 2.5L14 8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p class="text-sm" style="color:rgba(255,255,255,0.7)">Обучение команды</p>
+              <svg viewBox="0 0 20 20" fill="none" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="8" stroke="#C8793A" stroke-width="1.2" fill="#C8793A" fill-opacity=".15"/><path d="M6.5 10l2 2 5-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65)">Обучение команды</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg viewBox="0 0 20 20" fill="none" style="width:20px;height:20px;flex-shrink:0;margin-top:2px">
-                <circle cx="10" cy="10" r="9" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.2"/>
-                <path d="M6 10l2.5 2.5L14 8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p class="text-sm" style="color:rgba(255,255,255,0.7)">Передача полных прав администратора — ваши данные остаются только у вас</p>
+              <svg viewBox="0 0 20 20" fill="none" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="8" stroke="#C8793A" stroke-width="1.2" fill="#C8793A" fill-opacity=".15"/><path d="M6.5 10l2 2 5-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65)">Передача полных прав — ваши данные только у вас</p>
             </div>
             <div class="flex items-start gap-3">
-              <svg viewBox="0 0 20 20" fill="none" style="width:20px;height:20px;flex-shrink:0;margin-top:2px">
-                <circle cx="10" cy="10" r="9" fill="#C8793A" opacity=".2" stroke="#C8793A" stroke-width="1.2"/>
-                <path d="M6 10l2.5 2.5L14 8" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p class="text-sm" style="color:rgba(255,255,255,0.7)">Доработки после запуска — по почасовой ставке</p>
+              <svg viewBox="0 0 20 20" fill="none" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="8" stroke="#C8793A" stroke-width="1.2" fill="#C8793A" fill-opacity=".15"/><path d="M6.5 10l2 2 5-4" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65)">Доработки после запуска — по почасовой ставке</p>
             </div>
           </div>
         </div>
@@ -312,117 +391,79 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 
-<!-- ВИЗУАЛИЗАЦИЯ БУДУЩЕГО -->
-<section class="py-24 px-6" style="background:var(--cream)">
+<!-- ВИЗУАЛИЗАЦИЯ -->
+<section class="py-24 px-6" style="background:var(--cream);padding-right:72px">
   <div class="max-w-6xl mx-auto">
     <div class="mb-14">
       <div class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--amber)">Что изменится</div>
-      <h2 class="font-black tracking-tight" style="font-size:clamp(32px,4vw,48px);color:var(--brown)">Представьте утро в понедельник<br>через месяц после запуска</h2>
+      <h2 class="font-black tracking-tight" style="font-size:clamp(32px,4vw,48px);color:var(--brown)">Утро в понедельник<br>через месяц после запуска</h2>
     </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="space-y-5">
-        <div class="card rounded-2xl p-7 flex items-start gap-5">
-          <div class="rounded-xl flex items-center justify-center flex-shrink-0" style="width:48px;height:48px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
-            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px">
-              <circle cx="12" cy="12" r="9" stroke="#C8793A" stroke-width="1.5"/>
-              <path d="M12 7v5l3 3" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1" style="color:var(--brown)">30 секунд — и вы видите всё</h3>
-            <p class="text-sm leading-relaxed" style="color:#7A5C3A">Открываете дашборд: сколько заработали, какие объекты на финише, где риски по срокам. Без звонков и ожидания.</p>
-          </div>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="card rounded-2xl p-7 flex items-start gap-5">
+        <div class="rounded-xl flex-shrink-0 flex items-center justify-center" style="width:44px;height:44px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px"><circle cx="12" cy="12" r="9" stroke="#C8793A" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
-        <div class="card rounded-2xl p-7 flex items-start gap-5">
-          <div class="rounded-xl flex items-center justify-center flex-shrink-0" style="width:48px;height:48px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
-            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="9" cy="7" r="4" stroke="#C8793A" stroke-width="1.5"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1" style="color:var(--brown)">Менеджер уходит в отпуск — проект не останавливается</h3>
-            <p class="text-sm leading-relaxed" style="color:#7A5C3A">Коллега открывает карточку и видит всё: контакты, договорённости, статус отгрузок, ближайшие задачи. Передача — минуты.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-7 flex items-start gap-5">
-          <div class="rounded-xl flex items-center justify-center flex-shrink-0" style="width:48px;height:48px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
-            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1" style="color:var(--brown)">Берёте новые объекты — без страха не справиться</h3>
-            <p class="text-sm leading-relaxed" style="color:#7A5C3A">Система выдерживает любой объём. Добавить проект, пользователя, расширить команду — без перестройки процессов.</p>
-          </div>
-        </div>
-        <div class="card rounded-2xl p-7 flex items-start gap-5">
-          <div class="rounded-xl flex items-center justify-center flex-shrink-0" style="width:48px;height:48px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
-            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px">
-              <path d="M18 20V10M12 20V4M6 20v-6" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1" style="color:var(--brown)">Видите статистику — и начинаете прогнозировать</h3>
-            <p class="text-sm leading-relaxed" style="color:#7A5C3A">Какие объекты дают лучшую маржу, как меняется динамика по кварталам, где точки роста. Данные работают на вас.</p>
-          </div>
-        </div>
+        <div><h3 class="font-bold mb-1" style="color:var(--brown)">30 секунд — и вы видите всё</h3><p class="text-sm leading-relaxed" style="color:var(--text-muted)">Открываете дашборд: сколько заработали, какие объекты на финише, где риски. Без звонков.</p></div>
       </div>
-      <div class="relative">
-        <div class="rounded-3xl overflow-hidden h-full min-h-80">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" alt="Современный офис" class="w-full h-full object-cover"/>
+      <div class="card rounded-2xl p-7 flex items-start gap-5">
+        <div class="rounded-xl flex-shrink-0 flex items-center justify-center" style="width:44px;height:44px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#C8793A" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
+        <div><h3 class="font-bold mb-1" style="color:var(--brown)">Менеджер в отпуске — проект не останавливается</h3><p class="text-sm leading-relaxed" style="color:var(--text-muted)">Коллега открывает карточку и видит всё. Передача занимает минуты.</p></div>
+      </div>
+      <div class="card rounded-2xl p-7 flex items-start gap-5">
+        <div class="rounded-xl flex-shrink-0 flex items-center justify-center" style="width:44px;height:44px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h3 class="font-bold mb-1" style="color:var(--brown)">Берёте новые объекты — без страха не справиться</h3><p class="text-sm leading-relaxed" style="color:var(--text-muted)">Система выдерживает любой объём. Добавить проект или пользователя — без перестройки процессов.</p></div>
+      </div>
+      <div class="card rounded-2xl p-7 flex items-start gap-5">
+        <div class="rounded-xl flex-shrink-0 flex items-center justify-center" style="width:44px;height:44px;background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#C8793A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div><h3 class="font-bold mb-1" style="color:var(--brown)">Видите статистику — начинаете прогнозировать</h3><p class="text-sm leading-relaxed" style="color:var(--text-muted)">Какие объекты дают лучшую маржу, динамика по кварталам, точки роста. Данные работают на вас.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ОБО МНЕ -->
-<section class="py-24 px-6" style="background:var(--warm)">
+<section class="py-24 px-6" style="background:var(--warm);padding-right:72px">
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-2 gap-16 items-start">
       <div>
         <div class="text-sm font-semibold tracking-widest uppercase mb-6" style="color:var(--amber)">Автор системы</div>
-        <h2 class="text-4xl font-black tracking-tight mb-6" style="color:var(--brown)">Альбина Хазиева</h2>
-        <p class="leading-relaxed mb-4" style="color:#7A5C3A">Системный аналитик и Project Manager с опытом с 2012 года. Проектирую и создаю цифровые продукты — от анализа процессов до готового работающего решения.</p>
-        <p class="leading-relaxed mb-8" style="color:#7A5C3A">Cladding CRM создана мной самостоятельно с использованием AI-инструментов за 2 недели — то, что агентство делало бы полгода командой из пяти человек.</p>
-        <div class="space-y-3 mb-8">
-          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)">
-            <span style="color:var(--amber)">→</span> Анализ бизнес-процессов и выявление точек роста
-          </div>
-          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)">
-            <span style="color:var(--amber)">→</span> Проектирование и запуск цифровых продуктов
-          </div>
-          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)">
-            <span style="color:var(--amber)">→</span> Управление проектами и координация команд
-          </div>
-          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)">
-            <span style="color:var(--amber)">→</span> Разработка готовых решений с AI: приложения, лендинги, боты
-          </div>
+        <h2 class="text-4xl font-black tracking-tight mb-5" style="color:var(--brown)">Альбина Хазиева</h2>
+        <p class="leading-relaxed mb-4 text-sm" style="color:var(--text-muted)">Системный аналитик и Project Manager с опытом с 2012 года. Проектирую и создаю цифровые продукты — от анализа процессов до готового решения.</p>
+        <p class="leading-relaxed mb-8 text-sm" style="color:var(--text-muted)">Cladding CRM создана мной самостоятельно с использованием AI-инструментов за 2 недели — то, что агентство делало бы полгода командой из пяти человек.</p>
+        <div class="space-y-2.5 mb-8">
+          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)"><span style="color:var(--amber)">→</span>Анализ бизнес-процессов и выявление точек роста</div>
+          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)"><span style="color:var(--amber)">→</span>Проектирование и запуск цифровых продуктов</div>
+          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)"><span style="color:var(--amber)">→</span>Управление проектами и координация команд</div>
+          <div class="flex items-center gap-3 text-sm" style="color:var(--brown)"><span style="color:var(--amber)">→</span>Разработка с AI: приложения, лендинги, боты</div>
         </div>
-        <div class="flex flex-wrap gap-3">
-          <div class="px-4 py-2 rounded-full text-xs font-medium" style="background:rgba(200,121,58,0.12);border:1px solid rgba(200,121,58,0.25);color:var(--brown)">🏅 AI School — MASTER</div>
-          <div class="px-4 py-2 rounded-full text-xs font-medium" style="background:rgba(200,121,58,0.12);border:1px solid rgba(200,121,58,0.25);color:var(--brown)">🏅 SITE Geneva — AI Integrator</div>
-          <div class="px-4 py-2 rounded-full text-xs font-medium" style="background:rgba(200,121,58,0.12);border:1px solid rgba(200,121,58,0.25);color:var(--brown)">КФУ — Вычислительная математика</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-4 py-2 rounded-full text-xs font-medium" style="background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2);color:var(--brown)">🏅 AI School — MASTER</span>
+          <span class="px-4 py-2 rounded-full text-xs font-medium" style="background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2);color:var(--brown)">🏅 SITE Geneva — AI Integrator</span>
+          <span class="px-4 py-2 rounded-full text-xs font-medium" style="background:rgba(200,121,58,0.1);border:1px solid rgba(200,121,58,0.2);color:var(--brown)">КФУ — Вычислительная математика</span>
         </div>
       </div>
       <div class="space-y-4">
         <div class="card rounded-2xl p-7">
           <div class="text-xs font-bold tracking-widest uppercase mb-4" style="color:var(--amber)">Реализованные проекты</div>
-          <p class="text-sm leading-relaxed mb-5" style="color:#7A5C3A">В роли руководителя проектов и ведущего системного аналитика реализовала системы высокого уровня сложности:</p>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">В роли руководителя проектов и ведущего системного аналитика реализовала системы высокого уровня сложности:</p>
           <div class="grid grid-cols-2 gap-2">
-            <div class="px-3 py-2 rounded-xl text-xs" style="background:var(--warm);color:var(--brown)">МинТруд</div>
-            <div class="px-3 py-2 rounded-xl text-xs" style="background:var(--warm);color:var(--brown)">Госалкогольинспекция</div>
-            <div class="px-3 py-2 rounded-xl text-xs" style="background:var(--warm);color:var(--brown)">Система ЗАГС</div>
-            <div class="px-3 py-2 rounded-xl text-xs" style="background:var(--warm);color:var(--brown)">Биллинг ЖКХ</div>
-            <div class="px-3 py-2 rounded-xl text-xs" style="background:var(--warm);color:var(--brown)">Мобильные приложения</div>
-            <div class="px-3 py-2 rounded-xl text-xs" style="background:var(--warm);color:var(--brown)">Системы учёта</div>
+            <div class="px-3 py-2 rounded-xl text-xs font-medium" style="background:var(--warm);color:var(--brown)">МинТруд</div>
+            <div class="px-3 py-2 rounded-xl text-xs font-medium" style="background:var(--warm);color:var(--brown)">Госалкогольинспекция</div>
+            <div class="px-3 py-2 rounded-xl text-xs font-medium" style="background:var(--warm);color:var(--brown)">Система ЗАГС</div>
+            <div class="px-3 py-2 rounded-xl text-xs font-medium" style="background:var(--warm);color:var(--brown)">Биллинг ЖКХ</div>
+            <div class="px-3 py-2 rounded-xl text-xs font-medium" style="background:var(--warm);color:var(--brown)">Мобильные приложения</div>
+            <div class="px-3 py-2 rounded-xl text-xs font-medium" style="background:var(--warm);color:var(--brown)">Системы учёта</div>
           </div>
         </div>
         <div class="rounded-2xl p-7" style="background:var(--brown)">
-          <div class="font-bold mb-3" style="color:var(--amber-light)">Безопасность — в договоре</div>
-          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65)">После запуска все права администратора передаются вам. Мои технические доступы закрываются полностью. Это не слова — это условие договора.</p>
+          <div class="font-bold mb-2" style="color:var(--amber-light)">Безопасность — в договоре</div>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">После запуска все права передаются вам. Мои технические доступы закрываются полностью. Это условие договора.</p>
         </div>
       </div>
     </div>
@@ -430,98 +471,92 @@ html{scroll-behavior:smooth;}
 </section>
 
 <!-- FAQ -->
-<section class="py-24 px-6" style="background:var(--cream)">
+<section class="py-24 px-6" style="background:var(--cream);padding-right:72px">
   <div class="max-w-3xl mx-auto">
     <div class="mb-14 text-center">
       <div class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--amber)">Вопросы</div>
       <h2 class="text-4xl font-black tracking-tight" style="color:var(--brown)">Отвечаю честно</h2>
     </div>
-    <div class="space-y-3">
-
+    <div class="space-y-2">
       <div class="faq-item card rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex items-center justify-between p-7">
-          <h3 class="font-semibold pr-4" style="color:var(--brown)">300 000 ₽ — это дорого для нас</h3>
-          <span class="faq-icon text-2xl flex-shrink-0 font-light" style="color:var(--amber)">+</span>
+          <h3 class="font-semibold pr-4 text-sm" style="color:var(--brown)">300 000 ₽ — это дорого для нас</h3>
+          <span class="faq-icon text-xl flex-shrink-0" style="color:var(--amber)">+</span>
         </div>
         <div class="faq-answer px-7 pb-7">
-          <p class="text-sm leading-relaxed" style="color:#7A5C3A">Разработка аналогичной системы с нуля — от 800 000 до 2 500 000 ₽ и полгода ожидания. Вы получаете готовое решение сразу. Если посчитать, сколько часов в месяц команда тратит на рутину, которую автоматизирует система — окупаемость становится очевидной быстро.</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Разработка аналогичной системы с нуля — от 800 000 до 2 500 000 ₽ и полгода ожидания. Вы получаете готовое решение сразу. Автоматизации окупают систему быстро — только экономия на рутине даёт десятки часов в месяц.</p>
         </div>
       </div>
-
       <div class="faq-item card rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex items-center justify-between p-7">
-          <h3 class="font-semibold pr-4" style="color:var(--brown)">Как быстро внедряется?</h3>
-          <span class="faq-icon text-2xl flex-shrink-0 font-light" style="color:var(--amber)">+</span>
+          <h3 class="font-semibold pr-4 text-sm" style="color:var(--brown)">Как быстро внедряется?</h3>
+          <span class="faq-icon text-xl flex-shrink-0" style="color:var(--amber)">+</span>
         </div>
         <div class="faq-answer px-7 pb-7">
-          <p class="text-sm leading-relaxed" style="color:#7A5C3A">От 1 до 3 недель. Система работает через браузер, ничего устанавливать не нужно. Обучение команды занимает один рабочий день. Никакого долгого перехода — просто начинаете работать.</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">От 1 до 3 недель. Система работает через браузер — ничего устанавливать не нужно. Обучение команды — один рабочий день.</p>
         </div>
       </div>
-
       <div class="faq-item card rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex items-center justify-between p-7">
-          <h3 class="font-semibold pr-4" style="color:var(--brown)">Что будет с нашими данными? Это безопасно?</h3>
-          <span class="faq-icon text-2xl flex-shrink-0 font-light" style="color:var(--amber)">+</span>
+          <h3 class="font-semibold pr-4 text-sm" style="color:var(--brown)">Что будет с нашими данными?</h3>
+          <span class="faq-icon text-xl flex-shrink-0" style="color:var(--amber)">+</span>
         </div>
         <div class="faq-answer px-7 pb-7">
-          <p class="text-sm leading-relaxed" style="color:#7A5C3A">Данные хранятся в защищённой облачной инфраструктуре Google. После запуска все права передаются вам — я не сохраняю никаких технических доступов. Это прописывается в договоре.</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Данные хранятся в защищённой инфраструктуре Google. После запуска все права передаются вам — я не сохраняю технических доступов. Это прописывается в договоре.</p>
         </div>
       </div>
-
       <div class="faq-item card rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex items-center justify-between p-7">
-          <h3 class="font-semibold pr-4" style="color:var(--brown)">А вдруг система не подойдёт под наши процессы?</h3>
-          <span class="faq-icon text-2xl flex-shrink-0 font-light" style="color:var(--amber)">+</span>
+          <h3 class="font-semibold pr-4 text-sm" style="color:var(--brown)">А вдруг система не подойдёт?</h3>
+          <span class="faq-icon text-xl flex-shrink-0" style="color:var(--amber)">+</span>
         </div>
         <div class="faq-answer px-7 pb-7">
-          <p class="text-sm leading-relaxed" style="color:#7A5C3A">Именно поэтому предлагаю начать с демонстрации — 30–40 минут, без обязательств. Увидите систему в деле и зададите любые вопросы. Если поймёте, что не то — просто скажите.</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Именно поэтому предлагаю начать с демонстрации — 30–40 минут без обязательств. Увидите систему в деле и зададите любые вопросы.</p>
         </div>
       </div>
-
       <div class="faq-item card rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
         <div class="flex items-center justify-between p-7">
-          <h3 class="font-semibold pr-4" style="color:var(--brown)">Что если после запуска понадобятся изменения?</h3>
-          <span class="faq-icon text-2xl flex-shrink-0 font-light" style="color:var(--amber)">+</span>
+          <h3 class="font-semibold pr-4 text-sm" style="color:var(--brown)">Что если понадобятся изменения после запуска?</h3>
+          <span class="faq-icon text-xl flex-shrink-0" style="color:var(--amber)">+</span>
         </div>
         <div class="faq-answer px-7 pb-7">
-          <p class="text-sm leading-relaxed" style="color:#7A5C3A">Доработки выполняются по почасовой ставке — оплачивается только фактически потраченное время. Никаких абонентских платежей.</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Доработки по почасовой ставке — оплачивается только фактически потраченное время. Никаких абонентских платежей.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="py-24 px-6" style="background:var(--brown)" id="contact">
+<section class="py-24 px-6" style="background:var(--brown);padding-right:72px" id="contact">
   <div class="max-w-3xl mx-auto text-center">
     <div class="text-sm font-semibold tracking-widest uppercase mb-6" style="color:var(--amber-light)">Следующий шаг</div>
-    <h2 class="font-black tracking-tight text-white mb-6" style="font-size:clamp(32px,4vw,48px)">Давайте покажу систему вживую</h2>
-    <p class="text-lg leading-relaxed mb-10" style="color:rgba(255,255,255,0.6)">30–40 минут демонстрации — и вы поймёте, подходит ли это вам. Онлайн или очно. Без давления и без обязательств.</p>
-    <div class="rounded-3xl p-10" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+    <h2 class="font-black tracking-tight text-white mb-5" style="font-size:clamp(32px,4vw,48px)">Давайте покажу систему вживую</h2>
+    <p class="text-base leading-relaxed mb-10" style="color:rgba(255,255,255,0.55)">30–40 минут демонстрации — и вы поймёте, подходит ли это вам. Онлайн или очно. Без давления и без обязательств.</p>
+    <div class="rounded-3xl p-10" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
       <div class="grid sm:grid-cols-2 gap-6 mb-8 text-left">
         <div>
-          <div class="text-xs uppercase tracking-widest mb-2" style="color:rgba(255,255,255,0.4)">Телефон</div>
-          <a href="tel:+7__________" class="text-lg font-semibold text-white hover:opacity-80 transition-opacity">+7 ___ ___ __ __</a>
+          <div class="text-xs uppercase tracking-widest mb-2" style="color:rgba(255,255,255,0.35)">Телефон</div>
+          <a href="tel:+7__________" class="text-lg font-semibold text-white hover:opacity-70 transition-opacity">+7 ___ ___ __ __</a>
         </div>
         <div>
-          <div class="text-xs uppercase tracking-widest mb-2" style="color:rgba(255,255,255,0.4)">Email</div>
-          <a href="mailto:___@arhihub.ru" class="text-lg font-semibold text-white hover:opacity-80 transition-opacity">___@arhihub.ru</a>
+          <div class="text-xs uppercase tracking-widest mb-2" style="color:rgba(255,255,255,0.35)">Email</div>
+          <a href="mailto:___@arhihub.ru" class="text-lg font-semibold text-white hover:opacity-70 transition-opacity">___@arhihub.ru</a>
         </div>
       </div>
-      <a href="tel:+7__________" class="btn-main px-10 py-5 rounded-lg font-bold text-base inline-block w-full sm:w-auto">Позвонить и договориться о встрече</a>
+      <a href="tel:+7__________" class="btn-main px-10 py-5 rounded-xl font-bold text-base inline-block">Позвонить и договориться о встрече</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#2A1205;border-top:1px solid rgba(255,255,255,0.06)" class="py-10 px-6">
+<footer style="background:#2A1205;border-top:1px solid rgba(255,255,255,0.05);padding-right:48px" class="py-10 px-6">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
     <div>
       <div class="font-black" style="color:#fff">Cladding <span style="color:var(--amber)">CRM</span></div>
-      <div class="text-xs mt-1" style="color:rgba(255,255,255,0.3)">© 2025 Альбина Хазиева. Все права защищены.</div>
+      <div class="text-xs mt-1" style="color:rgba(255,255,255,0.25)">© 2025 Альбина Хазиева. Все права защищены.</div>
     </div>
-    <div class="text-sm" style="color:rgba(255,255,255,0.3)">Системный аналитик · Project Manager · AI-разработка</div>
+    <div class="text-xs" style="color:rgba(255,255,255,0.25)">Системный аналитик · Project Manager · AI-разработка</div>
   </div>
 </footer>
 
