@@ -235,9 +235,121 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
   </div>
 </div>
 
-<div class="sep"></div>
+<!-- АНИМАЦИЯ ГРУЗОВИК -->
+<section style="background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);padding:60px 24px;overflow:hidden;">
+  <div class="container" style="text-align:center;margin-bottom:32px;">
+    <div class="section-tag">Cladding CRM в действии</div>
+    <div class="section-script">Каждый проект — выполнен в срок</div>
+    <div class="accent-line" style="margin:16px auto;"></div>
+  </div>
+  <div style="position:relative;height:160px;overflow:hidden;">
+    <!-- Дорога -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:48px;background:var(--dark);border-radius:4px;"></div>
+    <!-- Разметка дороги -->
+    <div id="road-marks" style="position:absolute;bottom:20px;left:0;right:0;height:8px;overflow:hidden;">
+      <div id="marks-inner" style="display:flex;gap:0;white-space:nowrap;animation:road 1.2s linear infinite;">
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+        <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;"></span>
+      </div>
+    </div>
+    <!-- Грузовик -->
+    <div id="truck" style="position:absolute;bottom:44px;left:-220px;animation:drive 8s linear infinite;display:flex;flex-direction:column;align-items:flex-start;">
+      <svg width="200" height="90" viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Кузов -->
+        <rect x="0" y="20" width="140" height="55" rx="4" fill="#1a1a2e"/>
+        <!-- Кабина -->
+        <rect x="140" y="30" width="50" height="45" rx="4" fill="#1a1a2e"/>
+        <!-- Окно кабины -->
+        <rect x="148" y="36" width="32" height="22" rx="3" fill="#89C4E1" opacity="0.8"/>
+        <!-- Надпись на кузове -->
+        <text x="70" y="52" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#89C4E1">АРХИХАБ</text>
+        <text x="70" y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Cladding CRM</text>
+        <!-- Колёса -->
+        <circle cx="35" cy="78" r="12" fill="#2d2d4a" stroke="#89C4E1" stroke-width="2"/>
+        <circle cx="35" cy="78" r="5" fill="#89C4E1" opacity="0.4"/>
+        <circle cx="155" cy="78" r="12" fill="#2d2d4a" stroke="#89C4E1" stroke-width="2"/>
+        <circle cx="155" cy="78" r="5" fill="#89C4E1" opacity="0.4"/>
+        <!-- Фара -->
+        <rect x="188" y="52" width="8" height="6" rx="2" fill="#fbbf24" opacity="0.9"/>
+        <!-- Выхлоп -->
+        <rect x="0" y="28" width="6" height="12" rx="3" fill="#89C4E1" opacity="0.3"/>
+      </svg>
+    </div>
+    <!-- Галочки -->
+    <div id="checks-container" style="position:absolute;bottom:52px;left:0;right:0;pointer-events:none;"></div>
+  </div>
+</section>
 
-<!-- БОЛИ -->
+<style>
+@keyframes drive {
+  0%   { left: -220px; }
+  100% { left: 110%; }
+}
+@keyframes road {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+@keyframes popCheck {
+  0%   { transform: translateY(0) scale(0.5); opacity:0; }
+  40%  { transform: translateY(-28px) scale(1.2); opacity:1; }
+  70%  { transform: translateY(-24px) scale(1); opacity:1; }
+  100% { transform: translateY(-24px) scale(1); opacity:0; }
+}
+.check-bubble {
+  position:absolute;
+  bottom:0;
+  display:flex;align-items:center;gap:5px;
+  background:#fff;
+  border:1.5px solid #89C4E1;
+  border-radius:20px;
+  padding:4px 10px;
+  font-size:11px;font-weight:600;color:#1a1a2e;
+  box-shadow:0 4px 12px rgba(137,196,225,0.25);
+  white-space:nowrap;
+  animation: popCheck 2s ease forwards;
+}
+.check-bubble svg { flex-shrink:0; }
+</style>
+
+<script>
+(function(){
+  const labels = [
+    'ЖК «Детский»','Дом на Булаке','УниДом III','Школа №14','Бизнес-центр «Гранит»',
+    'ЖК «Новый-1»','ТЦ «Горки»','Офисный центр','ЖК «Светлая долина»','Резиденция «Озёрный»'
+  ];
+  const container = document.getElementById('checks-container');
+  let idx = 0;
+
+  function spawnCheck() {
+    const truck = document.getElementById('truck');
+    if (!truck) return;
+    const truckRect = truck.getBoundingClientRect();
+    const secRect = container.parentElement.getBoundingClientRect();
+    const x = truckRect.left - secRect.left + 20;
+
+    const el = document.createElement('div');
+    el.className = 'check-bubble';
+    el.style.left = Math.max(0, x) + 'px';
+    el.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="7" r="6.5" fill="#89C4E1" opacity="0.15" stroke="#89C4E1" stroke-width="1"/>
+      <path d="M4 7l2 2 4-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>${labels[idx % labels.length]}`;
+    idx++;
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 2100);
+  }
+
+  setInterval(spawnCheck, 1800);
+})();
+</script>
 <section class="pain-bg">
   <div class="container">
     <div class="section-tag">Узнаёте себя?</div>
