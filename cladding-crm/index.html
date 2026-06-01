@@ -18,37 +18,26 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;}
 
-/* NAV */
 nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid #eee;padding:10px 0;}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--dark);text-decoration:none;}
 .nav-logo span{color:var(--blue);}
-.nav-right{display:flex;align-items:center;gap:24px;}
-.nav-phone{font-size:0.85rem;color:var(--text);font-weight:500;}
-.nav-cta{background:var(--blue);color:#fff;padding:8px 20px;border-radius:30px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:background .2s;}
-.nav-cta:hover{background:#5a9ab8;}
 
-/* SEP */
 .sep{height:3px;background:linear-gradient(to right,transparent,var(--blue),transparent);}
 
-/* SECTION HELPERS */
 .section-tag{display:inline-block;background:var(--blue-light);color:#5a9ab8;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:16px;}
 .section-script{font-family:'Dancing Script',cursive;font-size:2.8rem;color:var(--dark);line-height:1;}
 .accent-line{width:60px;height:3px;background:var(--blue);border-radius:2px;margin:16px 0 24px;}
 .container{max-width:1200px;margin:0 auto;}
 section{padding:80px 24px;}
 
-/* HERO */
 .hero{padding:0;position:relative;overflow:hidden;}
 .hero-img-section{position:relative;padding-right:48px;}
-.hero-img-wrap{position:relative;width:100%;aspect-ratio:16/9;}
-.hero-img-wrap img.bg{width:100%;height:100%;object-fit:cover;display:block;}
-.hero-tags{position:absolute;top:11%;left:50%;transform:translateX(-50%);display:flex;gap:0.6vw;white-space:nowrap;}
+.hero-img-wrap{position:relative;width:100%;}
+.hero-img-wrap img.bg{width:100%;height:auto;display:block;}
+.hero-tags{position:absolute;top:5%;left:50%;transform:translateX(-50%);display:flex;gap:0.6vw;white-space:nowrap;z-index:5;}
 .hero-tag-pill{background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:var(--dark);}
-.hero-btn-wrap{position:absolute;top:66.5%;left:21.5%;}
-.hero-btn{background:var(--orange);color:#fff;font-weight:700;font-size:0.7vw;padding:0.5vw 1.2vw;border-radius:30px;text-decoration:none;white-space:nowrap;display:inline-block;box-shadow:0 4px 16px rgba(232,132,90,0.4);}
 
-/* MOBILE HERO */
 .hero-mobile{display:none;background:linear-gradient(135deg,var(--blue-light) 0%,#fff 100%);padding:100px 24px 48px;}
 .hero-mobile h1{font-family:'Dancing Script',cursive;font-size:3rem;color:var(--dark);line-height:1.1;margin-bottom:12px;}
 .hero-mobile h1 span{color:var(--orange);}
@@ -63,14 +52,12 @@ section{padding:80px 24px;}
 .hero-mobile-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
 .hero-mobile-tag{background:rgba(255,255,255,0.9);border:1px solid rgba(137,196,225,0.4);border-radius:999px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--dark);}
 
-/* SIDE TAPE */
 .side-tape{position:fixed;right:0;top:0;bottom:0;width:48px;background:var(--dark);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;overflow:hidden;}
 .side-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);}
 .side-dot.active{background:var(--blue);}
 .side-line{width:1px;height:48px;background:rgba(255,255,255,0.07);}
 .side-label{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;white-space:nowrap;}
 
-/* PAIN */
 .pain-bg{background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);}
 .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .pain-card{background:#fff;border-radius:20px;padding:28px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;}
@@ -80,7 +67,6 @@ section{padding:80px 24px;}
 .pain-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.4;}
 .pain-card p{font-size:0.85rem;color:#666;line-height:1.7;}
 
-/* WHY NOT */
 .why-bg{background:var(--dark);}
 .why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:24px;}
 .why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;}
@@ -89,7 +75,6 @@ section{padding:80px 24px;}
 .why-highlight{background:rgba(137,196,225,0.12);border:1px solid rgba(137,196,225,0.25);border-radius:16px;padding:24px;}
 .why-highlight p{font-size:1rem;font-weight:600;color:#fff;line-height:1.6;}
 
-/* OFFER */
 .offer-bg{background:linear-gradient(135deg,var(--blue-light) 0%,#f8fcff 100%);}
 .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
 .offer-card{background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow);transition:transform .2s;}
@@ -97,21 +82,6 @@ section{padding:80px 24px;}
 .offer-card h3{font-size:0.95rem;font-weight:700;color:var(--dark);margin-bottom:8px;}
 .offer-card p{font-size:0.83rem;color:#666;line-height:1.65;}
 
-/* PRICE */
-.price-box{background:var(--dark);border-radius:24px;overflow:hidden;}
-.price-box-inner{display:grid;grid-template-columns:1fr 1fr;}
-.price-left{padding:48px;}
-.price-num{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:#fff;line-height:1;letter-spacing:-2px;}
-.price-sub{color:rgba(255,255,255,0.4);font-size:0.9rem;margin:4px 0 32px;}
-.btn-orange{background:var(--orange);color:#fff;padding:14px 32px;border-radius:30px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-block;transition:all .2s;}
-.btn-orange:hover{background:#d4693f;transform:translateY(-2px);}
-.price-right{padding:48px;background:rgba(255,255,255,0.04);border-left:1px solid rgba(255,255,255,0.06);}
-.check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
-.check-circle{width:18px;height:18px;border-radius:50%;background:rgba(137,196,225,0.2);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
-.check-circle svg{width:10px;height:10px;}
-.check-item p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.5;}
-
-/* FUTURE */
 .future-bg{background:linear-gradient(135deg,#fff 0%,var(--pink-light) 100%);}
 .future-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .future-card{background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start;}
@@ -119,13 +89,10 @@ section{padding:80px 24px;}
 .future-card h3{font-size:0.95rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
 .future-card p{font-size:0.83rem;color:#666;line-height:1.6;}
 
-/* ABOUT */
 .about-bg{background:linear-gradient(135deg,var(--blue-light) 0%,#fff 100%);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-.about-photo{width:100%;border-radius:20px;object-fit:cover;height:420px;box-shadow:var(--shadow);}
-.about-skills{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0 20px;}
-.skill-chip{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.7rem;color:#666;}
-.skill-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+/* КЛЮЧЕВОЕ ИЗМЕНЕНИЕ — убрана фиксированная высота */
+.about-photo{width:100%;border-radius:20px;display:block;box-shadow:var(--shadow);}
 .exp-list{list-style:none;padding:0;}
 .exp-list li{font-size:0.85rem;color:#555;padding:3px 0 3px 16px;position:relative;}
 .exp-list li::before{content:'—';position:absolute;left:0;color:var(--blue);}
@@ -137,7 +104,6 @@ section{padding:80px 24px;}
 .security-box h4{color:var(--blue);font-size:0.88rem;font-weight:700;margin-bottom:8px;}
 .security-box p{color:rgba(255,255,255,0.6);font-size:0.82rem;line-height:1.6;}
 
-/* FAQ */
 .faq-bg{background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);}
 .faq-list{max-width:720px;margin:0 auto;}
 .faq-item{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:8px;box-shadow:var(--shadow);cursor:pointer;}
@@ -149,21 +115,22 @@ section{padding:80px 24px;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
 .faq-item.open .faq-body{display:block;}
 
-/* CTA */
-.cta-bg{background:var(--dark);}
-.cta-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:48px;max-width:640px;margin:0 auto;}
-.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;}
-.contact-label{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;}
-.contact-val{font-size:1rem;font-weight:600;color:#fff;text-decoration:none;}
-.contact-val:hover{color:var(--blue);}
-
-/* FOOTER */
 footer{background:#12121f;border-top:1px solid rgba(255,255,255,0.05);padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-right:72px;}
 footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 
-/* RESPONSIVE */
+@keyframes drive{0%{left:-220px;}100%{left:110%;}}
+@keyframes road{0%{transform:translateX(0);}100%{transform:translateX(-100px);}}
+@keyframes popCheck{
+  0%{transform:translateY(0) scale(0.5);opacity:0;}
+  40%{transform:translateY(-28px) scale(1.2);opacity:1;}
+  70%{transform:translateY(-24px) scale(1);opacity:1;}
+  100%{transform:translateY(-24px) scale(1);opacity:0;}
+}
+.check-bubble{position:absolute;bottom:0;display:flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #89C4E1;border-radius:20px;padding:4px 10px;font-size:11px;font-weight:600;color:#1a1a2e;box-shadow:0 4px 12px rgba(137,196,225,0.25);white-space:nowrap;animation:popCheck 2s ease forwards;}
+.check-bubble svg{flex-shrink:0;}
+
 @media(max-width:900px){
-  .pain-grid,.why-grid,.offer-grid,.future-grid,.about-grid,.price-box-inner,.contact-row{grid-template-columns:1fr;}
+  .pain-grid,.why-grid,.offer-grid,.future-grid,.about-grid{grid-template-columns:1fr;}
   .pain-card.wide{grid-column:1;}
   .side-tape{display:none;}
   .hero-img-section{display:none;}
@@ -172,24 +139,19 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 }
 @media(max-width:600px){
   .offer-grid{grid-template-columns:1fr;}
-  .price-num{font-size:48px;}
 }
 </style>
 </head>
 <body>
 
 <!-- SIDE TAPE -->
-<div class="side-tape hidden lg:flex">
-  <div class="side-line"></div>
-  <div class="side-dot active"></div>
-  <div class="side-line"></div>
-  <div class="side-dot"></div>
-  <div class="side-line"></div>
-  <div class="side-dot"></div>
+<div class="side-tape">
+  <div class="side-line"></div><div class="side-dot active"></div>
+  <div class="side-line"></div><div class="side-dot"></div>
+  <div class="side-line"></div><div class="side-dot"></div>
   <div class="side-line"></div>
   <div class="side-label">Cladding CRM · 2025</div>
-  <div class="side-line"></div>
-  <div class="side-dot"></div>
+  <div class="side-line"></div><div class="side-dot"></div>
   <div class="side-line"></div>
 </div>
 
@@ -202,15 +164,13 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 
 <!-- HERO DESKTOP -->
 <div class="hero-img-section" style="padding-top:60px;">
-  <div class="hero-img-wrap" style="aspect-ratio:unset;">
-    <img class="bg" src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM" style="width:100%;height:auto;display:block;object-fit:unset;"/>
-    <!-- Плашки над ноутбуком -->
-    <div style="position:absolute;top:5%;left:50%;transform:translateX(-50%);display:flex;gap:0.6vw;white-space:nowrap;z-index:5;">
-      <span style="background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:#1a1a2e;">• экономит время команды</span>
-      <span style="background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:#1a1a2e;">• обеспечивает контроль в реальном времени</span>
-      <span style="background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:#1a1a2e;">• готова к эксплуатации</span>
+  <div class="hero-img-wrap">
+    <img class="bg" src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM"/>
+    <div class="hero-tags">
+      <span class="hero-tag-pill">• экономит время команды</span>
+      <span class="hero-tag-pill">• обеспечивает контроль в реальном времени</span>
+      <span class="hero-tag-pill">• готова к эксплуатации</span>
     </div>
-    <!-- Кликабельная левая половина -->
     <div onclick="document.querySelector('.pain-bg').scrollIntoView({behavior:'smooth'})"
          style="position:absolute;top:0;left:0;width:50%;height:100%;cursor:pointer;z-index:4;"></div>
   </div>
@@ -227,27 +187,24 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
   </div>
   <p>Готовая CRM для компаний по подбору и поставке облицовочных материалов. Не настраивайте универсальное — возьмите то, что уже подходит.</p>
   <div class="hero-mobile-btns">
-    <a href="#contact" class="btn-primary">Получить демонстрацию</a>
-    <a href="#offer" class="btn-secondary">Подробнее</a>
+    <a href="#offer" class="btn-primary">Узнать подробнее</a>
+    <a href="#about" class="btn-secondary">Об авторе</a>
   </div>
   <div class="hero-mobile-img">
     <img src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM интерфейс"/>
   </div>
 </div>
 
-<!-- АНИМАЦИЯ ГРУЗОВИК PLACEHOLDER -->
+<!-- ГРУЗОВИК 1 -->
 <section style="background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);padding:60px 24px;overflow:hidden;">
   <div class="container" style="text-align:center;margin-bottom:32px;">
     <div class="section-tag">Cladding CRM в действии</div>
     <div class="section-script">Бизнес растёт. Хаос — нет.</div>
-
   </div>
   <div style="position:relative;height:160px;overflow:hidden;">
-    <!-- Дорога -->
     <div style="position:absolute;bottom:0;left:0;right:0;height:48px;background:var(--dark);border-radius:4px;"></div>
-    <!-- Разметка дороги -->
     <div style="position:absolute;bottom:14px;left:0;right:0;height:8px;overflow:hidden;">
-      <div style="display:flex;gap:0;white-space:nowrap;animation:road 1.2s linear infinite;width:200%;">
+      <div style="display:flex;white-space:nowrap;animation:road 1.2s linear infinite;width:200%;">
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
@@ -270,165 +227,57 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
       </div>
     </div>
-    <!-- Грузовик -->
-    <div id="truck" style="position:absolute;bottom:44px;left:-220px;animation:drive 14s linear infinite;display:flex;flex-direction:column;align-items:flex-start;">
-      <svg width="200" height="90" viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Кузов -->
+    <div id="truck1" style="position:absolute;bottom:44px;left:-220px;animation:drive 14s linear infinite;">
+      <svg width="200" height="90" viewBox="0 0 200 90" fill="none">
         <rect x="0" y="20" width="140" height="55" rx="4" fill="#1a1a2e"/>
-        <!-- Кабина -->
         <rect x="140" y="30" width="50" height="45" rx="4" fill="#1a1a2e"/>
-        <!-- Окно кабины -->
         <rect x="148" y="36" width="32" height="22" rx="3" fill="#89C4E1" opacity="0.8"/>
-        <!-- Надпись на кузове -->
         <text x="70" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#89C4E1">АРХИХАБ</text>
         <text x="70" y="59" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Cladding CRM</text>
-        <!-- Колёса -->
         <circle cx="35" cy="78" r="12" fill="#2d2d4a" stroke="#89C4E1" stroke-width="2"/>
         <circle cx="35" cy="78" r="5" fill="#89C4E1" opacity="0.4"/>
         <circle cx="155" cy="78" r="12" fill="#2d2d4a" stroke="#89C4E1" stroke-width="2"/>
         <circle cx="155" cy="78" r="5" fill="#89C4E1" opacity="0.4"/>
-        <!-- Фара -->
         <rect x="188" y="52" width="8" height="6" rx="2" fill="#fbbf24" opacity="0.9"/>
-        <!-- Выхлоп -->
         <rect x="0" y="28" width="6" height="12" rx="3" fill="#89C4E1" opacity="0.3"/>
       </svg>
     </div>
-    <!-- Галочки -->
-    <div id="checks-container" style="position:absolute;bottom:52px;left:0;right:0;pointer-events:none;"></div>
+    <div id="checks1" style="position:absolute;bottom:52px;left:0;right:0;pointer-events:none;"></div>
   </div>
 </section>
 
-<style>
-@keyframes drive {
-  0%   { left: -220px; }
-  100% { left: 110%; }
-}
-@keyframes road {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100px); }
-}
-@keyframes popCheck {
-  0%   { transform: translateY(0) scale(0.5); opacity:0; }
-  40%  { transform: translateY(-28px) scale(1.2); opacity:1; }
-  70%  { transform: translateY(-24px) scale(1); opacity:1; }
-  100% { transform: translateY(-24px) scale(1); opacity:0; }
-}
-.check-bubble {
-  position:absolute;
-  bottom:0;
-  display:flex;align-items:center;gap:5px;
-  background:#fff;
-  border:1.5px solid #89C4E1;
-  border-radius:20px;
-  padding:4px 10px;
-  font-size:11px;font-weight:600;color:#1a1a2e;
-  box-shadow:0 4px 12px rgba(137,196,225,0.25);
-  white-space:nowrap;
-  animation: popCheck 2s ease forwards;
-}
-.check-bubble svg { flex-shrink:0; }
-</style>
-
-<script>
-(function(){
-  const labels = [
-    'ЖК «Детский»','Дом на Булаке','УниДом III','Школа №14','Бизнес-центр «Гранит»',
-    'ЖК «Новый-1»','ТЦ «Горки»','Офисный центр','ЖК «Светлая долина»','Резиденция «Озёрный»'
-  ];
-  const container = document.getElementById('checks-container');
-  let idx = 0;
-
-  function spawnCheck() {
-    const truck = document.getElementById('truck');
-    if (!truck) return;
-    const truckRect = truck.getBoundingClientRect();
-    const secRect = container.parentElement.getBoundingClientRect();
-    const x = truckRect.left - secRect.left + 20;
-
-    const el = document.createElement('div');
-    el.className = 'check-bubble';
-    el.style.left = Math.max(0, x) + 'px';
-    el.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-      <circle cx="7" cy="7" r="6.5" fill="#89C4E1" opacity="0.15" stroke="#89C4E1" stroke-width="1"/>
-      <path d="M4 7l2 2 4-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>${labels[idx % labels.length]}`;
-    idx++;
-    container.appendChild(el);
-    setTimeout(() => el.remove(), 2100);
-  }
-
-  setInterval(spawnCheck, 1800);
-})();
-</script>
+<!-- БОЛИ -->
 <section class="pain-bg">
   <div class="container">
     <div class="section-tag">Узнаёте себя?</div>
     <div class="section-script">Возможно, прямо сейчас<br>вы думаете о том, что...</div>
     <div class="accent-line"></div>
     <div class="pain-grid">
-
       <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <rect x="4" y="4" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-            <rect x="22" y="4" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-            <rect x="22" y="18" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-            <rect x="4" y="26" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-          </svg>
-        </div>
+        <div class="pain-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36"><rect x="4" y="4" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/><rect x="22" y="4" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/><rect x="22" y="18" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/><rect x="4" y="26" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/></svg></div>
         <h3>«Хочу видеть реальную картину — сразу, не собирая её по кускам»</h3>
         <p>Бизнес работает, проекты идут — но чтобы понять, где вы находитесь прямо сейчас, нужно звонить, спрашивать, сводить. Это время, которого никогда нет.</p>
       </div>
-
       <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <circle cx="20" cy="20" r="14" fill="#89C4E1" opacity=".12" stroke="#89C4E1" stroke-width="1.5"/>
-            <path d="M20 12v8l5 3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="pain-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36"><circle cx="20" cy="20" r="14" fill="#89C4E1" opacity=".12" stroke="#89C4E1" stroke-width="1.5"/><path d="M20 12v8l5 3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <h3>«Реальная прибыль по проектам остаётся загадкой»</h3>
         <p>Расходы разбросаны — часть в бухгалтерии, часть в памяти, часть в таблицах. Посчитать реальную прибыль — отдельная работа на несколько часов.</p>
       </div>
-
       <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <circle cx="20" cy="13" r="5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-            <circle cx="10" cy="29" r="4" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-            <circle cx="30" cy="29" r="4" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-            <path d="M15 18l-3 8M25 18l3 8M15 13h10" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="pain-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36"><circle cx="20" cy="13" r="5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/><circle cx="10" cy="29" r="4" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/><circle cx="30" cy="29" r="4" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/><path d="M15 18l-3 8M25 18l3 8M15 13h10" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round"/></svg></div>
         <h3>«Слишком много держится на конкретных людях»</h3>
         <p>Менеджер уходит в отпуск или меняется — и нужно время, чтобы ввести коллегу в курс дела. Всё это живёт в голове одного человека.</p>
       </div>
-
       <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <path d="M8 20c0-6.627 5.373-12 12-12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M32 20c0 6.627-5.373 12-12 12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M12 8l-4 0 0 4M28 32l4 0 0-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="20" cy="20" r="3" fill="#89C4E1" opacity=".4"/>
-          </svg>
-        </div>
+        <div class="pain-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36"><path d="M8 20c0-6.627 5.373-12 12-12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><path d="M32 20c0 6.627-5.373 12-12 12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><path d="M12 8l-4 0 0 4M28 32l4 0 0-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="3" fill="#89C4E1" opacity=".4"/></svg></div>
         <h3>«Рутина съедает время, которое могло бы идти на рост»</h3>
         <p>Доверенности вручную, задачи в чатах. В сумме это часы каждую неделю, которые могли бы уходить на новых клиентов и новые объекты.</p>
       </div>
-
       <div class="pain-card wide">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <path d="M8 32V20c0-6.627 5.373-12 12-12s12 5.373 12 12v12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-            <rect x="4" y="24" width="8" height="8" rx="2" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.3"/>
-            <rect x="28" y="24" width="8" height="8" rx="2" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.3"/>
-          </svg>
-        </div>
+        <div class="pain-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36"><path d="M8 32V20c0-6.627 5.373-12 12-12s12 5.373 12 12v12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><rect x="4" y="24" width="8" height="8" rx="2" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.3"/><rect x="28" y="24" width="8" height="8" rx="2" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.3"/></svg></div>
         <h3>«Хочется расти — но становится всё сложнее управлять большим объёмом»</h3>
         <p>Взять ещё два-три объекта — значит ещё больше координации и контроля вручную. Масштабирование упирается не в рынок, а в отсутствие системы.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -442,30 +291,17 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
     <div class="section-script" style="color:#fff;">Вы уже пробовали.<br>Но это не то.</div>
     <div class="accent-line" style="background:var(--blue);"></div>
     <div class="why-grid">
-      <div class="why-card">
-        <div class="why-card-label">Excel и таблицы</div>
-        <p>Хранит данные, но не управляет ими. Не напомнит, не посчитает, не покажет динамику. Чем больше проектов — тем сложнее ориентироваться.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card-label">Универсальные CRM</div>
-        <p>Битрикс, AmoCRM — мощные, но универсальные. На настройку уходят месяцы, а специфику поставки облицовки они всё равно не учитывают.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card-label">Разработка с нуля</div>
-        <p>От 800 000 до 2 500 000 ₽ и полгода ожидания. Высокий риск, долгий путь, неочевидный результат.</p>
-      </div>
+      <div class="why-card"><div class="why-card-label">Excel и таблицы</div><p>Хранит данные, но не управляет ими. Не напомнит, не посчитает, не покажет динамику. Чем больше проектов — тем сложнее ориентироваться.</p></div>
+      <div class="why-card"><div class="why-card-label">Универсальные CRM</div><p>Битрикс, AmoCRM — мощные, но универсальные. На настройку уходят месяцы, а специфику поставки облицовки они всё равно не учитывают.</p></div>
+      <div class="why-card"><div class="why-card-label">Разработка с нуля</div><p>От 800 000 до 2 500 000 ₽ и полгода ожидания. Высокий риск, долгий путь, неочевидный результат.</p></div>
     </div>
-    <div class="why-highlight">
-      <p>Cladding CRM — это другой путь. Система уже создана, работает и заточена под вашу специфику. Не нужно настраивать месяцами. Просто начать.</p>
-    </div>
+    <div class="why-highlight"><p>Cladding CRM — это другой путь. Система уже создана, работает и заточена под вашу специфику. Не нужно настраивать месяцами. Просто начать.</p></div>
   </div>
 </section>
 
 <div class="sep"></div>
 
-<div class="sep"></div>
-
-<!-- АНИМАЦИЯ ГРУЗОВИК 2 -->
+<!-- ГРУЗОВИК 2 -->
 <section style="background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);padding:60px 24px;overflow:hidden;">
   <div class="container" style="text-align:center;margin-bottom:32px;">
     <div class="section-tag">Cladding CRM в действии</div>
@@ -474,7 +310,7 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
   <div style="position:relative;height:160px;overflow:hidden;">
     <div style="position:absolute;bottom:0;left:0;right:0;height:48px;background:var(--dark);border-radius:4px;"></div>
     <div style="position:absolute;bottom:14px;left:0;right:0;height:8px;overflow:hidden;">
-      <div style="display:flex;gap:0;white-space:nowrap;animation:road 1.2s linear infinite;width:200%;">
+      <div style="display:flex;white-space:nowrap;animation:road 1.2s linear infinite;width:200%;">
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
@@ -497,8 +333,8 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
         <span style="display:inline-block;width:60px;height:4px;background:#fff;opacity:0.4;margin-right:40px;border-radius:2px;flex-shrink:0;"></span>
       </div>
     </div>
-    <div style="position:absolute;bottom:44px;left:-220px;animation:drive 14s linear infinite;display:flex;flex-direction:column;align-items:flex-start;">
-      <svg width="200" height="90" viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div id="truck2" style="position:absolute;bottom:44px;left:-220px;animation:drive 14s linear infinite;">
+      <svg width="200" height="90" viewBox="0 0 200 90" fill="none">
         <rect x="0" y="20" width="140" height="55" rx="4" fill="#1a1a2e"/>
         <rect x="140" y="30" width="50" height="45" rx="4" fill="#1a1a2e"/>
         <rect x="148" y="36" width="32" height="22" rx="3" fill="#89C4E1" opacity="0.8"/>
@@ -512,39 +348,9 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
         <rect x="0" y="28" width="6" height="12" rx="3" fill="#89C4E1" opacity="0.3"/>
       </svg>
     </div>
-    <div id="checks-container2" style="position:absolute;bottom:52px;left:0;right:0;pointer-events:none;"></div>
+    <div id="checks2" style="position:absolute;bottom:52px;left:0;right:0;pointer-events:none;"></div>
   </div>
 </section>
-
-<script>
-(function(){
-  const labels2 = [
-    'ЖК «Детский»','Дом на Булаке','УниДом III','Школа №14','Бизнес-центр «Гранит»',
-    'ЖК «Новый-1»','ТЦ «Горки»','Офисный центр','ЖК «Светлая долина»','Резиденция «Озёрный»'
-  ];
-  const container2 = document.getElementById('checks-container2');
-  let idx2 = 0;
-  function spawnCheck2() {
-    const trucks = document.querySelectorAll('[style*="drive"]');
-    const truck = trucks[1] || trucks[0];
-    if (!truck || !container2) return;
-    const truckRect = truck.getBoundingClientRect();
-    const secRect = container2.parentElement.getBoundingClientRect();
-    const x = truckRect.left - secRect.left + 20;
-    const el = document.createElement('div');
-    el.className = 'check-bubble';
-    el.style.left = Math.max(0, x) + 'px';
-    el.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-      <circle cx="7" cy="7" r="6.5" fill="#89C4E1" opacity="0.15" stroke="#89C4E1" stroke-width="1"/>
-      <path d="M4 7l2 2 4-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>${labels2[idx2 % labels2.length]}`;
-    idx2++;
-    container2.appendChild(el);
-    setTimeout(() => el.remove(), 2100);
-  }
-  setInterval(spawnCheck2, 1800);
-})();
-</script>
 
 <!-- ОФФЕР -->
 <section class="offer-bg" id="offer">
@@ -554,69 +360,40 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
     <div class="accent-line"></div>
     <div class="offer-grid">
       <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="4" y="4" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-          <rect x="22" y="4" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-          <rect x="22" y="18" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-          <rect x="4" y="26" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px"><rect x="4" y="4" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/><rect x="22" y="4" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/><rect x="22" y="18" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/><rect x="4" y="26" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/></svg>
         <h3>Дашборд руководителя</h3>
         <p>Сумма контрактов, расходы, прибыль, маржа, динамика — в реальном времени. Все актуальные данные по проектам без звонков и сверки с менеджером.</p>
       </div>
       <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="6" y="5" width="28" height="35" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M12 16h16M12 22h16M12 28h10" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px"><rect x="6" y="5" width="28" height="35" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/><path d="M12 16h16M12 22h16M12 28h10" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
         <h3>Полная карточка проекта</h3>
         <p>Участники и контактные данные, статус задач, отгрузки с прогрессом контракта, расходы по проекту, автоматическое формирование доверенностей. Передать проект без просадки — минуты, не дни.</p>
       </div>
       <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6z" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M14 20c0-3.314 2.686-6 6-6M26 20c0 3.314-2.686 6-6 6" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="20" r="2.5" fill="#89C4E1" opacity=".5"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px"><path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6z" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/><path d="M14 20c0-3.314 2.686-6 6-6M26 20c0 3.314-2.686 6-6 6" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="20" r="2.5" fill="#89C4E1" opacity=".5"/></svg>
         <h3>Автоматизации</h3>
         <p>План задач генерируется автоматически, синхронизируется с Google Календарём. Доверенности формируются из системы. Отгрузки создаются автоматически на основании доверенности, доступна выгрузка в Excel.</p>
       </div>
       <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="6" y="14" width="28" height="20" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M13 14V11a7 7 0 0114 0v3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="24" r="3" fill="#89C4E1" opacity=".4" stroke="#89C4E1" stroke-width="1.3"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px"><rect x="6" y="14" width="28" height="20" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/><path d="M13 14V11a7 7 0 0114 0v3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="24" r="3" fill="#89C4E1" opacity=".4" stroke="#89C4E1" stroke-width="1.3"/></svg>
         <h3>Гибкие права доступа</h3>
         <p>Каждый видит только то, что ему положено. Финансовый модуль защищён отдельным кодом.</p>
       </div>
       <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <path d="M8 32V14l12-8 12 8v18H8z" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M15 32V22h10v10" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px"><path d="M8 32V14l12-8 12 8v18H8z" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 32V22h10v10" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Финансы и прибыль</h3>
         <p>Расходы по категориям, прибыль считается автоматически. Реальная маржа и бонус менеджеру — без часов ручной работы.</p>
       </div>
       <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="5" y="8" width="30" height="24" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M5 16h30M12 12h.01M17 12h.01M22 12h.01" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M11 23h8M11 27h12M23 23h6" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px"><rect x="5" y="8" width="30" height="24" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/><path d="M5 16h30M12 12h.01M17 12h.01M22 12h.01" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><path d="M11 23h8M11 27h12M23 23h6" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round"/></svg>
         <h3>Справочники</h3>
         <p>Компании, контакты, материалы, водители, перевозчики — вводятся один раз и используются всегда. При необходимости можно быстро найти любые контакты в справочнике.</p>
       </div>
     </div>
-
-
   </div>
 </section>
 
 <div class="sep"></div>
-
-<div class="sep"></div>
-
-
 
 <!-- ВИЗУАЛИЗАЦИЯ -->
 <section class="future-bg">
@@ -626,27 +403,19 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
     <div class="accent-line" style="background:var(--pink-dark);"></div>
     <div class="future-grid">
       <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="9" stroke="#89C4E1" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <div class="future-icon-wrap"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="9" stroke="#89C4E1" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div><h3>30 секунд — и вы видите всё</h3><p>Открываете дашборд: сколько заработали, какие объекты на финише, где риски. Без звонков.</p></div>
       </div>
       <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#89C4E1" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <div class="future-icon-wrap"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#89C4E1" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div><h3>Менеджер в отпуске — проект не останавливается</h3><p>Коллега открывает карточку и видит всё. Передача занимает минуты.</p></div>
       </div>
       <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="future-icon-wrap"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div><h3>Берёте новые объекты — без страха не справиться</h3><p>Контроль становится прозрачнее, ресурсы менеджеров оптимизируются.</p></div>
       </div>
       <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <div class="future-icon-wrap"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div><h3>Видите статистику — начинаете прогнозировать</h3><p>Какие объекты дают лучшую маржу, динамика по кварталам, точки роста. Данные работают на вас.</p></div>
       </div>
     </div>
@@ -656,11 +425,12 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 <div class="sep"></div>
 
 <!-- ОБО МНЕ -->
-<section class="about-bg">
+<section class="about-bg" id="about">
   <div class="container">
     <div class="about-grid">
       <div>
-        <img src="https://albinalab.com/cladding-crm/img2.png" alt="Альбина Хазиева" class="about-photo" style="object-fit:cover;object-position:center top;"/>
+        <!-- Фото без фиксированной высоты — вытягивается по содержимому -->
+        <img src="https://albinalab.com/cladding-crm/img2.png" alt="Альбина Хазиева" class="about-photo"/>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
           <img src="https://albinalab.com/cladding-crm/cert.png" alt="Сертификат SITE Geneva" style="width:100%;border-radius:12px;box-shadow:var(--shadow);"/>
           <img src="https://albinalab.com/images/2_2.png" alt="Сертификат AI School" style="width:100%;border-radius:12px;box-shadow:var(--shadow);"/>
@@ -670,22 +440,19 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
         <div class="section-tag">Обо мне</div>
         <div class="section-script">Альбина Хазиева</div>
         <div class="accent-line"></div>
-
-        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a">🔍 Опыт</span></div>
-        <div style="display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:20px">
-          <div>
-            <div style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:4px">Системный аналитик · Project Manager</div>
-            <div style="color:#888;font-size:0.85rem;margin-bottom:8px">Системная аналитика и управление проектами в IT · с 2012</div>
-            <ul class="exp-list">
-              <li>анализ и автоматизация бизнес-процессов, выявление точек роста</li>
-              <li>ведение проектов и координация команд</li>
-              <li>формирование ТЗ разработчикам и дизайнерам</li>
-              <li>ведущая деятельность в создании и улучшении цифровых продуктов</li>
-              <li>самостоятельная разработка готовых решений с помощью AI: веб-приложения, лендинги, Telegram-боты</li>
-            </ul>
-          </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px;margin-top:32px;"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a">🔍 Опыт</span></div>
+        <div style="margin-bottom:20px;">
+          <div style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:4px;">Системный аналитик · Project Manager</div>
+          <div style="color:#888;font-size:0.85rem;margin-bottom:8px;">Системная аналитика и управление проектами в IT · с 2012</div>
+          <ul class="exp-list">
+            <li>анализ и автоматизация бизнес-процессов, выявление точек роста</li>
+            <li>ведение проектов и координация команд</li>
+            <li>формирование ТЗ разработчикам и дизайнерам</li>
+            <li>ведущая деятельность в создании и улучшении цифровых продуктов</li>
+            <li>самостоятельная разработка готовых решений с помощью AI: веб-приложения, лендинги, Telegram-боты</li>
+          </ul>
         </div>
-        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a">🎓 Образование</span></div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px;margin-top:36px;"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a">🎓 Образование</span></div>
         <div style="border-bottom:1px solid #eee;padding:8px 0;display:grid;grid-template-columns:90px 1fr;gap:12px;"><span style="font-weight:700;color:#5a9ab8;font-size:0.82rem;">2006—2011</span><span style="font-size:0.85rem;">КФУ, вычислительная математика и кибернетика</span></div>
         <div style="border-bottom:1px solid #eee;padding:8px 0;display:grid;grid-template-columns:90px 1fr;gap:12px;"><span style="font-weight:700;color:#5a9ab8;font-size:0.82rem;">2019—2022</span><span style="font-size:0.85rem;">КФУ, институт психологии и образования</span></div>
         <div style="padding:8px 0;display:grid;grid-template-columns:90px 1fr;gap:12px;"><span style="font-weight:700;color:#5a9ab8;font-size:0.82rem;">апр 2026</span><span style="font-size:0.85rem;">AI School, программа «ИИ практика»</span></div>
@@ -693,8 +460,8 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
           <span class="cert-pill">🏅 AI School — MASTER (50+ баллов)</span>
           <span class="cert-pill">🏅 SITE Geneva — AI Integrator</span>
         </div>
-        <div style="margin-top:16px;">
-          <div style="font-size:0.78rem;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Реализованные проекты</div>
+        <div style="margin-top:36px;">
+          <div style="font-size:0.78rem;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Реализованные проекты</div>
           <div class="project-tags">
             <span class="proj-tag">МинТруд</span>
             <span class="proj-tag">Госалкогольинспекция</span>
@@ -724,7 +491,6 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
       <div class="section-script">Отвечаю честно</div>
     </div>
     <div class="faq-list">
-
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-head"><h3>Как быстро внедряется?</h3><span class="faq-icon">+</span></div>
         <div class="faq-body"><p>От 1 до 3 недель. Система работает через браузер — ничего устанавливать не нужно. Обучение команды — один рабочий день.</p></div>
@@ -745,8 +511,6 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
   </div>
 </section>
 
-
-
 <!-- FOOTER -->
 <footer>
   <span>© 2025 Альбина Хазиева · Cladding CRM</span>
@@ -759,6 +523,44 @@ function toggleFaq(el){
   document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
   if(!isOpen)el.classList.add('open');
 }
+
+// Грузовик 1
+(function(){
+  const labels=['ЖК «Детский»','Дом на Булаке','УниДом III','Школа №14','Бизнес-центр «Гранит»','ЖК «Новый-1»','ТЦ «Горки»','Офисный центр','ЖК «Светлая долина»','Резиденция «Озёрный»'];
+  const c=document.getElementById('checks1');
+  let idx=0;
+  setInterval(()=>{
+    const t=document.getElementById('truck1');
+    if(!t||!c)return;
+    const tr=t.getBoundingClientRect(),sr=c.parentElement.getBoundingClientRect();
+    const x=tr.left-sr.left+20;
+    const el=document.createElement('div');
+    el.className='check-bubble';
+    el.style.left=Math.max(0,x)+'px';
+    el.innerHTML=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" fill="#89C4E1" opacity="0.15" stroke="#89C4E1" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>${labels[idx++%labels.length]}`;
+    c.appendChild(el);
+    setTimeout(()=>el.remove(),2100);
+  },1800);
+})();
+
+// Грузовик 2
+(function(){
+  const labels=['ЖК «Детский»','Дом на Булаке','УниДом III','Школа №14','Бизнес-центр «Гранит»','ЖК «Новый-1»','ТЦ «Горки»','Офисный центр','ЖК «Светлая долина»','Резиденция «Озёрный»'];
+  const c=document.getElementById('checks2');
+  let idx=0;
+  setInterval(()=>{
+    const t=document.getElementById('truck2');
+    if(!t||!c)return;
+    const tr=t.getBoundingClientRect(),sr=c.parentElement.getBoundingClientRect();
+    const x=tr.left-sr.left+20;
+    const el=document.createElement('div');
+    el.className='check-bubble';
+    el.style.left=Math.max(0,x)+'px';
+    el.innerHTML=`<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" fill="#89C4E1" opacity="0.15" stroke="#89C4E1" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>${labels[idx++%labels.length]}`;
+    c.appendChild(el);
+    setTimeout(()=>el.remove(),2100);
+  },1800);
+})();
 </script>
 </body>
 </html>
