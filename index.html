@@ -1,563 +1,468 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cladding CRM — система управления проектами</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Альбина Хазиева — AI-услуги</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 :root{
   --blue:#89C4E1;--blue-light:#d4edf7;--blue-mid:#b8ddf0;
   --pink:#f2c4ce;--pink-light:#fce8ec;--pink-dark:#e0929f;
   --dark:#1a1a2e;--orange:#E8845A;--orange-light:#f5c4ae;
-  --teal:#4ECDC4;--gold:#c9a84c;
-  --text:#2d2d2d;--white:#ffffff;
+  --teal:#4ECDC4;--gold:#c9a84c;--green:#5a8a6a;
+  --text:#2d2d2d;--light:#f9f9f9;--white:#ffffff;
   --shadow:0 4px 20px rgba(0,0,0,0.08);
 }
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid #eee;padding:10px 0;}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--dark);text-decoration:none;}
-.nav-logo span{color:var(--blue);}
-.nav-right{display:flex;align-items:center;gap:24px;}
-.nav-phone{font-size:0.85rem;color:var(--text);font-weight:500;}
-.nav-cta{background:var(--blue);color:#fff;padding:8px 20px;border-radius:30px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:background .2s;}
-.nav-cta:hover{background:#5a9ab8;}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid #eee;padding:10px 0}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--dark);text-decoration:none}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap}
+.nav-links a{font-size:0.75rem;color:var(--text);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#5a9ab8}
+.nav-cta{background:var(--blue);color:#fff;padding:8px 18px;border-radius:30px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:#5a9ab8}
 
-/* SEP */
-.sep{height:3px;background:linear-gradient(to right,transparent,var(--blue),transparent);}
+.hero{min-height:100vh;background:linear-gradient(135deg,#f8fcff 0%,var(--blue-light) 50%,#fff 100%);display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,var(--blue-mid) 0%,transparent 70%);opacity:.3;border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,var(--pink) 0%,transparent 70%);opacity:.25;border-radius:50%}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-text h1{font-family:'Dancing Script',cursive;font-size:5rem;color:var(--dark);line-height:1;margin-bottom:16px}
+.hero-subtitle{font-size:1rem;color:#666;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-dots{display:flex;gap:12px;margin-bottom:32px}
+.hero-dot{width:14px;height:14px;border-radius:50%;background:var(--blue)}
+.hero-dot:nth-child(2){background:var(--pink-dark)}
+.hero-cta-group{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--dark);color:#fff;padding:14px 28px;border-radius:30px;font-weight:600;text-decoration:none;font-size:0.9rem;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#333;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--dark);padding:14px 28px;border-radius:30px;font-weight:600;text-decoration:none;font-size:0.9rem;border:2px solid var(--dark);transition:all .2s}
+.btn-secondary:hover{background:var(--dark);color:#fff}
+.hero-img-wrap{position:relative}
+.hero-img{width:100%;max-width:420px;border-radius:24px;object-fit:cover;height:520px;display:block;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+.hero-badge{position:absolute;bottom:30px;left:-20px;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px}
+.hero-badge-text{font-size:0.8rem;font-weight:600;color:var(--dark)}
 
-/* SECTION HELPERS */
-.section-tag{display:inline-block;background:var(--blue-light);color:#5a9ab8;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:16px;}
-.section-script{font-family:'Dancing Script',cursive;font-size:2.8rem;color:var(--dark);line-height:1;}
-.accent-line{width:60px;height:3px;background:var(--blue);border-radius:2px;margin:16px 0 24px;}
-.container{max-width:1200px;margin:0 auto;}
-section{padding:80px 24px;}
+section{padding:80px 24px}
+.container{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;background:var(--blue-light);color:#5a9ab8;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:16px}
+.section-script{font-family:'Dancing Script',cursive;font-size:2.8rem;color:var(--dark);line-height:1}
+.accent-line{width:60px;height:3px;background:var(--blue);border-radius:2px;margin:16px 0}
 
-/* HERO */
-.hero{padding:0;position:relative;overflow:hidden;}
-.hero-img-section{position:relative;padding-right:48px;}
-.hero-img-wrap{position:relative;width:100%;aspect-ratio:16/9;}
-.hero-img-wrap img.bg{width:100%;height:100%;object-fit:cover;display:block;}
-.hero-tags{position:absolute;top:11%;left:50%;transform:translateX(-50%);display:flex;gap:0.6vw;white-space:nowrap;}
-.hero-tag-pill{background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:var(--dark);}
-.hero-btn-wrap{position:absolute;top:66.5%;left:21.5%;}
-.hero-btn{background:var(--orange);color:#fff;font-weight:700;font-size:0.7vw;padding:0.5vw 1.2vw;border-radius:30px;text-decoration:none;white-space:nowrap;display:inline-block;box-shadow:0 4px 16px rgba(232,132,90,0.4);}
+.about-bg{background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%)}
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:60px;align-items:start}
+.about-photo{width:100%;border-radius:20px;object-fit:cover;height:380px;box-shadow:var(--shadow)}
+.exp-list{list-style:none;padding:0}
+.exp-list li{font-size:0.88rem;color:#555;padding:3px 0;padding-left:16px;position:relative}
+.exp-list li::before{content:'—';position:absolute;left:0;color:var(--blue)}
+.edu-item{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid #eee}
+.edu-year{font-weight:700;color:#5a9ab8;font-size:0.85rem}
+.edu-text{font-size:0.88rem;color:var(--text)}
 
-/* MOBILE HERO */
-.hero-mobile{display:none;background:linear-gradient(135deg,var(--blue-light) 0%,#fff 100%);padding:100px 24px 48px;}
-.hero-mobile h1{font-family:'Dancing Script',cursive;font-size:3rem;color:var(--dark);line-height:1.1;margin-bottom:12px;}
-.hero-mobile h1 span{color:var(--orange);}
-.hero-mobile p{font-size:0.95rem;color:#666;line-height:1.7;margin-bottom:24px;}
-.hero-mobile-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;}
-.btn-primary{background:var(--dark);color:#fff;padding:12px 24px;border-radius:30px;font-weight:600;text-decoration:none;font-size:0.88rem;transition:all .2s;}
-.btn-primary:hover{background:#333;transform:translateY(-2px);}
-.btn-secondary{background:transparent;color:var(--dark);padding:12px 24px;border-radius:30px;font-weight:600;text-decoration:none;font-size:0.88rem;border:2px solid var(--dark);transition:all .2s;}
-.btn-secondary:hover{background:var(--dark);color:#fff;}
-.hero-mobile-img{border-radius:16px;overflow:hidden;border:1px solid rgba(137,196,225,0.3);}
-.hero-mobile-img img{width:100%;display:block;}
-.hero-mobile-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
-.hero-mobile-tag{background:rgba(255,255,255,0.9);border:1px solid rgba(137,196,225,0.4);border-radius:999px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--dark);}
+.services-bg{background:linear-gradient(135deg,var(--blue-light) 0%,#f8fcff 100%)}
+.folders-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:40px}
+.folder{background:#fff;border-radius:20px;padding:24px 16px;text-align:center;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;cursor:pointer;text-decoration:none;color:var(--text)}
+.folder:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+.folder-icon{font-size:2.8rem;margin-bottom:12px;display:block}
+.folder-name{font-weight:600;font-size:0.88rem;color:var(--dark)}
+.folder-pink{border-top:4px solid var(--pink-dark)}
+.folder-blue{border-top:4px solid var(--blue)}
 
-/* SIDE TAPE */
-.side-tape{position:fixed;right:0;top:0;bottom:0;width:48px;background:var(--dark);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;overflow:hidden;}
-.side-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);}
-.side-dot.active{background:var(--blue);}
-.side-line{width:1px;height:48px;background:rgba(255,255,255,0.07);}
-.side-label{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;white-space:nowrap;}
+.service-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.badge-pink{background:var(--pink);color:#a0405a}
+.badge-blue{background:var(--blue-light);color:#3a7a9a}
+.badge-teal{background:#d0f5f3;color:#2a7a78}
+.badge-orange{background:#fde8dc;color:#a05030}
+.service-main-title{font-family:'Dancing Script',cursive;font-size:3.5rem;line-height:1;margin-bottom:8px}
+.service-tagline{font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:20px}
+.checklist{list-style:none;padding:0}
+.checklist li{padding:6px 0;font-size:0.92rem;color:var(--text);padding-left:24px;position:relative}
+.checklist li::before{content:'✦';position:absolute;left:0;color:var(--pink-dark);font-size:0.8rem}
+.checklist-blue li::before{color:var(--blue)}
+.checklist-teal li::before{color:var(--teal)}
+.checklist-orange li::before{color:var(--orange)}
+.sub-list{padding-left:20px;margin:4px 0;list-style:none}
+.sub-list li{font-size:0.85rem;color:#666;padding:3px 0;padding-left:16px;position:relative}
+.sub-list li::before{content:'○';font-size:0.6rem;position:absolute;left:0;top:6px}
+.for-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.for-result-box{background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.for-result-box h4{font-size:0.85rem;font-weight:700;color:var(--dark);margin-bottom:12px}
+.for-result-box ul{list-style:none;padding:0}
+.for-result-box li{font-size:0.85rem;color:#555;padding:4px 0;padding-left:16px;position:relative}
+.for-result-box li::before{content:'→';position:absolute;left:0;color:#888}
+.result-item::before{content:'⬖';color:var(--blue)!important}
+.price-tag{display:inline-block;background:var(--dark);color:#fff;padding:10px 22px;border-radius:30px;font-size:1.1rem;font-weight:700;margin-top:16px;font-style:italic}
+.price-pink{background:var(--pink-dark)}
+.price-blue{background:var(--blue)}
+.price-teal{background:var(--teal);color:var(--dark)}
+.price-orange{background:var(--orange)}
 
-/* PAIN */
-.pain-bg{background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);}
-.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.pain-card{background:#fff;border-radius:20px;padding:28px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;}
-.pain-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.1);}
-.pain-card.wide{grid-column:1/-1;}
-.pain-icon{margin-bottom:14px;}
-.pain-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.4;}
-.pain-card p{font-size:0.85rem;color:#666;line-height:1.7;}
+.bonus-section{background:var(--dark);color:#fff;border-radius:24px;padding:40px;margin:40px 0;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.bonus-title{font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:12px}
+.bonus-title span{color:#a78bfa}
+.bonus-chat{background:rgba(255,255,255,0.05);border-radius:16px;padding:20px}
+.chat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.chat-avatar{width:36px;height:36px;background:#a78bfa;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.chat-name{font-weight:600;font-size:0.9rem}
+.chat-status{font-size:0.75rem;color:#4ade80}
+.msg-user{background:rgba(167,139,250,0.3);border-radius:12px 12px 4px 12px;padding:10px 14px;font-size:0.85rem;text-align:right;margin:8px 0;margin-left:40px}
+.msg-bot{background:rgba(255,255,255,0.08);border-radius:12px 12px 12px 4px;padding:10px 14px;font-size:0.85rem;margin:8px 0;margin-right:40px}
+.chat-arrow-item{background:rgba(255,255,255,0.06);border-radius:10px;padding:8px 12px;font-size:0.78rem;color:#ccc;display:flex;align-items:center;gap:8px;margin-top:8px}
 
-/* WHY NOT */
-.why-bg{background:var(--dark);}
-.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:24px;}
-.why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;}
-.why-card-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
-.why-card p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.7;}
-.why-highlight{background:rgba(137,196,225,0.12);border:1px solid rgba(137,196,225,0.25);border-radius:16px;padding:24px;}
-.why-highlight p{font-size:1rem;font-weight:600;color:#fff;line-height:1.6;}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.photo-grid img{width:100%;height:260px;object-fit:cover;border-radius:16px;transition:transform .3s}
+.photo-grid img:hover{transform:scale(1.02)}
 
-/* OFFER */
-.offer-bg{background:linear-gradient(135deg,var(--blue-light) 0%,#f8fcff 100%);}
-.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
-.offer-card{background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow);transition:transform .2s;}
-.offer-card:hover{transform:translateY(-4px);}
-.offer-card h3{font-size:0.95rem;font-weight:700;color:var(--dark);margin-bottom:8px;}
-.offer-card p{font-size:0.83rem;color:#666;line-height:1.65;}
+.assistant-tabs{display:flex;gap:0;margin:24px 0;border-radius:12px;overflow:hidden;border:1px solid #eee}
+.tab-btn{flex:1;padding:12px;background:#fff;border:none;cursor:pointer;font-weight:600;font-size:0.85rem;color:#888;transition:all .2s}
+.tab-btn.active{background:var(--blue);color:#fff}
+.tab-content{display:none;animation:fadeIn .3s}
+.tab-content.active{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.assist-card{background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.assist-card-icon{font-size:2rem;margin-bottom:12px}
+.assist-card h3{font-weight:700;font-size:0.95rem;margin-bottom:8px;color:var(--dark)}
+.ex-label{font-size:0.75rem;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin:8px 0 4px}
+.ex-list{list-style:none;padding:0}
+.ex-list li{font-size:0.82rem;color:#666;padding:2px 0;padding-left:14px;position:relative}
+.ex-list li::before{content:'➢';position:absolute;left:0;font-size:0.6rem;top:4px;color:#aaa}
+.also-text{font-size:0.85rem;color:#666;margin-top:20px;padding:16px;background:#fff;border-radius:12px;border-left:3px solid var(--blue)}
 
-/* PRICE */
-.price-box{background:var(--dark);border-radius:24px;overflow:hidden;}
-.price-box-inner{display:grid;grid-template-columns:1fr 1fr;}
-.price-left{padding:48px;}
-.price-num{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:#fff;line-height:1;letter-spacing:-2px;}
-.price-sub{color:rgba(255,255,255,0.4);font-size:0.9rem;margin:4px 0 32px;}
-.btn-orange{background:var(--orange);color:#fff;padding:14px 32px;border-radius:30px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-block;transition:all .2s;}
-.btn-orange:hover{background:#d4693f;transform:translateY(-2px);}
-.price-right{padding:48px;background:rgba(255,255,255,0.04);border-left:1px solid rgba(255,255,255,0.06);}
-.check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
-.check-circle{width:18px;height:18px;border-radius:50%;background:rgba(137,196,225,0.2);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
-.check-circle svg{width:10px;height:10px;}
-.check-item p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.5;}
+.videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+.video-card{border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.05)}
+.video-card iframe{width:100%;aspect-ratio:9/16;border:none;display:block}
+.video-card-label{padding:12px;color:#ddd;font-size:0.82rem;text-align:center}
 
-/* FUTURE */
-.future-bg{background:linear-gradient(135deg,#fff 0%,var(--pink-light) 100%);}
-.future-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.future-card{background:#fff;border-radius:20px;padding:24px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start;}
-.future-icon-wrap{width:44px;height:44px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.future-card h3{font-size:0.95rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
-.future-card p{font-size:0.83rem;color:#666;line-height:1.6;}
+.audio-player{background:var(--dark);border-radius:16px;padding:20px;display:flex;align-items:center;gap:16px;margin-top:20px}
+.audio-link{background:var(--teal);color:var(--dark);padding:8px 18px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap}
 
-/* ABOUT */
-.about-bg{background:linear-gradient(135deg,var(--blue-light) 0%,#fff 100%);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-.about-photo{width:100%;border-radius:20px;object-fit:cover;height:420px;box-shadow:var(--shadow);}
-.about-skills{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0 20px;}
-.skill-chip{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.7rem;color:#666;}
-.skill-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
-.exp-list{list-style:none;padding:0;}
-.exp-list li{font-size:0.85rem;color:#555;padding:3px 0 3px 16px;position:relative;}
-.exp-list li::before{content:'—';position:absolute;left:0;color:var(--blue);}
-.cert-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
-.cert-pill{background:rgba(137,196,225,0.15);border:1px solid rgba(137,196,225,0.3);border-radius:30px;padding:6px 14px;font-size:0.75rem;font-weight:600;color:var(--dark);}
-.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
-.proj-tag{background:#f0f0f0;border-radius:20px;padding:4px 12px;font-size:0.78rem;color:#555;}
-.security-box{background:var(--dark);border-radius:16px;padding:20px;margin-top:20px;}
-.security-box h4{color:var(--blue);font-size:0.88rem;font-weight:700;margin-bottom:8px;}
-.security-box p{color:rgba(255,255,255,0.6);font-size:0.82rem;line-height:1.6;}
+.pres-link{display:inline-flex;align-items:center;gap:6px;color:#5a9ab8;font-size:0.82rem;font-weight:600;text-decoration:none}
+.pres-link:hover{text-decoration:underline}
 
-/* FAQ */
-.faq-bg{background:linear-gradient(135deg,#fff 0%,var(--blue-light) 100%);}
-.faq-list{max-width:720px;margin:0 auto;}
-.faq-item{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:8px;box-shadow:var(--shadow);cursor:pointer;}
-.faq-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;}
-.faq-head h3{font-size:0.92rem;font-weight:600;color:var(--dark);padding-right:16px;}
-.faq-icon{color:var(--blue);font-size:1.4rem;flex-shrink:0;transition:transform .3s;display:inline-block;}
-.faq-body{display:none;padding:0 24px 20px;}
-.faq-body p{font-size:0.85rem;color:#666;line-height:1.7;}
-.faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-item.open .faq-body{display:block;}
+.ideas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.idea-card{background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.idea-label{font-size:0.75rem;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin:6px 0 3px}
+.idea-list{list-style:none;padding:0}
+.idea-list li{font-size:0.82rem;color:#555;padding:2px 0;padding-left:14px;position:relative}
+.idea-list li::before{content:'➢';position:absolute;left:0;font-size:0.6rem;top:4px;color:#aaa}
 
-/* CTA */
-.cta-bg{background:var(--dark);}
-.cta-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:48px;max-width:640px;margin:0 auto;}
-.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;}
-.contact-label{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;}
-.contact-val{font-size:1rem;font-weight:600;color:#fff;text-decoration:none;}
-.contact-val:hover{color:var(--blue);}
+.contacts-script{font-family:'Dancing Script',cursive;font-size:4rem;color:#fff;text-align:center;margin-bottom:8px}
+.contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:700px;margin:0 auto 40px}
+.contact-item{background:rgba(255,255,255,0.06);border-radius:16px;padding:20px;text-align:center;text-decoration:none;color:#fff;transition:background .2s}
+.contact-item:hover{background:rgba(255,255,255,0.12)}
+.tg-btn{background:linear-gradient(135deg,#2AABEE,#229ED9);color:#fff;padding:18px 40px;border-radius:40px;font-size:1.1rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:12px;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 30px rgba(42,171,238,0.3)}
+.tg-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(42,171,238,0.4)}
 
-/* FOOTER */
-footer{background:#12121f;border-top:1px solid rgba(255,255,255,0.05);padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-right:72px;}
-footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
+.sep{height:3px;background:linear-gradient(to right,transparent,var(--blue),transparent)}
 
-/* RESPONSIVE */
+img{max-width:100%}
+
 @media(max-width:900px){
-  .pain-grid,.why-grid,.offer-grid,.future-grid,.about-grid,.price-box-inner,.contact-row{grid-template-columns:1fr;}
-  .pain-card.wide{grid-column:1;}
-  .side-tape{display:none;}
-  .hero-img-section{display:none;}
-  .hero-mobile{display:block;}
-  footer{padding-right:24px;}
+  .hero-inner,.about-grid,.for-result-grid,.bonus-section{grid-template-columns:1fr}
+  .folders-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-text h1{font-size:3.5rem}
+  .tab-content.active{grid-template-columns:1fr}
+  .videos-grid{grid-template-columns:1fr}
+  .ideas-grid{grid-template-columns:1fr}
+  .contacts-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-  .offer-grid{grid-template-columns:1fr;}
-  .price-num{font-size:48px;}
+  .folders-grid{grid-template-columns:repeat(2,1fr)}
+  .photo-grid{grid-template-columns:1fr 1fr}
+  .hero-text h1{font-size:2.8rem}
+  nav .nav-links{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- SIDE TAPE -->
-<div class="side-tape hidden lg:flex">
-  <div class="side-line"></div>
-  <div class="side-dot active"></div>
-  <div class="side-line"></div>
-  <div class="side-dot"></div>
-  <div class="side-line"></div>
-  <div class="side-dot"></div>
-  <div class="side-line"></div>
-  <div class="side-label">Cladding CRM · 2025</div>
-  <div class="side-line"></div>
-  <div class="side-dot"></div>
-  <div class="side-line"></div>
-</div>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Cladding <span>CRM</span></a>
-    <div class="nav-right">
-      <span class="nav-phone">+7 ___ ___ __ __</span>
-      <a href="#contact" class="nav-cta">Связаться со мной</a>
+    <a href="#hero" class="nav-logo">Portfolio</a>
+    <div class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#packaging">AI-упаковка</a>
+      <a href="#photo">Фотосессия</a>
+      <a href="#assistants">Ассистенты</a>
+      <a href="#visual">Визуал</a>
+      <a href="#video">Видео</a>
+      <a href="#analytics">Аналитика</a>
+      <a href="#presentations">Презентации</a>
+      <a href="#landing">Лендинги</a>
+      <a href="#bot">AI-боты</a>
+      <a href="#apps">Приложения</a>
     </div>
+    <a href="https://t.me/Bino4ka" target="_blank" class="nav-cta">✈ Написать</a>
   </div>
 </nav>
 
-<!-- HERO DESKTOP -->
-<div class="hero-img-section" style="padding-top:60px;">
-  <div class="hero-img-wrap">
-    <img class="bg" src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM"/>
-    <div class="hero-tags">
-      <span class="hero-tag-pill">• экономит время команды</span>
-      <span class="hero-tag-pill">• контроль в реальном времени</span>
-      <span class="hero-tag-pill">• готова к запуску</span>
-    </div>
-    <div class="hero-btn-wrap">
-      <a href="#offer" class="hero-btn">Узнать подробнее</a>
-    </div>
-  </div>
-</div>
-
-<!-- HERO MOBILE -->
-<div class="hero-mobile">
-  <div class="section-tag">Cladding CRM · 2025</div>
-  <h1>Ваш бизнес вырос.<br><span>Инструменты —</span><br>ещё нет.</h1>
-  <div class="hero-mobile-tags">
-    <span class="hero-mobile-tag">• экономит время</span>
-    <span class="hero-mobile-tag">• контроль в реальном времени</span>
-    <span class="hero-mobile-tag">• готова к запуску</span>
-  </div>
-  <p>Готовая CRM для компаний по подбору и поставке облицовочных материалов. Не настраивайте универсальное — возьмите то, что уже подходит.</p>
-  <div class="hero-mobile-btns">
-    <a href="#contact" class="btn-primary">Получить демонстрацию</a>
-    <a href="#offer" class="btn-secondary">Подробнее</a>
-  </div>
-  <div class="hero-mobile-img">
-    <img src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM интерфейс"/>
-  </div>
-</div>
-
-<div class="sep"></div>
-
-<!-- БОЛИ -->
-<section class="pain-bg">
-  <div class="container">
-    <div class="section-tag">Узнаёте себя?</div>
-    <div class="section-script">Возможно, прямо сейчас<br>вы думаете о том, что...</div>
-    <div class="accent-line"></div>
-    <div class="pain-grid">
-
-      <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <rect x="4" y="4" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-            <rect x="22" y="4" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-            <rect x="22" y="18" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-            <rect x="4" y="26" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".2" stroke="#89C4E1" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <h3>«Хочу видеть реальную картину — сразу, не собирая её по кускам»</h3>
-        <p>Бизнес работает, проекты идут — но чтобы понять, где вы находитесь прямо сейчас, нужно звонить, спрашивать, сводить. Это время, которого никогда нет.</p>
-      </div>
-
-      <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <circle cx="20" cy="20" r="14" fill="#89C4E1" opacity=".12" stroke="#89C4E1" stroke-width="1.5"/>
-            <path d="M20 12v8l5 3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3>«Реальная прибыль по проектам остаётся загадкой»</h3>
-        <p>Расходы разбросаны — часть в бухгалтерии, часть в памяти, часть в таблицах. Посчитать реальную прибыль — отдельная работа на несколько часов.</p>
-      </div>
-
-      <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <circle cx="20" cy="13" r="5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-            <circle cx="10" cy="29" r="4" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-            <circle cx="30" cy="29" r="4" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-            <path d="M15 18l-3 8M25 18l3 8M15 13h10" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3>«Слишком много держится на конкретных людях»</h3>
-        <p>Менеджер уходит в отпуск или меняется — и нужно время, чтобы ввести коллегу в курс дела. Всё это живёт в голове одного человека.</p>
-      </div>
-
-      <div class="pain-card">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <path d="M8 20c0-6.627 5.373-12 12-12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M32 20c0 6.627-5.373 12-12 12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M12 8l-4 0 0 4M28 32l4 0 0-4" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="20" cy="20" r="3" fill="#89C4E1" opacity=".4"/>
-          </svg>
-        </div>
-        <h3>«Рутина съедает время, которое могло бы идти на рост»</h3>
-        <p>Доверенности вручную, задачи в чатах. В сумме это часы каждую неделю, которые могли бы уходить на новых клиентов и новые объекты.</p>
-      </div>
-
-      <div class="pain-card wide">
-        <div class="pain-icon">
-          <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-            <path d="M8 32V20c0-6.627 5.373-12 12-12s12 5.373 12 12v12" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-            <rect x="4" y="24" width="8" height="8" rx="2" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.3"/>
-            <rect x="28" y="24" width="8" height="8" rx="2" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.3"/>
-          </svg>
-        </div>
-        <h3>«Хочется расти — но непонятно, как управлять большим объёмом»</h3>
-        <p>Взять ещё два-три объекта — значит ещё больше координации и контроля вручную. Масштабирование упирается не в рынок, а в отсутствие системы.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- ПОЧЕМУ ПРОШЛЫЕ НЕ СРАБОТАЛИ -->
-<section class="why-bg">
-  <div class="container">
-    <div class="section-tag" style="background:rgba(137,196,225,0.15);color:var(--blue);">Почему это до сих пор не решено</div>
-    <div class="section-script" style="color:#fff;">Вы уже пробовали.<br>Но это не то.</div>
-    <div class="accent-line" style="background:var(--blue);"></div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-card-label">Excel и таблицы</div>
-        <p>Хранит данные, но не управляет ими. Не напомнит, не посчитает, не покажет динамику. Чем больше проектов — тем сложнее ориентироваться.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card-label">Универсальные CRM</div>
-        <p>Битрикс, AmoCRM — мощные, но универсальные. На настройку уходят месяцы, а специфику поставки облицовки они всё равно не учитывают.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card-label">Разработка с нуля</div>
-        <p>От 800 000 до 2 500 000 ₽ и полгода ожидания. Высокий риск, долгий путь, неочевидный результат.</p>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="section-tag">AI-услуги · 2026</div>
+      <h1>Portfolio</h1>
+      <p class="hero-subtitle">ai упаковка эксперта</p>
+      <div class="hero-dots"><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div></div>
+      <p style="font-size:1.1rem;color:var(--text);line-height:1.7;margin-bottom:32px">Создаю AI-решения для экспертов, блогеров и бизнеса — от упаковки личного бренда до умных ботов и веб-приложений.</p>
+      <div class="hero-cta-group">
+        <a href="#services" class="btn-primary">Посмотреть услуги</a>
+        <a href="https://t.me/Bino4ka" target="_blank" class="btn-secondary">✈ Написать в Telegram</a>
       </div>
     </div>
-    <div class="why-highlight">
-      <p>Cladding CRM — это другой путь. Система уже создана, работает и заточена под вашу специфику. Не нужно настраивать месяцами. Просто начать.</p>
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- ОФФЕР -->
-<section class="offer-bg" id="offer">
-  <div class="container">
-    <div class="section-tag">Решение</div>
-    <div class="section-script">Всё для контроля над бизнесом —<br>в одном окне</div>
-    <div class="accent-line"></div>
-    <div class="offer-grid">
-      <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="4" y="4" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-          <rect x="22" y="4" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-          <rect x="22" y="18" width="14" height="18" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-          <rect x="4" y="26" width="14" height="10" rx="2.5" fill="#89C4E1" opacity=".15" stroke="#89C4E1" stroke-width="1.5"/>
-        </svg>
-        <h3>Дашборд руководителя</h3>
-        <p>Сумма контрактов, прибыль, маржа, динамика — в реальном времени. Все проекты и задачи без звонков и сводок.</p>
-      </div>
-      <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="6" y="5" width="28" height="35" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M12 16h16M12 22h16M12 28h10" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <h3>Полная карточка проекта</h3>
-        <p>Участники, отгрузки с прогрессом контракта, задачи, финансы, доверенности. Передать проект — минуты, не дни.</p>
-      </div>
-      <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6z" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M14 20c0-3.314 2.686-6 6-6M26 20c0 3.314-2.686 6-6 6" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="20" r="2.5" fill="#89C4E1" opacity=".5"/>
-        </svg>
-        <h3>Автоматизации</h3>
-        <p>Типовые задачи создаются сами. Доверенности — одной кнопкой. Синхронизация с Google Календарём.</p>
-      </div>
-      <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="6" y="14" width="28" height="20" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M13 14V11a7 7 0 0114 0v3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="24" r="3" fill="#89C4E1" opacity=".4" stroke="#89C4E1" stroke-width="1.3"/>
-        </svg>
-        <h3>Гибкие права доступа</h3>
-        <p>Каждый видит только то, что ему положено. Финансовый модуль защищён отдельным кодом.</p>
-      </div>
-      <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <path d="M8 32V14l12-8 12 8v18H8z" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M15 32V22h10v10" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <h3>Финансы и прибыль</h3>
-        <p>Расходы по категориям, прибыль считается автоматически. Реальная маржа — без часов ручной работы.</p>
-      </div>
-      <div class="offer-card">
-        <svg viewBox="0 0 40 40" fill="none" width="36" height="36" style="margin-bottom:14px">
-          <rect x="5" y="8" width="30" height="24" rx="3" fill="#89C4E1" opacity=".1" stroke="#89C4E1" stroke-width="1.5"/>
-          <path d="M5 16h30M12 12h.01M17 12h.01M22 12h.01" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M11 23h8M11 27h12M23 23h6" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round"/>
-        </svg>
-        <h3>Справочники</h3>
-        <p>Компании, контакты, материалы, водители, перевозчики — вводятся один раз и подставляются везде.</p>
-      </div>
-    </div>
-
-    <!-- ЦЕНА -->
-    <div class="price-box">
-      <div class="price-box-inner">
-        <div class="price-left">
-          <div class="section-tag" style="background:rgba(137,196,225,0.15);color:var(--blue);margin-bottom:20px;">Инвестиция</div>
-          <div class="price-num">300 000</div>
-          <div style="color:rgba(255,255,255,0.6);font-size:1.3rem;margin-bottom:4px;">₽</div>
-          <div class="price-sub">разовое внедрение</div>
-          <a href="#contact" class="btn-orange">Обсудить внедрение →</a>
-          <div style="margin-top:20px;background:rgba(137,196,225,0.1);border-radius:12px;padding:14px;">
-            <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;">Разработка аналогичной системы с нуля — от 800 000 до 2 500 000 ₽ и полгода ожидания. Вы получаете готовое решение сразу.</p>
-          </div>
-        </div>
-        <div class="price-right">
-          <p style="color:rgba(255,255,255,0.4);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Что входит</p>
-          <div class="check-item">
-            <div class="check-circle"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>Настройка системы под вашу компанию</p>
-          </div>
-          <div class="check-item">
-            <div class="check-circle"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>Заполнение справочников</p>
-          </div>
-          <div class="check-item">
-            <div class="check-circle"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>Настройка пользователей и прав доступа</p>
-          </div>
-          <div class="check-item">
-            <div class="check-circle"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>Обучение команды</p>
-          </div>
-          <div class="check-item">
-            <div class="check-circle"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>Передача полных прав администратора — ваши данные только у вас</p>
-          </div>
-          <div class="check-item">
-            <div class="check-circle"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#89C4E1" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>Доработки после запуска — по почасовой ставке</p>
-          </div>
-        </div>
+    <div class="hero-img-wrap">
+      <img src="images/2.jpg" alt="Альбина Хазиева" class="hero-img">
+      <div class="hero-badge">
+        <span style="font-size:1.5rem">🏆</span>
+        <div class="hero-badge-text">MASTER · AI School 2026</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="sep"></div>
-
-<!-- ВИЗУАЛИЗАЦИЯ -->
-<section class="future-bg">
-  <div class="container">
-    <div class="section-tag" style="background:var(--pink-light);color:var(--pink-dark);">Что изменится</div>
-    <div class="section-script">Утро в понедельник<br>через месяц после запуска</div>
-    <div class="accent-line" style="background:var(--pink-dark);"></div>
-    <div class="future-grid">
-      <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="9" stroke="#89C4E1" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <div><h3>30 секунд — и вы видите всё</h3><p>Открываете дашборд: сколько заработали, какие объекты на финише, где риски. Без звонков.</p></div>
-      </div>
-      <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#89C4E1" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <div><h3>Менеджер в отпуске — проект не останавливается</h3><p>Коллега открывает карточку и видит всё. Передача занимает минуты.</p></div>
-      </div>
-      <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div><h3>Берёте новые объекты — без страха не справиться</h3><p>Система выдерживает любой объём. Добавить проект или пользователя — без перестройки процессов.</p></div>
-      </div>
-      <div class="future-card">
-        <div class="future-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#89C4E1" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <div><h3>Видите статистику — начинаете прогнозировать</h3><p>Какие объекты дают лучшую маржу, динамика по кварталам, точки роста. Данные работают на вас.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- ОБО МНЕ -->
-<section class="about-bg">
+<!-- ABOUT -->
+<section class="about-bg" id="about">
   <div class="container">
     <div class="about-grid">
       <div>
-        <img src="https://albinalab.com/cladding-crm/img1.png" alt="Альбина Хазиева" class="about-photo" style="object-position:left top;"/>
-        <div style="margin-top:16px;background:#fff;border-radius:16px;padding:16px;box-shadow:var(--shadow);">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:1.5rem;">🏆</span>
-            <div><div style="font-weight:700;font-size:0.85rem;color:var(--dark);">MASTER · AI School 2026</div><div style="font-size:0.75rem;color:#888;">50+ баллов · все 11 артефактов</div></div>
-          </div>
-        </div>
+        <img src="images/2.jpg" alt="Альбина Хазиева" class="about-photo">
+        <img src="images/2_2.png" alt="Сертификат AI School" style="width:100%;border-radius:12px;margin-top:16px;box-shadow:var(--shadow)">
       </div>
       <div>
-        <div class="section-tag">Автор системы</div>
+        <div class="section-tag">Обо мне</div>
         <div class="section-script">Альбина Хазиева</div>
         <div class="accent-line"></div>
-        <div class="about-skills">
-          <div class="skill-chip"><div class="skill-icon" style="background:#1a1a2e;">🤖</div>AI</div>
-          <div class="skill-chip"><div class="skill-icon" style="background:var(--blue-light);">📊</div>Аналитика</div>
-          <div class="skill-chip"><div class="skill-icon" style="background:var(--pink-light);">🎯</div>Стратегия</div>
-          <div class="skill-chip"><div class="skill-icon" style="background:#f0f0f0;">🗂</div>Структура</div>
+        <div style="display:flex;gap:16px;margin:16px 0;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.7rem;color:#666"><div style="width:56px;height:56px;border-radius:14px;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:1.6rem">🤖</div>AI</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.7rem;color:#666"><div style="width:56px;height:56px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:1.6rem">📊</div>Аналитика</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.7rem;color:#666"><div style="width:56px;height:56px;border-radius:14px;background:var(--pink-light);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🎯</div>Стратегия</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:0.7rem;color:#666"><div style="width:56px;height:56px;border-radius:14px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1.6rem">🗂</div>Структура</div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a">🔍 Опыт</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
           <div>
-            <div style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:4px;">Системный аналитик · Project Manager</div>
-            <div style="color:#888;font-size:0.8rem;margin-bottom:8px;">с 2012 года</div>
+            <div style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:4px">Системный аналитик · Project Manager</div>
+            <div style="color:#888;font-size:0.85rem;margin-bottom:8px">Системная аналитика и управление проектами в IT · с 2012</div>
             <ul class="exp-list">
-              <li>анализ бизнес-процессов</li>
-              <li>структурирование задач</li>
+              <li>анализ бизнес-процессов и выявление точек роста</li>
+              <li>структурирование сложной информации и задач</li>
               <li>ведение проектов и координация команд</li>
-              <li>постановка задач разработчикам</li>
-              <li>создание цифровых продуктов</li>
+              <li>постановка задач разработчикам и дизайнерам</li>
+              <li>участие в создании и улучшении цифровых продуктов</li>
             </ul>
           </div>
           <div>
-            <div style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:4px;">AI-разработка</div>
-            <div style="color:#888;font-size:0.8rem;margin-bottom:8px;">freelance · 2026</div>
+            <div style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:4px">Маркетинг</div>
+            <div style="color:#888;font-size:0.85rem;margin-bottom:8px">Сейчас применяю это в маркетинге · freelance 2026</div>
             <ul class="exp-list">
-              <li>веб-приложения с AI</li>
-              <li>лендинги и сайты</li>
-              <li>Telegram-боты</li>
-              <li>CRM-системы</li>
-              <li>автоматизация процессов</li>
+              <li>упаковка экспертов и продуктов</li>
+              <li>разработка стратегий продвижения</li>
+              <li>анализ аудитории и поведения клиентов</li>
+              <li>создание системного контента</li>
+              <li>внедрение AI в работу</li>
             </ul>
           </div>
         </div>
-        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px;"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a;">🎓 Образование</span></div>
-        <div style="border-bottom:1px solid #eee;padding:8px 0;display:grid;grid-template-columns:90px 1fr;gap:12px;"><span style="font-weight:700;color:#5a9ab8;font-size:0.82rem;">2006—2011</span><span style="font-size:0.85rem;">КФУ, вычислительная математика и кибернетика</span></div>
-        <div style="border-bottom:1px solid #eee;padding:8px 0;display:grid;grid-template-columns:90px 1fr;gap:12px;"><span style="font-weight:700;color:#5a9ab8;font-size:0.82rem;">2019—2022</span><span style="font-size:0.85rem;">КФУ, институт психологии и образования</span></div>
-        <div class="cert-grid">
-          <span class="cert-pill">🏅 AI School — MASTER</span>
-          <span class="cert-pill">🏅 SITE Geneva — AI Integrator</span>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:12px"><span style="font-size:0.8rem;font-weight:700;color:#3a7a9a">🎓 Образование</span></div>
+        <div class="edu-item"><div class="edu-year">2006—2011</div><div class="edu-text">КФУ, вычислительная математика и кибернетика</div></div>
+        <div class="edu-item"><div class="edu-year">2019—2022</div><div class="edu-text">КФУ, институт психологии и образования</div></div>
+        <div class="edu-item" style="border:none"><div class="edu-year">апр 2026</div><div class="edu-text">AI School, программа «ИИ практика»</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- SERVICES OVERVIEW -->
+<section class="services-bg" id="services">
+  <div class="container">
+    <div class="section-tag">AI-услуги</div>
+    <div class="section-script">AI-услуги</div>
+    <p style="font-family:'Dancing Script',cursive;font-size:1.8rem;color:#aaa;margin-top:-8px">внутри</p>
+    <div class="accent-line"></div>
+    <div class="folders-grid">
+      <a href="#packaging" class="folder folder-pink"><span class="folder-icon">⭐📁</span><div class="folder-name">AI-упаковка эксперта</div></a>
+      <a href="#photo" class="folder folder-blue"><span class="folder-icon">📁</span><div class="folder-name">Контент и визуал</div></a>
+      <a href="#assistants" class="folder folder-blue"><span class="folder-icon">📁</span><div class="folder-name">AI-ассистенты</div></a>
+      <a href="#landing" class="folder folder-blue"><span class="folder-icon">📁</span><div class="folder-name">Сайты и приложения</div></a>
+      <a href="#analytics" class="folder folder-blue"><span class="folder-icon">📁</span><div class="folder-name">Аналитика</div></a>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- AI PACKAGING -->
+<section style="background:linear-gradient(135deg,var(--pink-light) 0%,#fff 100%);padding:80px 24px" id="packaging">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:40px">
+      <div>
+        <span class="service-badge badge-pink">ai упаковка эксперта</span>
+        <div class="service-main-title" style="color:var(--dark)">AI упаковка эксперта</div>
+        <p class="service-tagline">СОЗДАЮ СИСТЕМУ, КОТОРАЯ ПРЕВРАЩАЕТ ВАС В ПОНЯТНОГО ПРОДАЮЩЕГО ЭКСПЕРТА</p>
+        <ul class="checklist">
+          <li>Распаковка личности + позиционирование</li>
+          <li>Анализ ЦА (2–3 сегмента)</li>
+          <li>Контент-стратегия:<ul class="sub-list"><li>УТП и офферы</li><li>карта смыслов</li><li>контент-план на месяц</li></ul></li>
+          <li>Упаковка профиля:<ul class="sub-list"><li>аудит</li><li>шапка и структура</li><li>материалы для продаж (КП, лендинг, тексты)</li></ul></li>
+          <li>AI-портфолио (визуал + примеры постов)</li>
+          <li>Стратегия роста на 3–6 месяцев</li>
+        </ul>
+        <span class="price-tag price-pink">50–200$</span>
+      </div>
+      <div>
+        <div class="for-result-grid">
+          <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>эксперты и блогеры</li><li>начинающие и те, кто «застрял»</li><li>те, у кого есть хаос в контенте</li></ul></div>
+          <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">понятное позиционирование</li><li class="result-item">система контента</li><li class="result-item">профиль, который продает</li><li class="result-item">готовые инструменты для роста</li></ul></div>
+          <div class="for-result-box" style="grid-column:1/-1;text-align:center;background:var(--dark);color:#fff"><h4 style="color:#fff">🎁 GPT-помощник</h4><p style="font-size:0.82rem;color:#ccc;margin-top:4px">Бонус к услуге — ваш персональный ассистент</p></div>
         </div>
-        <div style="margin-top:16px;">
-          <div style="font-size:0.78rem;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Реализованные проекты</div>
-          <div class="project-tags">
-            <span class="proj-tag">МинТруд</span>
-            <span class="proj-tag">Госалкогольинспекция</span>
-            <span class="proj-tag">Система ЗАГС</span>
-            <span class="proj-tag">Биллинг ЖКХ</span>
-            <span class="proj-tag">Мобильные приложения</span>
-            <span class="proj-tag">Системы учёта</span>
+      </div>
+    </div>
+
+    <!-- BONUS -->
+    <div class="bonus-section">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);padding:6px 16px;border-radius:20px;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">🎁 БОНУС</div>
+        <div class="bonus-title">Бонус, который делает за вас <span>50% работы</span></div>
+        <p style="font-size:0.9rem;color:#ccc;line-height:1.7;margin-bottom:20px">Вы получаете личного GPT-ассистента, обученного под вас и ваши задачи</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#ccc">✓ экономит вам часы</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#ccc">✓ генерирует идеи и тексты</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#ccc">✓ усиливает ваши продажи</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#ccc">✓ держит систему в контенте</div>
+        </div>
+        <div style="margin-top:16px;background:#fbbf24;color:var(--dark);padding:12px 20px;border-radius:12px;font-size:0.85rem;font-weight:600">⭐ Ваш AI-помощник работает 24/7</div>
+        <div style="margin-top:12px;background:rgba(255,255,255,0.08);border-radius:12px;padding:12px;font-size:0.82rem;color:#ccc">🔒 Секретный актив внутри вашей услуги</div>
+      </div>
+      <div class="bonus-chat">
+        <div class="chat-header">
+          <div class="chat-avatar">🤖</div>
+          <div><div class="chat-name">Ваш GPT-помощник</div><div class="chat-status">● Онлайн</div></div>
+        </div>
+        <div class="msg-user">Напиши пост про страх самореализации</div>
+        <div class="msg-bot">Готово через 3 секунды ✨<br><div style="background:rgba(255,255,255,0.1);height:8px;border-radius:4px;margin:6px 0"></div><div style="background:rgba(255,255,255,0.1);height:8px;border-radius:4px;margin:6px 0;width:80%"></div></div>
+        <div class="chat-arrow-item">🎬 <div><strong>Сценарий Reels</strong><br><span style="color:#aaa;font-size:0.75rem">Готовый цепляющий сценарий для видео</span></div></div>
+        <div class="chat-arrow-item">💬 <div><strong>Ответ на комментарий</strong><br><span style="color:#aaa;font-size:0.75rem">Точный, вовлекающий и продающий ответ</span></div></div>
+        <div class="chat-arrow-item">✍️ <div><strong>Продающий текст</strong><br><span style="color:#aaa;font-size:0.75rem">Для поста, сторис или лендинга</span></div></div>
+      </div>
+    </div>
+
+    <!-- CASE вектор детства -->
+    <div style="margin-top:48px">
+      <div class="section-tag">↓ Фрагмент реализованного кейса</div>
+      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+        <span style="background:#f0f0f0;padding:4px 12px;border-radius:20px;font-size:0.8rem">🔍 вектор детства</span>
+        <span style="background:#f0f0f0;padding:4px 12px;border-radius:20px;font-size:0.8rem">Консультирование по методу Матрица Судьбы</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow)">
+          <div style="background:#ff6b6b;color:#fff;padding:10px 16px;border-radius:10px;margin-bottom:12px">
+            <div style="font-size:0.8rem;font-weight:700">🔥 ТВОЯ КЛЮЧЕВАЯ ФИШКА</div>
+            <p style="font-size:0.9rem;margin-top:6px;font-weight:600">Ты не просто «расшифровываешь матрицу» — ты переводишь её в понятные действия</p>
+            <div style="margin-top:8px;font-size:0.82rem">это делает тебя:<br>→ не эзотериком<br>→ а <strong>практичным специалистом</strong></div>
+          </div>
+          <div style="background:#4ECDC4;color:#fff;padding:10px 16px;border-radius:10px">
+            <div style="font-size:0.8rem;font-weight:700">💎 ТВОЁ ПОЗИЦИОНИРОВАНИЕ</div>
+            <p style="font-size:0.88rem;margin-top:6px;font-weight:600">Помогаю родителям понять потенциал ребёнка через Матрицу Судьбы и выстроить его развитие системно и без перегруза</p>
           </div>
         </div>
-        <div class="security-box">
-          <h4>🔒 Безопасность — в договоре</h4>
-          <p>После запуска все права администратора передаются вам. Мои технические доступы закрываются полностью. Это не слова — это условие договора.</p>
+        <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow)">
+          <h4 style="font-weight:700;font-size:0.9rem;color:var(--dark);margin-bottom:12px">📋 Позиционирование и анализ ЦА</h4>
+          <ul style="list-style:none;padding:0">
+            <li style="font-size:0.82rem;padding:3px 0;color:#555">⬪ общая картина твоей личности</li>
+            <li style="font-size:0.82rem;padding:3px 0;color:#555">⬪ твоя уникальность</li>
+            <li style="font-size:0.82rem;padding:3px 0;color:#555">⬪ твоё позиционирование</li>
+            <li style="font-size:0.82rem;padding:3px 0;color:#555">⬪ 10 сегментов твоей ЦА</li>
+            <li style="font-size:0.82rem;padding:3px 0;color:#555">⬪ подробный портрет основных 3 ЦА (реальность клиента, эмоции, мотивы, поведение, таргетинг)</li>
+          </ul>
+          <div style="background:var(--pink-light);border-radius:10px;padding:10px;margin-top:12px">
+            <div style="font-size:0.75rem;font-weight:700;color:#a0405a">🔥 ТВОЯ РЕАЛЬНАЯ ЦЕЛЕВАЯ АУДИТОРИЯ</div>
+            <p style="font-size:0.8rem;margin-top:4px;color:#555">Родители, которые хотят ПОНЯТЬ ребёнка и принимать ПРАВИЛЬНЫЕ решения, но не доверяют хаотичной информации и ищут систему</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content strategy -->
+      <div style="margin-top:24px;background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow)">
+        <h3 style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:16px">Контент-стратегия</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:8px">ТВОЁ УТП (ядро)</div>
+            <div style="background:var(--blue-light);padding:12px;border-radius:10px;font-size:0.82rem;line-height:1.6;color:#444">Я помогаю родителям понять своего ребёнка через Матрицу Судьбы и перевожу это понимание в конкретную систему развития — без хаоса, перегруза и тревоги.</div>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:8px">ОФФЕРЫ ДЛЯ ЦА «ТРЕВОЖНАЯ МАМА»</div>
+            <div style="background:#fff7f0;padding:10px;border-radius:8px;font-size:0.8rem;margin-bottom:8px;border-left:3px solid var(--orange)"><strong>Оффер 1:</strong> Узнайте сильные стороны вашего ребёнка и что важно развивать именно сейчас<br><span style="color:#888">👉 страх «упустить» · ощущение контроля</span></div>
+            <div style="background:#fff7f0;padding:10px;border-radius:8px;font-size:0.8rem;border-left:3px solid var(--orange)"><strong>Оффер 2:</strong> Разбор ребёнка по дате рождения: что заложено от природы и где вы можете ошибаться<br><span style="color:#888">👉 «я могу делать не так»</span></div>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:8px">ОСНОВНЫЕ СМЫСЛОВЫЕ СТОЛПЫ</div>
+            <div style="font-size:0.82rem;color:#555;line-height:1.8">🔹 <strong>1. Понимание ребёнка через Матрицу</strong><br>потенциал · особенности · поведение<br>→ разборы, объяснения, примеры<br><br>🔹 <strong>2. Система развития</strong><br>развитие ≠ хаос, нужна структура<br>→ схемы, объяснения</div>
+          </div>
+        </div>
+        <div style="margin-top:20px">
+          <div style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:12px">🗂 РУБРИКАТОР</div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+              <thead><tr style="background:var(--blue-light)"><th style="padding:10px;text-align:left">Рубрика</th><th style="padding:10px;text-align:left">Задача</th><th style="padding:10px;text-align:left">Пример</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #eee"><td style="padding:8px 10px">Ошибка родителя</td><td style="padding:8px 10px">Узнавание</td><td style="padding:8px 10px;color:#666">«Вы перегружаете ребёнка полезным»</td></tr>
+                <tr style="border-bottom:1px solid #eee;background:#f9f9f9"><td style="padding:8px 10px">Разбор ситуации</td><td style="padding:8px 10px">Экспертность</td><td style="padding:8px 10px;color:#666">«Ребёнок не слушается — почему»</td></tr>
+                <tr style="border-bottom:1px solid #eee"><td style="padding:8px 10px">Мини-разбор</td><td style="padding:8px 10px">Вовлечение</td><td style="padding:8px 10px;color:#666">«Напишите дату — скажу сильную сторону»</td></tr>
+                <tr style="border-bottom:1px solid #eee;background:#f9f9f9"><td style="padding:8px 10px">Инсайт</td><td style="padding:8px 10px">Доверие</td><td style="padding:8px 10px;color:#666">«Что я поняла как мама»</td></tr>
+                <tr><td style="padding:8px 10px">Вопрос</td><td style="padding:8px 10px">Активность</td><td style="padding:8px 10px;color:#666">«Что вас тревожит?»</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content plan -->
+      <div style="margin-top:24px;background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow)">
+        <h3 style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:4px">📅 КОНТЕНТ-ПЛАН НА МЕСЯЦ</h3>
+        <p style="font-size:0.82rem;color:#888;margin-bottom:16px">🔹 НЕДЕЛЯ 1 (Тревожная мама — «я делаю не так?»)</p>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:0.8rem">
+            <thead><tr style="background:var(--blue-light)"><th style="padding:8px;text-align:left">День</th><th style="padding:8px;text-align:left">Тема</th><th style="padding:8px;text-align:left">Идея</th><th style="padding:8px;text-align:left">О чём</th><th style="padding:8px;text-align:left">Зацепка</th></tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #eee"><td style="padding:7px 8px">Пн</td><td style="padding:7px 8px">Ошибка родителей</td><td style="padding:7px 8px">Вы не делаете плохо</td><td style="padding:7px 8px;color:#666">Родители стараются, но делают «вслепую»</td><td style="padding:7px 8px;color:#555;font-style:italic">«Вы не плохая мама. Вы просто не знаете главного»</td></tr>
+              <tr style="border-bottom:1px solid #eee;background:#f9f9f9"><td style="padding:7px 8px">Вт</td><td style="padding:7px 8px">Вовлечение</td><td style="padding:7px 8px">Узнали себя?</td><td style="padding:7px 8px;color:#666">3 ситуации: сравнение, тревога, кружки</td><td style="padding:7px 8px;color:#555;font-style:italic">«Проверьте себя: вы в этом списке?»</td></tr>
+              <tr style="border-bottom:1px solid #eee"><td style="padding:7px 8px">Ср</td><td style="padding:7px 8px">Экспертность</td><td style="padding:7px 8px">Почему советы не работают</td><td style="padding:7px 8px;color:#666">У каждого ребёнка свой «код»</td><td style="padding:7px 8px;color:#555;font-style:italic">«Почему советы из интернета не работают на вашем ребёнке»</td></tr>
+              <tr style="border-bottom:1px solid #eee;background:#f9f9f9"><td style="padding:7px 8px">Чт</td><td style="padding:7px 8px">Личный</td><td style="padding:7px 8px">Мой путь</td><td style="padding:7px 8px;color:#666">декрет → поиск → матрица</td><td style="padding:7px 8px;color:#555;font-style:italic">«Я тоже думала, что делаю всё правильно…»</td></tr>
+              <tr style="border-bottom:1px solid #eee"><td style="padding:7px 8px">Пт</td><td style="padding:7px 8px">Прогрев</td><td style="padding:7px 8px">Как понять ребёнка</td><td style="padding:7px 8px;color:#666">Без системы невозможно понять ребёнка</td><td style="padding:7px 8px;color:#555;font-style:italic">«Вы можете любить ребёнка — и не понимать его»</td></tr>
+              <tr style="border-bottom:1px solid #eee;background:#f9f9f9"><td style="padding:7px 8px">Сб</td><td style="padding:7px 8px">Продажа</td><td style="padding:7px 8px">Разбор потенциала</td><td style="padding:7px 8px;color:#666">Что даёт разбор ребёнка</td><td style="padding:7px 8px;color:#555;font-style:italic">«Я покажу, что заложено в вашем ребёнке от природы»</td></tr>
+              <tr><td style="padding:7px 8px">Вс</td><td style="padding:7px 8px">Вовлечение</td><td style="padding:7px 8px">Вопрос</td><td style="padding:7px 8px;color:#666">«Что вас больше тревожит в ребёнке?»</td><td style="padding:7px 8px;color:#555;font-style:italic">«Напишите, что вас беспокоит — разберу»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="text-align:right;margin-top:8px;font-size:0.8rem;color:#888;font-style:italic">... НЕДЕЛЯ 2–4</div>
+      </div>
+
+      <!-- Strategy -->
+      <div style="margin-top:24px;background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow)">
+        <h3 style="font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:16px">Стратегия · Рекомендуемое соотношение контента</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div style="display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 200 200" width="200" height="200" style="transform:rotate(-90deg)">
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#e0e0e0" stroke-width="40"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#a78bfa" stroke-width="40" stroke-dasharray="154 286"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#f2c4ce" stroke-width="40" stroke-dasharray="132 308" stroke-dashoffset="-154"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#fbbf24" stroke-width="40" stroke-dasharray="66 374" stroke-dashoffset="-286"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#4ECDC4" stroke-width="40" stroke-dasharray="88 352" stroke-dashoffset="-352"/>
+            </svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="background:#f0eaff;border-radius:10px;padding:12px"><div style="font-weight:700;font-size:0.9rem;color:#7c3aed">🔥 Прогревающий / Экспертный — 35%</div><p style="font-size:0.8rem;color:#555;margin-top:4px">Показывает, что ты понимаешь тему через простые смыслы. Формирует доверие + «она понимает меня»</p></div>
+            <div style="background:var(--pink-light);border-radius:10px;padding:12px"><div style="font-weight:700;font-size:0.9rem;color:#a0405a">❤ Вовлекающий — 30%</div><p style="font-size:0.8rem;color:#555;margin-top:4px">Твой двигатель роста 🚀 Нет аудитории — нужен охват. Даёт охваты + подписки</p></div>
+            <div style="background:#fffbeb;border-radius:10px;padding:12px"><div style="font-weight:700;font-size:0.9rem;color:#92400e">🛍 Продающий — 15%</div><p style="font-size:0.8rem;color:#555;margin-top:4px">НЕ меньше (хочешь первые заявки). НЕ больше (нет доверия — можно отпугнуть). Конверсия в деньги 💰</p></div>
+            <div style="background:#d0f5f3;border-radius:10px;padding:12px"><div style="font-weight:700;font-size:0.9rem;color:#2a7a78">👤 Репутационный / Личный — 20%</div><p style="font-size:0.8rem;color:#555;margin-top:4px">Нет кейсов — значит продавать через личность. Доверие = деньги</p></div>
+          </div>
         </div>
       </div>
     </div>
@@ -566,33 +471,106 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 
 <div class="sep"></div>
 
-<!-- FAQ -->
-<section class="faq-bg">
+<!-- AI PHOTO SESSION -->
+<section style="background:linear-gradient(135deg,var(--pink-light) 0%,#fff 100%);padding:80px 24px" id="photo">
   <div class="container">
-    <div style="text-align:center;margin-bottom:40px;">
-      <div class="section-tag">Вопросы</div>
-      <div class="section-script">Отвечаю честно</div>
+    <span class="service-badge badge-pink">AI-ФОТОСЕССИЯ</span>
+    <div class="service-main-title" style="color:var(--dark)">Личная AI-фотосессия</div>
+    <p class="service-tagline">ПРОФЕССИОНАЛЬНЫЕ ФОТО БЕЗ СЪЁМКИ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-blue">
+          <li>Генерация изображений с вами</li>
+          <li>Разные образы</li>
+          <li>Разные локации и атмосфера</li>
+        </ul>
+        <span class="price-tag price-blue">30–50$</span>
+      </div>
+      <div class="for-result-grid">
+        <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>эксперты и блогеры</li><li>те, кто не любит / не успевает сниматься</li><li>те, кто хочет красивые и необычные фото</li></ul></div>
+        <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">фото-контент на 2–4 недели</li><li class="result-item">единый стиль профиля</li><li class="result-item">визуал, который усиливает экспертность</li></ul></div>
+      </div>
     </div>
-    <div class="faq-list">
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-head"><h3>300 000 ₽ — это дорого для нас</h3><span class="faq-icon">+</span></div>
-        <div class="faq-body"><p>Разработка аналогичной системы с нуля — от 800 000 до 2 500 000 ₽ и полгода ожидания. Вы получаете готовое решение сразу. Автоматизации окупают систему быстро — только экономия на рутине даёт десятки часов в месяц.</p></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:24px">
+      <div><h3 style="font-weight:700;font-size:1rem;margin-bottom:8px">До / После</h3><p style="font-size:0.85rem;color:#666">От обычного селфи до журнального качества</p></div>
+      <div><h3 style="font-weight:700;font-size:1rem;margin-bottom:8px">Визуал для блога</h3><p style="font-size:0.85rem;color:#666">Единая цветовая гамма и стиль, которые делают ленту дорогой и привлекательной.</p></div>
+    </div>
+
+    <div class="section-tag" style="margin-bottom:16px">Примеры фотосессий · ↓ Фрагмент реализованного кейса</div>
+
+    <!-- Слайд 11 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <img src="images/11_1.png" alt="Коллаж модных фотосессий" style="width:100%;height:260px;object-fit:cover;border-radius:16px">
+      <img src="images/11_2.png" alt="Визуал для блога" style="width:100%;height:260px;object-fit:cover;border-radius:16px">
+    </div>
+
+    <!-- Слайд 12 -->
+    <div class="photo-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:24px">
+      <img src="images/12_1.jpg" alt="AI фотосессия портрет" style="height:220px;object-fit:cover;border-radius:16px">
+      <img src="images/12_2.jpg" alt="AI фотосессия" style="height:220px;object-fit:cover;border-radius:16px">
+      <img src="images/12_3.jpg" alt="AI фотосессия" style="height:220px;object-fit:cover;border-radius:16px">
+      <img src="images/12_4.jpg" alt="AI фотосессия" style="height:220px;object-fit:cover;border-radius:16px">
+    </div>
+
+    <!-- Слайд 13 — пляжные -->
+    <div class="photo-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px">
+      <img src="images/13_1.jpg" alt="Пляжная фотосессия" style="height:260px;object-fit:cover;border-radius:16px">
+      <img src="images/13_2.jpg" alt="Пляжная фотосессия" style="height:260px;object-fit:cover;border-radius:16px">
+      <img src="images/13_3.jpg" alt="Пляжная фотосессия" style="height:260px;object-fit:cover;border-radius:16px">
+    </div>
+    <div class="photo-grid" style="grid-template-columns:repeat(3,1fr)">
+      <img src="images/13_4.jpg" alt="AI фотосессия" style="height:260px;object-fit:cover;border-radius:16px">
+      <img src="images/13_5.jpg" alt="AI фотосессия" style="height:260px;object-fit:cover;border-radius:16px">
+      <img src="images/13_6.jpg" alt="AI фотосессия" style="height:260px;object-fit:cover;border-radius:16px">
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- AI ASSISTANTS -->
+<section style="background:linear-gradient(135deg,var(--blue-light) 0%,#fff 100%);padding:80px 24px" id="assistants">
+  <div class="container">
+    <span class="service-badge badge-blue">AI-АССИСТЕНТЫ</span>
+    <div class="service-main-title" style="color:var(--dark)">AI-ассистенты под задачи</div>
+    <p class="service-tagline">АВТОМАТИЗИРУЮТ РУТИНУ И КОММУНИКАЦИЮ</p>
+    <p style="font-size:0.9rem;color:#555;max-width:700px;margin-bottom:20px">Результат: Вы экономите время, работаете системно, ведёте блог без перегруза и освобождаете ресурсы для действительно важных задач и жизни</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow)"><div style="font-weight:700;color:#5a9ab8;margin-bottom:6px">📑 Офис</div><p style="font-size:0.82rem;color:#666">Протоколы, письма, отчёты, статус-апдейты, задачи, риски и др.</p></div>
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow)"><div style="font-weight:700;color:#5a9ab8;margin-bottom:6px">📱 Блог</div><p style="font-size:0.82rem;color:#666">Директ, возражения, сценарии reels, тексты и др.</p></div>
+      <div style="background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow)"><div style="font-weight:700;color:#5a9ab8;margin-bottom:6px">🏠 Повседневная жизнь</div><p style="font-size:0.82rem;color:#666">Питание и меню, здоровье, планирование дня, покупки, идеи подарков и др.</p></div>
+    </div>
+    <div class="for-result-grid" style="margin-bottom:20px">
+      <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>эксперты и блогеры</li><li>предприниматели и офисные сотрудники</li><li>все, кто хочет улучшить свой быт</li></ul></div>
+      <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">экономия 3–6 часов в день</li><li class="result-item">системность работы</li><li class="result-item">быстрые ответы клиентам</li></ul></div>
+    </div>
+    <span class="price-tag price-blue">50–100$</span>
+
+    <div style="margin-top:40px">
+      <div class="section-tag">Примеры AI-ассистентов</div>
+      <div class="assistant-tabs">
+        <button class="tab-btn active" onclick="showTab('office',this)">💼 Для офиса</button>
+        <button class="tab-btn" onclick="showTab('blog',this)">📱 Для блога</button>
+        <button class="tab-btn" onclick="showTab('life',this)">🏠 Для жизни</button>
       </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-head"><h3>Как быстро внедряется?</h3><span class="faq-icon">+</span></div>
-        <div class="faq-body"><p>От 1 до 3 недель. Система работает через браузер — ничего устанавливать не нужно. Обучение команды — один рабочий день.</p></div>
+      <div id="tab-office" class="tab-content active">
+        <div class="assist-card"><div class="assist-card-icon">📑</div><h3>Документооборот и отчёты</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>из заметок → протокол встречи</li><li>из списка задач → weekly report</li><li>из статуса проекта → краткий апдейт</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>оформляет протокол (решения, задачи, сроки)</li><li>пишет отчёты и письма</li><li>структурирует информацию</li></ul><div class="ex-label">Человек делает:</div><ul class="ex-list"><li>даёт вводные (заметки, факты)</li><li>проверяет корректность</li><li>отправляет</li></ul></div>
+        <div class="assist-card"><div class="assist-card-icon">📧</div><h3>Деловая коммуникация</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>письмо заказчику о переносе сроков</li><li>ответ на конфликтное сообщение</li><li>формулировка сложной мысли</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>пишет текст письма</li><li>смягчает формулировки</li><li>переводит эмоции в деловой стиль</li></ul><div class="ex-label">Человек делает:</div><ul class="ex-list"><li>задаёт контекст</li><li>выбирает вариант</li><li>отправляет</li></ul></div>
+        <div class="assist-card"><div class="assist-card-icon">📊</div><h3>Аналитика и задачи</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>фича → user stories</li><li>задача → декомпозиция</li><li>варианты решения → сравнение</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>структурирует требования</li><li>предлагает варианты решений</li><li>выявляет риски</li></ul><div class="ex-label">Человек делает:</div><ul class="ex-list"><li>принимает решения</li><li>уточняет бизнес-контекст</li><li>согласует с командой</li></ul></div>
+        <div class="also-text" style="grid-column:1/-1">А также: ✶ GPT-ассистент по принятию решений ✶ GPT-ассистент по автоматизации процессов ✶ GPT-HR / рекрутер ✶ др.</div>
       </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-head"><h3>Что будет с нашими данными?</h3><span class="faq-icon">+</span></div>
-        <div class="faq-body"><p>Данные хранятся в защищённой инфраструктуре Google. После запуска все права передаются вам — я не сохраняю технических доступов. Это прописывается в договоре.</p></div>
+      <div id="tab-blog" class="tab-content">
+        <div class="assist-card"><div class="assist-card-icon">🎥</div><h3>Контент и сценарии</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>идея → сценарий Reels</li><li>мысль → пост</li><li>тема → 5 контент-идей</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>придумывает идеи роликов</li><li>пишет сценарии</li><li>делает структуру «крючок — петля — удар»</li><li>предлагает текст для озвучки</li><li>расписывает кадры и даёт идеи для обложки</li></ul><div class="ex-label">Человек делает:</div><ul class="ex-list"><li>снимает / генерирует видео</li><li>записывает голос</li><li>публикует</li></ul></div>
+        <div class="assist-card"><div class="assist-card-icon">💬</div><h3>Ответы клиентам и продажи</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>клиент: «дорого» → ответ</li><li>заявка → диалог в директе</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>обрабатывает возражения</li><li>мягко подводит к записи</li><li>формулирует без давления</li><li>предлагает 2–3 варианта ответа</li></ul><div class="ex-label">Человек делает:</div><ul class="ex-list"><li>копирует / адаптирует ответ</li><li>ведёт диалог</li><li>закрывает на продажу</li></ul></div>
+        <div class="assist-card"><div class="assist-card-icon">📅</div><h3>Контент-стратегия</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>цель: 500 подписчиков → план на месяц</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>предлагает контент-стратегию</li><li>распределяет типы контента</li><li>делает контент-план</li><li>предлагает темы и зацепки</li></ul><div class="ex-label">Человек делает:</div><ul class="ex-list"><li>реализует контент</li><li>отслеживает результат</li><li>корректирует стратегию</li></ul></div>
+        <div class="also-text" style="grid-column:1/-1">А также: ✶ GPT-ассистент смыслов / позиционирования ✶ GPT-ассистент по постам ✶ Персональный GPT под эксперта ✶ др.</div>
       </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-head"><h3>А вдруг система не подойдёт?</h3><span class="faq-icon">+</span></div>
-        <div class="faq-body"><p>Именно поэтому предлагаю начать с демонстрации — 30–40 минут без обязательств. Увидите систему в деле и зададите любые вопросы.</p></div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-head"><h3>Что если понадобятся изменения после запуска?</h3><span class="faq-icon">+</span></div>
-        <div class="faq-body"><p>Доработки по почасовой ставке — оплачивается только фактически потраченное время. Никаких абонентских платежей.</p></div>
+      <div id="tab-life" class="tab-content">
+        <div class="assist-card"><div class="assist-card-icon">🥗</div><h3>AI-нутрициолог / питание</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>«Что приготовить на неделю?»</li><li>«Составь рацион с учётом моих целей»</li><li>«Что можно быстро приготовить из этих продуктов?»</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>составляет меню на день / неделю</li><li>предлагает рецепты под цели</li><li>формирует список покупок</li><li>адаптирует рацион под ограничения</li></ul></div>
+        <div class="assist-card"><div class="assist-card-icon">🩺</div><h3>AI-помощник по здоровью</h3><div style="background:#fff7ed;border-radius:8px;padding:8px;font-size:0.78rem;color:#92400e;margin:8px 0">⚠️ Не заменяет врача! Не ставит диагнозы, а помогает ориентироваться</div><div class="ex-label">Пример:</div><ul class="ex-list"><li>«Что это могут быть за симптомы?»</li><li>«К какому врачу идти?»</li><li>«Как подготовиться к приёму?»</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>объясняет возможные причины</li><li>подсказывает специалиста</li><li>помогает составить список вопросов врачу</li><li>расшифровывает анализы простым языком</li></ul></div>
+        <div class="assist-card"><div class="assist-card-icon">🧠</div><h3>AI-планировщик жизни</h3><div class="ex-label">Пример:</div><ul class="ex-list"><li>«Распланируй неделю»</li><li>«Как всё успевать с ребёнком и работой?»</li></ul><div class="ex-label">AI делает:</div><ul class="ex-list"><li>составляет план дня / недели</li><li>помогает расставить приоритеты</li><li>предлагает удобный режим</li><li>разбивает задачи на шаги</li></ul></div>
+        <div class="also-text" style="grid-column:1/-1">А также: ✶ GPT-ассистент по идеям и подаркам ✶ GPT-ассистент по покупкам ✶ AI-помощник для родителей ✶ GPT-ассистент по написанию сказок с вашими ценностями ✶ др.</div>
       </div>
     </div>
   </div>
@@ -600,39 +578,420 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 
 <div class="sep"></div>
 
-<!-- CTA -->
-<section class="cta-bg" id="contact">
-  <div class="container" style="text-align:center;">
-    <div class="section-tag" style="background:rgba(137,196,225,0.15);color:var(--blue);">Следующий шаг</div>
-    <div class="section-script" style="color:#fff;margin-bottom:8px;">Давайте покажу систему вживую</div>
-    <p style="color:rgba(255,255,255,0.5);font-size:0.95rem;margin-bottom:40px;">30–40 минут демонстрации — онлайн или очно. Без давления и без обязательств.</p>
-    <div class="cta-box">
-      <div class="contact-row">
-        <div style="text-align:left;">
-          <div class="contact-label">Телефон</div>
-          <a href="tel:+7__________" class="contact-val">+7 ___ ___ __ __</a>
-        </div>
-        <div style="text-align:left;">
-          <div class="contact-label">Email</div>
-          <a href="mailto:bareeva.albina@gmail.com" class="contact-val">bareeva.albina@gmail.com</a>
-        </div>
+<!-- AI VISUAL -->
+<section style="background:linear-gradient(135deg,#1a1a2e 0%,#2d2d4a 100%);padding:80px 24px" id="visual">
+  <div class="container">
+    <span class="service-badge" style="background:rgba(137,196,225,0.2);color:var(--blue)">AI-ВИЗУАЛ</span>
+    <div class="service-main-title" style="color:#fff">AI-визуал для бренда</div>
+    <p style="font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:#aaa;margin-bottom:20px">ПРОДАЮЩИЕ ИЗОБРАЖЕНИЯ ПОД ВАШ ПРОДУКТ ИЛИ УСЛУГУ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist" style="--pink-dark:#fff">
+          <li style="color:#ddd">Создание изображений с товаром</li>
+          <li style="color:#ddd">Улучшение фото (продающий вид)</li>
+          <li style="color:#ddd">Интеграция товара в сцены</li>
+          <li style="color:#ddd">Визуалы под соцсети и рекламу</li>
+        </ul>
+        <span class="price-tag">20–80$</span>
       </div>
-      <a href="https://t.me/Bino4ka" target="_blank" class="btn-orange" style="font-size:1rem;padding:16px 40px;">✈ Написать в Telegram</a>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:16px"><h4 style="color:#fff;font-size:0.85rem;margin-bottom:8px">👥 Для кого</h4><ul style="list-style:none;padding:0"><li style="font-size:0.82rem;color:#ccc;padding:3px 0">→ бренды</li><li style="font-size:0.82rem;color:#ccc;padding:3px 0">→ интернет-магазины</li><li style="font-size:0.82rem;color:#ccc;padding:3px 0">→ эксперты с продуктом / услугой</li></ul></div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:16px"><h4 style="color:#fff;font-size:0.85rem;margin-bottom:8px">📈 Результат</h4><ul style="list-style:none;padding:0"><li style="font-size:0.82rem;color:#ccc;padding:3px 0">⬖ продающий визуал</li><li style="font-size:0.82rem;color:#ccc;padding:3px 0">⬗ повышение доверия</li><li style="font-size:0.82rem;color:#ccc;padding:3px 0">⬘ усиление контента</li></ul></div>
+      </div>
+    </div>
+
+    <div class="section-tag" style="background:rgba(137,196,225,0.15);color:var(--blue);margin-bottom:16px">↓ Фрагмент реализованного кейса · мастер по созданию вязаной одежды</div>
+
+    <!-- Слайд 19: до/после худи -->
+    <h4 style="color:#fff;margin-bottom:16px;font-size:1rem">До / После · Как обычное фото превращается в рекламный постер</h4>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px">
+      <div><img src="images/19_1.jpg" alt="Худи до" style="width:100%;height:200px;object-fit:cover;border-radius:12px"><div style="text-align:center;color:#aaa;font-size:0.7rem;margin-top:4px;font-weight:700">ДО</div></div>
+      <div><img src="images/19_2.jpg" alt="Худи в интерьере" style="width:100%;height:200px;object-fit:cover;border-radius:12px"><div style="text-align:center;color:#aaa;font-size:0.7rem;margin-top:4px;font-weight:700">ПОСЛЕ</div></div>
+      <div><img src="images/19_3.png" alt="Худи на модели" style="width:100%;height:200px;object-fit:cover;border-radius:12px"></div>
+      <div><img src="images/19_4.png" alt="Худи 3D персонаж" style="width:100%;height:200px;object-fit:cover;border-radius:12px"></div>
+    </div>
+
+    <!-- Слайд 20: детские комбинезоны -->
+    <h4 style="color:#fff;margin-bottom:16px;font-size:1rem">Задача: привлекательно представить товар в интерьере / на модели / на персонаже</h4>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px">
+      <div><img src="images/20_1.jpg" alt="Комбинезон до" style="width:100%;height:180px;object-fit:cover;border-radius:12px"><div style="text-align:center;color:#aaa;font-size:0.7rem;margin-top:4px">ДО</div></div>
+      <div><img src="images/20_2.jpg" alt="Комбинезон в кроватке" style="width:100%;height:180px;object-fit:cover;border-radius:12px"><div style="text-align:center;color:#aaa;font-size:0.7rem;margin-top:4px">ПОСЛЕ</div></div>
+      <div><img src="images/20_3.jpg" alt="Малыш в коляске" style="width:100%;height:180px;object-fit:cover;border-radius:12px"></div>
+      <div><img src="images/20_4.png" alt="3D персонаж" style="width:100%;height:180px;object-fit:cover;border-radius:12px"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px">
+      <div><img src="images/20_5.jpg" alt="Малыш до" style="width:100%;height:180px;object-fit:cover;border-radius:12px"><div style="text-align:center;color:#aaa;font-size:0.7rem;margin-top:4px">ДО</div></div>
+      <div><img src="images/20_6.jpg" alt="Комбинезон после" style="width:100%;height:180px;object-fit:cover;border-radius:12px"><div style="text-align:center;color:#aaa;font-size:0.7rem;margin-top:4px">ПОСЛЕ</div></div>
+      <div><img src="images/20_7.png" alt="Малыш на траве" style="width:100%;height:180px;object-fit:cover;border-radius:12px"></div>
+      <div><img src="images/20_8.png" alt="3D малыш" style="width:100%;height:180px;object-fit:cover;border-radius:12px"></div>
+    </div>
+
+    <!-- Слайд 21: дизайнер интерьера -->
+    <div class="section-tag" style="background:rgba(137,196,225,0.15);color:var(--blue);margin-bottom:16px">↓ Фрагмент реализованного кейса · дизайнер интерьера</div>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center">
+      <img src="images/21_2.png" alt="Интерьер до" style="width:100%;height:280px;object-fit:cover;border-radius:16px">
+      <span style="color:#fff;font-size:1.5rem">→</span>
+      <img src="images/21_1.jpg" alt="Интерьер после" style="width:100%;height:280px;object-fit:cover;border-radius:16px">
+    </div>
+    <div style="margin-top:16px">
+      <img src="images/21_3.png" alt="Коллаж интерьеров дизайнера" style="width:100%;border-radius:16px;max-height:400px;object-fit:cover">
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <span>© 2025 Альбина Хазиева · Cladding CRM</span>
-  <span>Системный аналитик · Project Manager · AI-разработка</span>
-</footer>
+<div class="sep"></div>
+
+<!-- AI VIDEO -->
+<section style="background:linear-gradient(135deg,#2d1a0e 0%,#4a2d1a 100%);padding:80px 24px" id="video">
+  <div class="container">
+    <span class="service-badge badge-orange">AI-ВИДЕО И REELS</span>
+    <div class="service-main-title" style="color:#fff">AI-видео и REELS</div>
+    <p style="font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:#ddd;margin-bottom:20px">ВИДЕО КОНТЕНТ, КОТОРЫЙ ПРИВЛЕКАЕТ ВНИМАНИЕ И УДЕРЖИВАЕТ ОХВАТЫ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-orange">
+          <li style="color:#ddd">Монтаж Reels с AI-эффектами</li>
+          <li style="color:#ddd">Генерация видео по тексту</li>
+          <li style="color:#ddd">Анимированные мультфильмы</li>
+          <li style="color:#ddd">Сценарное сопровождение</li>
+        </ul>
+        <span class="price-tag price-orange">30–100$</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:16px"><h4 style="color:#fff;font-size:0.85rem;margin-bottom:8px">👥 Для кого</h4><ul style="list-style:none;padding:0"><li style="font-size:0.82rem;color:#ddd;padding:3px 0">→ блогеры</li><li style="font-size:0.82rem;color:#ddd;padding:3px 0">→ эксперты</li><li style="font-size:0.82rem;color:#ddd;padding:3px 0">→ бизнес</li></ul></div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:16px"><h4 style="color:#fff;font-size:0.85rem;margin-bottom:8px">📈 Результат</h4><ul style="list-style:none;padding:0"><li style="font-size:0.82rem;color:#ddd;padding:3px 0">⬖ рост охватов</li><li style="font-size:0.82rem;color:#ddd;padding:3px 0">⬗ вовлечённость</li><li style="font-size:0.82rem;color:#ddd;padding:3px 0">⬘ более «живой» контент</li></ul></div>
+      </div>
+    </div>
+    <div class="section-tag" style="background:rgba(232,132,90,0.2);color:var(--orange);margin-bottom:16px">↓ Фрагменты реализованных кейсов</div>
+    <div class="videos-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/mPMlhp_OGX4" title="AI видео вязание" allowfullscreen></iframe>
+        <div class="video-card-label">✧ Короткое видео для мастера по вязанию</div>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/eLR3-8L3DBM" title="AI видео 8 марта" allowfullscreen></iframe>
+        <div class="video-card-label">✧ Поздравление девушек с 8 марта</div>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/ogMYt8mE9FQ" title="AI мультфильм" allowfullscreen></iframe>
+        <div class="video-card-label">✧ Мультфильм по истории клиента для его сына</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- AI ANALYTICS -->
+<section style="background:linear-gradient(135deg,#f0f4f8 0%,#e8f4ec 100%);padding:80px 24px" id="analytics">
+  <div class="container">
+    <span class="service-badge badge-teal">AI-АНАЛИТИКА</span>
+    <div class="service-main-title" style="color:var(--dark)">AI-аналитика и данные</div>
+    <p class="service-tagline">ПЕРЕВОЖУ БОЛЬШИЕ ОБЪЁМЫ ИНФОРМАЦИИ В ПОНЯТНЫЙ РЕЗУЛЬТАТ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-teal">
+          <li>Анализ данных и текстов</li>
+          <li>Краткие выжимки (Summary)</li>
+          <li>Создание подкастов и инфографики</li>
+          <li>Генерация тестов и квизов</li>
+        </ul>
+        <span class="price-tag price-teal" style="color:var(--dark)">20–70$</span>
+      </div>
+      <div class="for-result-grid">
+        <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>эксперты</li><li>студенты</li><li>предприниматели</li></ul></div>
+        <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">экономия времени</li><li class="result-item">структурированная информация</li><li class="result-item">готовые материалы</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Аудио -->
+    <div class="audio-player">
+      <div style="font-size:2rem">🎙</div>
+      <div style="flex:1">
+        <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-bottom:4px">Подкаст · «Краткий обзор темы Матрица судьбы»</h4>
+        <p style="color:#aaa;font-size:0.8rem">Консультирование по методу Матрица Судьбы · кейс вектор детства</p>
+      </div>
+      <a href="https://open.spotify.com/episode/2jtqxAxqcdJ6TylRejeOvy" target="_blank" class="audio-link">▶ Слушать на Spotify</a>
+    </div>
+
+    <div style="margin-top:32px">
+      <div class="section-tag" style="margin-bottom:16px">↓ Фрагменты реализованных кейсов · Консультирование по методу Матрица Судьбы</div>
+      <!-- Слайд 26 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px">
+        <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)">
+          <img src="images/26_1.png" alt="Инфографика Матрица Судьбы Храм Материи" style="width:100%;object-fit:contain;max-height:260px;background:#f9f9f9;padding:8px">
+          <div style="padding:16px"><div style="font-weight:700;font-size:0.9rem;margin-bottom:4px">Инфографика · Первая семерица: Храм Материи в Матрице Судьбы</div><p style="font-size:0.8rem;color:#666">Отчёт с краткой информацией по методу</p></div>
+        </div>
+        <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)">
+          <img src="images/26_2.png" alt="Инфографика Матрица Судьбы Код Предназначения" style="width:100%;object-fit:contain;max-height:260px;background:#f9f9f9;padding:8px">
+          <div style="padding:16px"><div style="font-weight:700;font-size:0.9rem;margin-bottom:4px">Матрица Судьбы: Код Вашего Предназначения</div><p style="font-size:0.8rem;color:#666">Инфографика по теме Матрица Судьбы</p></div>
+        </div>
+      </div>
+
+      <!-- Слайд 27: биология -->
+      <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-bottom:24px">
+        <h4 style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:4px">✧ Задача: Дополнительный материал для школьника по биологии</h4>
+        <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Наглядная презентация, инфографика-шпаргалка, видео-обзор на тему</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+          <div style="border-radius:12px;overflow:hidden;border:1px solid #eee">
+            <img src="images/27_1.png" alt="Презентация по биологии" style="width:100%;height:180px;object-fit:cover">
+            <div style="padding:8px;font-size:0.78rem;color:#666">Наглядная презентация «Минеральное питание растений»</div>
+          </div>
+          <div style="border-radius:12px;overflow:hidden;border:1px solid #eee">
+            <img src="images/27_2.png" alt="Инфографика шпаргалка биология" style="width:100%;height:180px;object-fit:cover">
+            <div style="padding:8px;font-size:0.78rem;color:#666">Инфографика-шпаргалка по растениям</div>
+          </div>
+          <div style="border-radius:12px;overflow:hidden;border:1px solid #eee">
+            <img src="images/27_3.png" alt="Видео обзор биология" style="width:100%;height:180px;object-fit:cover">
+            <div style="padding:8px;font-size:0.78rem;color:#666">Видео-обзор «Как питаются растения» · 05:12</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Слайд 28: комикс -->
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)">
+        <h4 style="font-weight:700;font-size:0.95rem;color:var(--dark);padding:20px 20px 12px">✧ Задача: Создать комикс для ребёнка по книге «Гарри Поттер и философский камень»</h4>
+        <img src="images/28.png" alt="Комикс Гарри Поттер и философский камень" style="width:100%;object-fit:contain;max-height:400px;background:#f5f0e8;padding:8px">
+        <div style="padding:16px"><p style="font-size:0.82rem;color:#666">Комикс «Волшебное приключение Гарри» — по мотивам «Гарри Поттер и философский камень»</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PRESENTATIONS -->
+<section style="background:linear-gradient(135deg,#e8f4f8 0%,#f8ecf4 100%);padding:80px 24px" id="presentations">
+  <div class="container">
+    <span class="service-badge badge-blue">ПРЕЗЕНТАЦИИ</span>
+    <div class="service-main-title" style="color:var(--dark)">Презентации и Банеры</div>
+    <p class="service-tagline">ПРЕЗЕНТАЦИИ, КОТОРЫЕ ДОНОСЯТ ЦЕННОСТЬ И ПРОДАЮТ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-blue">
+          <li>Проработка структуры и логики</li>
+          <li>Копирайтинг текстов через AI</li>
+          <li>Эстетичный современный визуал</li>
+          <li>Готовое коммерческое предложение</li>
+        </ul>
+        <span class="price-tag price-blue">50–120$</span>
+      </div>
+      <div class="for-result-grid">
+        <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>эксперты</li><li>бизнес</li><li>стартапы</li></ul></div>
+        <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">понятная подача</li><li class="result-item">усиление оффера</li><li class="result-item">рост конверсии</li></ul></div>
+      </div>
+    </div>
+    <div class="section-tag" style="margin-bottom:16px">↓ Фрагменты реализованных кейсов · Консультирование по методу Матрица Судьбы</div>
+    <!-- Слайды 30 -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <img src="images/30_1.png" alt="Презентация Матрица Судьбы 1" style="width:100%;height:140px;object-fit:cover">
+          <img src="images/30_2.png" alt="Презентация Матрица Судьбы 2" style="width:100%;height:140px;object-fit:cover">
+        </div>
+        <div style="padding:16px">
+          <h4 style="font-weight:700;font-size:0.9rem;margin-bottom:6px">Ознакомительная презентация о методе Матрица Судьбы</h4>
+          <p style="font-size:0.82rem;color:#666;margin-bottom:10px">Задача: Создать обзорную презентацию по методу Матрица Судьбы</p>
+          <a href="#" class="pres-link">📄 Открыть презентацию →</a>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <img src="images/30_3.png" alt="КП для IT 1" style="width:100%;height:140px;object-fit:cover">
+          <img src="images/30_4.png" alt="КП для IT 2" style="width:100%;height:140px;object-fit:cover">
+        </div>
+        <div style="padding:16px">
+          <h4 style="font-weight:700;font-size:0.9rem;margin-bottom:6px">Презентация с КП для IT-компаний</h4>
+          <p style="font-size:0.82rem;color:#666;margin-bottom:10px">Задача: Создать КП по услуге диагностики личности кандидата для эффективного IT-рекрутинга на основе метода Матрица Судьбы</p>
+          <a href="#" class="pres-link">📄 Открыть презентацию →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- LANDING -->
+<section style="background:#fff;padding:80px 24px" id="landing">
+  <div class="container">
+    <span class="service-badge badge-blue">ЛЕНДИНГ-САЙТ</span>
+    <div class="service-main-title" style="color:var(--dark)">AI-лендинг</div>
+    <p class="service-tagline">СОЗДАЮ СТРАНИЦЫ ПОД КОНКРЕТНУЮ ЗАДАЧУ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-blue">
+          <li>Сбор заявок и анкет</li>
+          <li>Тестирование гипотез</li>
+          <li>Прямые продажи продукта</li>
+          <li>Высокая конверсия в действие</li>
+        </ul>
+        <span class="price-tag price-blue">80–150$</span>
+      </div>
+      <div class="for-result-grid">
+        <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>эксперты</li><li>запуск продуктов</li><li>тест гипотез</li></ul></div>
+        <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">заявки</li><li class="result-item">понятный оффер</li><li class="result-item">рост продаж</li></ul></div>
+      </div>
+    </div>
+    <div class="section-tag" style="margin-bottom:16px">↓ Фрагменты реализованных кейсов</div>
+    <!-- Слайды 32, 33 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #eee">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+          <img src="images/32_1.png" alt="Лендинг дизайнер интерьера" style="width:100%;height:130px;object-fit:cover">
+          <img src="images/32_2.png" alt="Лендинг дизайнер интерьера" style="width:100%;height:130px;object-fit:cover">
+          <img src="images/32_3.png" alt="Лендинг дизайнер интерьера" style="width:100%;height:130px;object-fit:cover">
+          <img src="images/32_4.png" alt="Лендинг дизайнер интерьера" style="width:100%;height:130px;object-fit:cover">
+        </div>
+        <div style="padding:18px">
+          <h4 style="font-weight:700;font-size:0.95rem;margin-bottom:8px">Лендинг дизайнера интерьера</h4>
+          <p style="font-size:0.83rem;color:#666;margin-bottom:12px">«Дизайн интерьера, в котором становится легче жить» · Квартиры · детские комнаты · функциональные зоны</p>
+          <a href="#" class="pres-link">🌐 Открыть лендинг →</a>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #eee">
+        <img src="images/33.png" alt="Лендинг Матрица Судьбы IT рекрутинг" style="width:100%;height:262px;object-fit:cover">
+        <div style="padding:18px">
+          <h4 style="font-weight:700;font-size:0.95rem;margin-bottom:8px">Матрица Судьбы в IT-рекрутинге</h4>
+          <p style="font-size:0.83rem;color:#666;margin-bottom:12px">«Ваш Senior увольняется через 3 месяца? Хватит гадать.» · Диагностика личности кандидата для эффективного IT-рекрутинга</p>
+          <a href="#" class="pres-link">🌐 Открыть лендинг →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- AI BOT -->
+<section style="background:linear-gradient(135deg,#d8eedf 0%,#f8fcff 100%);padding:80px 24px" id="bot">
+  <div class="container">
+    <span class="service-badge badge-teal">AI-БОТ</span>
+    <div class="service-main-title" style="color:var(--dark)">AI-бот</div>
+    <p class="service-tagline">АВТОМАТИЗИРУЕТ ОБЩЕНИЕ И НА СВЯЗИ С ВАШИМИ КЛИЕНТАМИ 24/7</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-teal">
+          <li>Отвечает на вопросы мгновенно</li>
+          <li>Консультирует по продукту</li>
+          <li>Обрабатывает возражения</li>
+          <li>Ведёт клиента к покупке</li>
+        </ul>
+        <span class="price-tag price-teal" style="color:var(--dark)">80–150$</span>
+      </div>
+      <div class="for-result-grid">
+        <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>блогеры</li><li>онлайн-бизнес</li><li>эксперты</li></ul></div>
+        <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">заявки без участия</li><li class="result-item">быстрые ответы клиентам</li><li class="result-item">снятие нагрузки</li></ul></div>
+      </div>
+    </div>
+    <div class="section-tag" style="margin-bottom:16px">↓ Фрагмент реализованного кейса · Консульство РФ</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px">✧ Задача: Умный бот, который консультирует граждан РФ по консульским вопросам заграницей (Анталия, Стамбул, Трабзон)</p>
+    <!-- Слайды 35 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <img src="images/35_1.png" alt="Бот Konsul скриншот 1" style="width:100%;border-radius:16px;box-shadow:var(--shadow)">
+      <img src="images/35_2.png" alt="Бот Konsul скриншот 2" style="width:100%;border-radius:16px;box-shadow:var(--shadow)">
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- AI WEB APPS -->
+<section style="background:linear-gradient(135deg,#fff7ed 0%,#fef3f8 100%);padding:80px 24px" id="apps">
+  <div class="container">
+    <span class="service-badge badge-orange">AI-ВЕБ ПРИЛОЖЕНИЯ</span>
+    <div class="service-main-title" style="color:var(--dark)">AI-веб приложения</div>
+    <p class="service-tagline">ИНСТРУМЕНТЫ ПОД ВАШИ КОНКРЕТНЫЕ ЗАДАЧИ</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px">
+      <div>
+        <ul class="checklist checklist-orange">
+          <li>Офис: генераторы, трекеры</li>
+          <li>Блог: планировщики контента</li>
+          <li>Жизнь: обучение и планы</li>
+          <li>Удобный личный интерфейс</li>
+        </ul>
+        <span class="price-tag price-orange">50–150$</span>
+      </div>
+      <div class="for-result-grid">
+        <div class="for-result-box"><h4>👥 Для кого</h4><ul><li>бизнес</li><li>блогеры</li><li>личное использование</li></ul></div>
+        <div class="for-result-box"><h4>📈 Результат</h4><ul><li class="result-item">упрощение процессов</li><li class="result-item">автоматизация</li><li class="result-item">удобные инструменты</li></ul></div>
+      </div>
+    </div>
+    <div class="section-tag" style="margin-bottom:16px">↓ Фрагменты реализованных кейсов</div>
+
+    <!-- Слайды 37: Любимый малыш -->
+    <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-bottom:24px">
+      <h4 style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:8px">✧ Задача: Приложение, которое генерирует план занятий с ребёнком на день</h4>
+      <p style="font-size:0.82rem;color:#666;margin-bottom:16px">ИИ формирует план с учётом возраста ребёнка, успехов по заданиям, комментариев родителей. Интерфейс меняется в зависимости от пола ребёнка. Ведение нескольких детей. История-дневник.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <img src="images/37_1.png" alt="Любимый малыш мальчик" style="width:100%;border-radius:12px;border:1px solid #eee">
+        <img src="images/37_2.png" alt="Любимый малыш девочка" style="width:100%;border-radius:12px;border:1px solid #eee">
+      </div>
+    </div>
+
+    <!-- Слайды 38: коробки -->
+    <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-bottom:24px">
+      <h4 style="font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:8px">✧ Задача: Приложение для учёта коробок с вещами для переезда</h4>
+      <p style="font-size:0.82rem;color:#666;margin-bottom:4px">Необходимые возможности:</p>
+      <ul style="list-style:none;padding:0;margin-bottom:16px"><li style="font-size:0.82rem;color:#555;padding:2px 0">⬖ хештеги для укрупнённого поиска</li><li style="font-size:0.82rem;color:#555;padding:2px 0">⬗ поиск по любым параметрам</li><li style="font-size:0.82rem;color:#555;padding:2px 0">⬘ экспорт в документ</li><li style="font-size:0.82rem;color:#555;padding:2px 0">⬙ параллельное ведение с другими пользователями</li></ul>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <img src="images/38_1.png" alt="Приложение коробки создание" style="width:100%;border-radius:12px;border:1px solid #eee">
+        <img src="images/38_2.png" alt="Приложение коробки поиск" style="width:100%;border-radius:12px;border:1px solid #eee">
+      </div>
+    </div>
+
+    <!-- Идеи -->
+    <div class="section-tag" style="margin-bottom:16px">Идеи AI-веб приложений</div>
+    <div class="ideas-grid">
+      <div class="idea-card"><h4 style="font-weight:700;font-size:0.9rem;color:var(--dark);margin-bottom:8px">🔍 AI-анализатор блога</h4><div class="idea-label">Вход:</div><ul class="idea-list"><li>ссылка на профиль</li><li>цель (рост / продажи / запуск)</li></ul><div class="idea-label">Выход:</div><ul class="idea-list"><li>разбор позиционирования</li><li>слабые места</li><li>рекомендации</li><li>план роста на месяц</li></ul><div style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-top:8px">Результат: понятная стратегия вместо хаоса</div></div>
+      <div class="idea-card"><h4 style="font-weight:700;font-size:0.9rem;color:var(--dark);margin-bottom:8px">🧭 AI-навигатор жизни</h4><div class="idea-label">Вход:</div><ul class="idea-list"><li>ситуация / проблема</li><li>цель человека</li></ul><div class="idea-label">Выход:</div><ul class="idea-list"><li>разбор ситуации</li><li>варианты решений</li><li>плюсы / минусы</li><li>рекомендации</li></ul><div style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-top:8px">Результат: быстрее принимать решения</div></div>
+      <div class="idea-card"><h4 style="font-weight:700;font-size:0.9rem;color:var(--dark);margin-bottom:8px">📅 AI-планировщик дня</h4><div class="idea-label">Вход:</div><ul class="idea-list"><li>список задач</li><li>приоритеты / энергия / дедлайны</li></ul><div class="idea-label">Выход:</div><ul class="idea-list"><li>оптимальный план дня</li><li>распределение задач</li><li>рекомендации по фокусу</li></ul><div style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-top:8px">Результат: больше сделано без перегруза</div></div>
+      <div class="idea-card"><h4 style="font-weight:700;font-size:0.9rem;color:var(--dark);margin-bottom:8px">💙 AI-эмоциональный помощник</h4><div class="idea-label">Пользователь:</div><ul class="idea-list"><li>описание состояния / ситуации</li></ul><div class="idea-label">Выход:</div><ul class="idea-list"><li>поддержка</li><li>разбор эмоций</li><li>рекомендации</li></ul><div style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-top:8px">Результат: снижение стресса</div></div>
+    </div>
+    <div style="text-align:center;margin-top:16px;font-size:0.85rem;color:#888;font-style:italic">и др...</div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CONTACTS -->
+<section style="background:var(--dark);padding:80px 24px" id="contacts">
+  <div class="container" style="text-align:center">
+    <div class="section-tag" style="background:rgba(137,196,225,0.15);color:var(--blue);display:inline-block">Контакты</div>
+    <div class="contacts-script">Благодарю!</div>
+    <p style="color:#ccc;margin-bottom:40px;font-size:1rem">до встречи!</p>
+    <div class="contacts-grid">
+      <a href="tel:+79053715959" class="contact-item">
+        <div style="font-size:1.8rem;margin-bottom:8px">📱</div>
+        <div style="font-size:0.75rem;color:#aaa;margin-bottom:4px">Телефон / WhatsApp</div>
+        <div style="font-size:0.9rem;font-weight:600">+7 905 371-59-59</div>
+      </a>
+      <a href="https://t.me/Bino4ka" target="_blank" class="contact-item">
+        <div style="font-size:1.8rem;margin-bottom:8px">✈️</div>
+        <div style="font-size:0.75rem;color:#aaa;margin-bottom:4px">Telegram</div>
+        <div style="font-size:0.9rem;font-weight:600">@Bino4ka</div>
+      </a>
+      <a href="mailto:bareeva.albina@gmail.com" class="contact-item">
+        <div style="font-size:1.8rem;margin-bottom:8px">📧</div>
+        <div style="font-size:0.75rem;color:#aaa;margin-bottom:4px">Email</div>
+        <div style="font-size:0.9rem;font-weight:600">bareeva.albina@gmail.com</div>
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:20px">
+      <a href="https://t.me/Bino4ka" target="_blank" class="tg-btn">
+        <span style="font-size:1.5rem">✈</span>
+        Написать в Telegram
+      </a>
+    </div>
+  </div>
+</section>
 
 <script>
-function toggleFaq(el){
-  const isOpen=el.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!isOpen)el.classList.add('open');
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
 }
 </script>
 </body>
