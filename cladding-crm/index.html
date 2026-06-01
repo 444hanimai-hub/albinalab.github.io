@@ -208,14 +208,15 @@ footer span{font-size:0.78rem;color:rgba(255,255,255,0.2);}
 <div class="hero-img-section" style="padding-top:60px;">
   <div class="hero-img-wrap">
     <img class="bg" src="https://albinalab.com/cladding-crm/img1.png" alt="Cladding CRM"/>
-    <div class="hero-tags">
-      <span class="hero-tag-pill">• экономит время команды</span>
-      <span class="hero-tag-pill">• контроль в реальном времени</span>
-      <span class="hero-tag-pill">• готова к запуску</span>
+    <!-- Плашки над ноутбуком -->
+    <div style="position:absolute;top:5%;left:50%;transform:translateX(-50%);display:flex;gap:0.6vw;white-space:nowrap;z-index:5;">
+      <span style="background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:#1a1a2e;">• экономит время команды</span>
+      <span style="background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:#1a1a2e;">• обеспечивает контроль в реальном времени</span>
+      <span style="background:rgba(255,255,255,0.97);border:1px solid rgba(137,196,225,0.5);border-radius:999px;padding:0.45vw 1.1vw;font-size:0.9vw;font-weight:600;color:#1a1a2e;">• готова к эксплуатации</span>
     </div>
-    <div class="hero-btn-wrap">
-      <a href="#offer" class="hero-btn">Узнать подробнее</a>
-    </div>
+    <!-- Кликабельная левая половина -->
+    <div onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})"
+         style="position:absolute;top:0;left:0;width:50%;height:100%;cursor:pointer;z-index:4;"></div>
   </div>
 </div>
 
