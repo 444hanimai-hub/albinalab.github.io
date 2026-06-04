@@ -18,238 +18,159 @@
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--dark);font-family:'Inter',sans-serif;overflow-x:hidden;}
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 5vw;
-  background:rgba(248,247,244,0.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 5vw;background:rgba(248,247,244,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
 .nav-logo{font-size:15px;font-weight:800;letter-spacing:-0.5px;}
 .nav-logo span{color:var(--red);}
 .nav-meta{font-size:12px;color:var(--muted);}
-.nav-btn{
-  background:var(--dark);color:#fff;
-  font-size:12px;font-weight:600;letter-spacing:0.5px;
-  padding:10px 22px;border-radius:100px;
-  text-decoration:none;transition:background .2s;
-}
+.nav-btn{background:var(--dark);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.5px;padding:10px 22px;border-radius:100px;text-decoration:none;transition:background .2s;}
 .nav-btn:hover{background:var(--red);}
 
-/* HERO */
-.hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;
-  overflow:hidden;
-}
-.hero-img{
-  position:absolute;
-  top:0;left:0;right:0;bottom:0;
-  width:100%;height:100%;
-  overflow:hidden;
-}
-.hero-img img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 60%;
-  display:block;
-}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.45) 0%,
-    rgba(0,0,0,0.4) 50%,
-    rgba(0,0,0,0.7) 100%
-  );
-}
-.hero-content{
-  position:relative;z-index:1;
-  padding:0 5vw;
-  max-width:1300px;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:28px;
-}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+.hero-img{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;overflow:hidden;}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);}
+.hero-content{position:relative;z-index:1;padding:0 5vw;max-width:1300px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:28px;}
 .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--red);}
-.hero-h1{
-  font-size:clamp(48px,8vw,110px);
-  font-weight:900;line-height:0.95;
-  letter-spacing:-3px;margin-bottom:32px;color:#fff;
-}
+.hero-h1{font-size:clamp(48px,8vw,110px);font-weight:900;line-height:0.95;letter-spacing:-3px;margin-bottom:32px;color:#fff;}
 .hero-h1 .accent{color:var(--red);}
 .hero-h1 .light{color:rgba(255,255,255,0.45);}
-.hero-bottom{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  gap:32px;flex-wrap:wrap;
-}
-.hero-desc{
-  max-width:420px;font-size:15px;color:rgba(255,255,255,0.65);
-  line-height:1.7;font-weight:400;
-}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.hero-desc{max-width:420px;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.7;font-weight:400;}
 .hero-cta-group{display:flex;align-items:center;gap:16px;flex-shrink:0;}
-.btn-primary{
-  background:var(--red);color:#fff;
-  font-size:13px;font-weight:700;letter-spacing:0.5px;
-  padding:16px 32px;border-radius:100px;
-  text-decoration:none;transition:background .2s,transform .15s;
-  white-space:nowrap;
-}
+.btn-primary{background:var(--red);color:#fff;font-size:13px;font-weight:700;letter-spacing:0.5px;padding:16px 32px;border-radius:100px;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;}
 .btn-primary:hover{background:#B82820;transform:translateY(-1px);}
-.hero-date-pill{
-  font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);
-  border:1px solid rgba(255,255,255,0.25);padding:15px 20px;border-radius:100px;
-  white-space:nowrap;backdrop-filter:blur(8px);
-}
+.hero-date-pill{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.25);padding:15px 20px;border-radius:100px;white-space:nowrap;backdrop-filter:blur(8px);}
 
-/* TICKER */
-.ticker-wrap{
-  overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:14px 0;background:var(--white);
-}
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--white);}
 .ticker{display:flex;width:max-content;animation:tick 22s linear infinite;}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker-item{
-  font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  color:#bbb;padding:0 32px;white-space:nowrap;display:flex;align-items:center;gap:32px;
-}
+.ticker-item{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#bbb;padding:0 32px;white-space:nowrap;display:flex;align-items:center;gap:32px;}
 .ticker-item b{color:var(--dark);}
 .ticker-sep{color:var(--red);font-size:18px;line-height:1;}
 
-/* WHO */
-.who{
-  max-width:1300px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  border-top:1px solid var(--border);
-}
+.who{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
 @media(max-width:760px){.who{grid-template-columns:1fr;}}
 .who-img{overflow:hidden;min-height:480px;}
 .who-img img{width:100%;height:100%;object-fit:cover;display:block;}
-.who-text{
-  padding:64px 5vw;
-  border-left:1px solid var(--border);
-  display:flex;flex-direction:column;justify-content:center;
-}
+.who-text{padding:64px 5vw;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;}
 .label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:block;}
 .who-text h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:20px;}
 .who-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:12px;}
 
-/* PROGRAM */
 .program{background:var(--white);border-top:1px solid var(--border);}
 .program-inner{max-width:1300px;margin:0 auto;padding:80px 5vw;}
-.program-head{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  margin-bottom:48px;flex-wrap:wrap;gap:16px;
-}
+.program-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;}
 .program-head h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;}
 .prog-list{border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-.prog-item{
-  display:grid;grid-template-columns:64px 1fr auto;
-  align-items:center;gap:24px;
-  padding:28px 32px;border-bottom:1px solid var(--border);
-  transition:background .15s;
-}
+.prog-item{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:28px 32px;border-bottom:1px solid var(--border);transition:background .15s;}
 .prog-item:last-child{border-bottom:none;}
 .prog-item:hover{background:var(--bg);}
 .prog-n{font-size:13px;font-weight:700;color:#D0CBC2;}
-.prog-tag{
-  display:inline-block;font-size:9px;font-weight:700;
-  letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--red);background:rgba(217,48,37,0.08);
-  padding:3px 8px;border-radius:4px;margin-bottom:8px;
-}
+.prog-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);background:rgba(217,48,37,0.08);padding:3px 8px;border-radius:4px;margin-bottom:8px;}
 .prog-topic{font-size:15px;font-weight:600;line-height:1.45;margin-bottom:4px;}
 .prog-speaker{font-size:13px;color:var(--muted);}
 .prog-arrow{font-size:18px;color:#ddd;flex-shrink:0;}
-@media(max-width:600px){
-  .prog-item{grid-template-columns:40px 1fr;gap:12px;padding:20px;}
-  .prog-arrow{display:none;}
-}
+@media(max-width:600px){.prog-item{grid-template-columns:40px 1fr;gap:12px;padding:20px;}.prog-arrow{display:none;}}
 
-/* PARTNERS */
-.partners{
-  border-top:1px solid var(--border);
-  padding:48px 5vw;
-  max-width:1300px;margin:0 auto;
-}
+.partners{border-top:1px solid var(--border);padding:48px 5vw;max-width:1300px;margin:0 auto;}
 .partners .label{margin-bottom:32px;}
-.partners-grid{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:24px;
-}
-.partner-name{
-  font-size:20px;font-weight:800;letter-spacing:-0.5px;
-  color:#C8C4BC;transition:color .2s;
-}
+.partners-grid{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+.partner-name{font-size:20px;font-weight:800;letter-spacing:-0.5px;color:#C8C4BC;transition:color .2s;}
 .partner-name:hover{color:var(--dark);}
 
-/* FORM */
 .form-section{background:var(--dark);padding:100px 5vw;}
-.form-inner{
-  max-width:1300px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;align-items:start;
-}
+.form-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 @media(max-width:860px){.form-inner{grid-template-columns:1fr;gap:48px;}}
-.form-left h2{
-  font-size:clamp(36px,5vw,64px);font-weight:900;
-  letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:20px;
-}
+.form-left h2{font-size:clamp(36px,5vw,64px);font-weight:900;letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:20px;}
 .form-left h2 span{color:var(--red);}
 .form-left p{font-size:15px;color:rgba(255,255,255,0.4);line-height:1.7;margin-bottom:40px;}
 .form-detail{display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:12px;align-items:flex-start;}
 .form-detail svg{width:14px;height:14px;fill:rgba(255,255,255,0.25);flex-shrink:0;margin-top:2px;}
 .field{margin-bottom:14px;}
 .field label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:7px;}
-.field input{
-  width:100%;background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);border-radius:8px;
-  padding:14px 16px;color:#fff;
-  font-family:'Inter',sans-serif;font-size:15px;outline:none;
-  transition:border-color .2s,background .2s;
-}
+.field input{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;color:#fff;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s,background .2s;}
 .field input:focus{border-color:rgba(217,48,37,0.6);background:rgba(255,255,255,0.07);}
 .field input::placeholder{color:rgba(255,255,255,0.2);}
 .phone-row{display:flex;}
-.phone-pre{
-  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
-  border-right:none;border-radius:8px 0 0 8px;
-  padding:14px 12px;font-size:15px;color:rgba(255,255,255,0.3);
-  display:flex;align-items:center;white-space:nowrap;
-}
+.phone-pre{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-right:none;border-radius:8px 0 0 8px;padding:14px 12px;font-size:15px;color:rgba(255,255,255,0.3);display:flex;align-items:center;white-space:nowrap;}
 .phone-row input{border-radius:0 8px 8px 0;}
-.btn-submit{
-  width:100%;margin-top:8px;
-  background:var(--red);border:none;color:#fff;
-  font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
-  letter-spacing:1px;text-transform:uppercase;
-  padding:18px;border-radius:8px;cursor:pointer;
-  transition:background .2s,transform .15s;
-}
+
+/* CONSENT */
+.pd-consent{display:flex;align-items:flex-start;gap:12px;margin-top:18px;margin-bottom:6px;padding:14px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;cursor:pointer;transition:border-color .2s,background .2s;}
+.pd-consent:hover{border-color:rgba(217,48,37,0.3);background:rgba(255,255,255,0.05);}
+.pd-consent.error-shake{border-color:rgba(217,48,37,0.7);animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.pd-checkbox{flex-shrink:0;width:18px;height:18px;margin-top:1px;border:1.5px solid rgba(255,255,255,0.2);border-radius:4px;background:transparent;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;}
+.pd-checkbox svg{width:10px;height:10px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .15s;}
+.pd-consent.checked .pd-checkbox{background:var(--red);border-color:var(--red);}
+.pd-consent.checked .pd-checkbox svg{opacity:1;}
+.pd-consent-text{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;user-select:none;}
+.pd-consent-text a{color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:2px;transition:color .15s;}
+.pd-consent-text a:hover{color:#fff;}
+
+.btn-submit{width:100%;margin-top:10px;background:var(--red);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:18px;border-radius:8px;cursor:pointer;transition:background .2s,transform .15s;}
 .btn-submit:hover{background:#B82820;transform:translateY(-1px);}
 .btn-submit:disabled{background:#333;color:#555;cursor:not-allowed;transform:none;}
 .err-msg{display:none;margin-top:12px;padding:11px;background:rgba(217,48,37,0.1);border:1px solid rgba(217,48,37,0.2);border-radius:6px;font-size:13px;color:#E8705F;text-align:center;}
 
-/* SUCCESS */
 .success-screen{display:none;text-align:center;padding:40px 0;}
 .success-icon{width:56px;height:56px;border-radius:50%;background:rgba(217,48,37,0.1);border:1px solid rgba(217,48,37,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
 .success-icon svg{width:24px;height:24px;fill:var(--red);}
 .success-screen h2{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:10px;}
 .success-screen p{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;}
 
-/* FOOTER */
-footer{
-  background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);
-  padding:24px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-}
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);padding:24px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 footer span{font-size:12px;color:rgba(255,255,255,0.2);}
+footer a{font-size:12px;color:rgba(255,255,255,0.2);text-decoration:underline;text-underline-offset:2px;}
+footer a:hover{color:rgba(255,255,255,0.5);}
+
+/* COOKIE BANNER */
+#cookieBanner{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(0);z-index:9999;width:min(680px,calc(100vw - 32px));background:rgba(17,16,16,0.97);border:1px solid rgba(255,255,255,0.1);border-radius:16px;backdrop-filter:blur(20px);padding:24px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 8px 48px rgba(0,0,0,0.5);transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .4s ease;}
+#cookieBanner.hide{transform:translateX(-50%) translateY(120%);opacity:0;pointer-events:none;}
+.cookie-icon{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(217,48,37,0.1);border:1px solid rgba(217,48,37,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;}
+.cookie-text{flex:1;min-width:200px;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
+.cookie-text b{color:rgba(255,255,255,0.85);font-weight:600;}
+.cookie-text a{color:rgba(255,255,255,0.45);text-decoration:underline;text-underline-offset:2px;transition:color .15s;}
+.cookie-text a:hover{color:rgba(255,255,255,0.8);}
+.cookie-actions{display:flex;gap:8px;flex-shrink:0;}
+.cookie-btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.5px;padding:10px 18px;border-radius:8px;cursor:pointer;border:none;transition:background .2s,transform .1s;white-space:nowrap;}
+.cookie-btn:active{transform:scale(0.97);}
+.cookie-accept{background:var(--red);color:#fff;}
+.cookie-accept:hover{background:#B82820;}
+.cookie-decline{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);}
+.cookie-decline:hover{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);}
+@media(max-width:540px){#cookieBanner{flex-direction:column;align-items:flex-start;gap:16px;}.cookie-actions{width:100%;}.cookie-btn{flex:1;text-align:center;}}
+
+/* MODALS */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:24px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#1a1918;border:1px solid rgba(255,255,255,0.1);border-radius:16px;width:min(600px,100%);max-height:80vh;overflow-y:auto;padding:40px;position:relative;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;}
+.modal-box::-webkit-scrollbar{width:4px;}
+.modal-box::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:4px;}
+.modal-close{position:sticky;top:0;float:right;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);border:none;color:rgba(255,255,255,0.4);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s;margin:-8px -8px 16px 16px;}
+.modal-close:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.modal-box h3{font-size:22px;font-weight:800;letter-spacing:-0.5px;color:#fff;margin-bottom:8px;}
+.modal-box .modal-updated{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:28px;}
+.modal-box h4{font-size:13px;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin:24px 0 10px;}
+.modal-box p{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:10px;}
+.modal-box ul{padding-left:18px;margin-bottom:10px;}
+.modal-box li{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:6px;}
 </style>
 </head>
 <body>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" role="region" aria-label="Уведомление об использовании куки">
+  <div class="cookie-icon">🍪</div>
+  <div class="cookie-text">
+    <b>Мы используем cookies.</b> Аналитические файлы помогают нам улучшать сайт. Подробнее — в <a href="#" onclick="openModal('cookiePolicy');return false;">Политике cookie</a>.
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-decline" onclick="cookieDecline()">Отклонить</button>
+    <button class="cookie-btn cookie-accept" onclick="cookieAccept()">Принять все</button>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -393,6 +314,20 @@ footer span{font-size:12px;color:rgba(255,255,255,0.2);}
             <input type="tel" id="phone" placeholder="(999) 123-45-67" autocomplete="off"/>
           </div>
         </div>
+
+        <!-- СОГЛАСИЕ НА ОБРАБОТКУ ПД (ФЗ №152) -->
+        <div class="pd-consent" id="pdConsent" onclick="togglePdConsent()" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="pd-checkbox" id="pdCheckbox">
+            <svg viewBox="0 0 12 12"><polyline points="1.5,6 4.5,9 10.5,3"/></svg>
+          </div>
+          <div class="pd-consent-text">
+            Я даю согласие на обработку моих персональных данных в соответствии с
+            <a href="#" onclick="openModal('pdPolicy');return false;">Политикой конфиденциальности</a>
+            и требованиями ФЗ №&nbsp;152-ФЗ «О персональных данных». Данные передаются организатору
+            исключительно с целью регистрации на мероприятие.
+          </div>
+        </div>
+
         <div class="err-msg" id="errMsg"></div>
         <button class="btn-submit" id="submitBtn" onclick="submitForm()">Отправить заявку</button>
       </div>
@@ -410,37 +345,180 @@ footer span{font-size:12px;color:rgba(255,255,255,0.2);}
 
 <footer>
   <span>© 2025 Архихаб · Все права защищены</span>
-  <span>+7 919 623 6689</span>
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+    <a href="#" onclick="openModal('pdPolicy');return false;">Политика конфиденциальности</a>
+    <a href="#" onclick="openModal('cookiePolicy');return false;">Политика cookie</a>
+    <span>+7 919 623 6689</span>
+  </div>
 </footer>
 
+<!-- MODAL: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
+<div class="modal-overlay" id="modal-pdPolicy" onclick="closeModalOutside(event,'pdPolicy')">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="pd-title">
+    <button class="modal-close" onclick="closeModal('pdPolicy')" aria-label="Закрыть">✕</button>
+    <h3 id="pd-title">Политика конфиденциальности и обработки персональных данных</h3>
+    <div class="modal-updated">Актуальна с 1 января 2025 года</div>
+
+    <h4>1. Оператор персональных данных</h4>
+    <p>Организатор семинара — Архихаб (далее — «Оператор») — осуществляет обработку персональных данных в соответствии с Федеральным законом от 27.07.2006 №&nbsp;152-ФЗ «О персональных данных».</p>
+
+    <h4>2. Состав собираемых данных</h4>
+    <p>При регистрации на мероприятие мы получаем:</p>
+    <ul>
+      <li>Фамилию, имя, отчество участника</li>
+      <li>Название компании и должность</li>
+      <li>Контактный номер телефона</li>
+    </ul>
+
+    <h4>3. Цели обработки</h4>
+    <ul>
+      <li>Подтверждение регистрации и учёт участников мероприятия</li>
+      <li>Обратная связь по вопросам участия и программы</li>
+      <li>Информирование об изменениях в расписании</li>
+    </ul>
+
+    <h4>4. Правовое основание</h4>
+    <p>Обработка осуществляется на основании свободного, конкретного, информированного и сознательного согласия субъекта персональных данных (ст.&nbsp;9 ФЗ №&nbsp;152-ФЗ).</p>
+
+    <h4>5. Передача данных третьим лицам</h4>
+    <p>Данные не передаются третьим лицам, за исключением партнёров мероприятия в объёме, необходимом для организации участия. Партнёры обязаны соблюдать конфиденциальность.</p>
+
+    <h4>6. Срок хранения</h4>
+    <p>Персональные данные хранятся в течение 3 лет с даты проведения мероприятия, после чего подлежат уничтожению.</p>
+
+    <h4>7. Права субъекта персональных данных</h4>
+    <p>Вы вправе в любой момент отозвать согласие, запросить уточнение, блокирование или уничтожение своих данных. Для этого свяжитесь с нами по телефону: +7 919 623 6689.</p>
+
+    <h4>8. Меры защиты</h4>
+    <p>Оператор применяет организационные и технические меры для защиты данных от несанкционированного доступа, изменения и распространения.</p>
+  </div>
+</div>
+
+<!-- MODAL: ПОЛИТИКА COOKIE -->
+<div class="modal-overlay" id="modal-cookiePolicy" onclick="closeModalOutside(event,'cookiePolicy')">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <button class="modal-close" onclick="closeModal('cookiePolicy')" aria-label="Закрыть">✕</button>
+    <h3 id="cookie-title">Политика использования файлов cookie</h3>
+    <div class="modal-updated">Актуальна с 1 января 2025 года</div>
+
+    <h4>Что такое cookie</h4>
+    <p>Файлы cookie — небольшие текстовые файлы, сохраняемые браузером при посещении сайта. Они помогают сайту работать корректно и анализировать посещаемость.</p>
+
+    <h4>Виды используемых cookie</h4>
+    <ul>
+      <li><b style="color:rgba(255,255,255,0.7)">Технические (обязательные)</b> — обеспечивают базовую работу сайта. Не требуют согласия пользователя.</li>
+      <li><b style="color:rgba(255,255,255,0.7)">Аналитические</b> — позволяют анализировать посещаемость (Яндекс.Метрика и аналогичные сервисы). Используются только при вашем явном согласии.</li>
+    </ul>
+
+    <h4>Ваш выбор</h4>
+    <p>Вы можете принять или отклонить аналитические cookie через уведомление внизу страницы. При отказе функциональность сайта не ограничивается, аналитические данные не собираются.</p>
+
+    <h4>Срок хранения выбора</h4>
+    <p>Ваш выбор сохраняется в localStorage браузера на 365 дней. Изменить его можно, очистив данные сайта в настройках браузера.</p>
+
+    <h4>Сторонние сервисы</h4>
+    <p>При принятии cookie могут использоваться сервисы Яндекс (Метрика). Обработка данных этими сервисами регулируется их собственными политиками конфиденциальности.</p>
+
+    <h4>Контакты</h4>
+    <p>По вопросам использования cookie: +7 919 623 6689.</p>
+  </div>
+</div>
+
 <script>
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbx_5Jz1lS_D3rm8CHJEvOHiyi6uJIXJManDHnOVWzVYvsInEORAaoWyvnvSP_fuw7Ho/exec";
-function submitForm(){
-  const company=document.getElementById('company').value.trim();
-  const name=document.getElementById('fullname').value.trim();
-  const position=document.getElementById('position').value.trim();
-  const phoneRaw=document.getElementById('phone').value.trim();
-  const phone='+7'+phoneRaw;
-  if(!company||!name||!position||!phoneRaw){
-    const e=document.getElementById('errMsg');
-    e.textContent='Пожалуйста, заполните все поля';e.style.display='block';return;
+/* COOKIE CONSENT */
+(function(){
+  var choice = localStorage.getItem('arkhihab_cookie_choice');
+  if(choice){
+    document.getElementById('cookieBanner').classList.add('hide');
+    if(choice === 'accepted') initAnalytics();
   }
-  document.getElementById('errMsg').style.display='none';
-  const btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.textContent='Отправляем...';
-  const params=new URLSearchParams({company,name,position,phone,callback:'cb'});
-  const s=document.createElement('script');
-  s.src=SCRIPT_URL+'?'+params.toString();
-  window.cb=function(){
-    document.getElementById('formWrap').style.display='none';
-    document.getElementById('successScreen').style.display='block';
+})();
+function cookieAccept(){
+  localStorage.setItem('arkhihab_cookie_choice','accepted');
+  hideBanner(); initAnalytics();
+}
+function cookieDecline(){
+  localStorage.setItem('arkhihab_cookie_choice','declined');
+  hideBanner();
+}
+function hideBanner(){
+  document.getElementById('cookieBanner').classList.add('hide');
+}
+function initAnalytics(){
+  // Подключить Яндекс.Метрику здесь (только после согласия)
+  console.log('[Analytics] Активирована — пользователь дал согласие.');
+}
+
+/* PD CONSENT */
+var pdConsentGiven = false;
+function togglePdConsent(){
+  pdConsentGiven = !pdConsentGiven;
+  var el = document.getElementById('pdConsent');
+  el.classList.toggle('checked', pdConsentGiven);
+  el.setAttribute('aria-checked', String(pdConsentGiven));
+  if(pdConsentGiven) el.classList.remove('error-shake');
+}
+document.getElementById('pdConsent').addEventListener('keydown', function(e){
+  if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); togglePdConsent(); }
+});
+
+/* FORM */
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_5Jz1lS_D3rm8CHJEvOHiyi6uJIXJManDHnOVWzVYvsInEORAaoWyvnvSP_fuw7Ho/exec";
+function submitForm(){
+  var company  = document.getElementById('company').value.trim();
+  var name     = document.getElementById('fullname').value.trim();
+  var position = document.getElementById('position').value.trim();
+  var phoneRaw = document.getElementById('phone').value.trim();
+  var phone    = '+7' + phoneRaw;
+  var errEl    = document.getElementById('errMsg');
+
+  if(!company || !name || !position || !phoneRaw){
+    errEl.textContent = 'Пожалуйста, заполните все поля';
+    errEl.style.display = 'block'; return;
+  }
+  if(!pdConsentGiven){
+    errEl.textContent = 'Необходимо дать согласие на обработку персональных данных';
+    errEl.style.display = 'block';
+    var c = document.getElementById('pdConsent');
+    c.classList.remove('error-shake');
+    void c.offsetWidth;
+    c.classList.add('error-shake');
+    return;
+  }
+  errEl.style.display = 'none';
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Отправляем...';
+  var params = new URLSearchParams({company, name, position, phone, pdConsent:'true', callback:'cb'});
+  var s = document.createElement('script');
+  s.src = SCRIPT_URL + '?' + params.toString();
+  window.cb = function(){
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
   };
-  s.onerror=function(){
-    document.getElementById('formWrap').style.display='none';
-    document.getElementById('successScreen').style.display='block';
+  s.onerror = function(){
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
   };
   document.body.appendChild(s);
 }
+
+/* MODALS */
+function openModal(id){
+  document.getElementById('modal-' + id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id){
+  document.getElementById('modal-' + id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e, id){
+  if(e.target === document.getElementById('modal-' + id)) closeModal(id);
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    ['pdPolicy','cookiePolicy'].forEach(function(id){ closeModal(id); });
+  }
+});
 </script>
 </body>
 </html>
